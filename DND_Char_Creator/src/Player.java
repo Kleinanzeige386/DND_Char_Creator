@@ -38,23 +38,33 @@ public class Player {
 
     public Player() {
         name="N.A.";
+        race=new Race();
         playerClass=new PlayerClass();
+        lvl=0;
+
         abilities= PlayerCreator.initAbilities();
         skills=PlayerCreator.initSkills();
 
-        lvl=0;
         AC=0;
         initiative=0;
         speed=0;
+        proficiencyBonus=0;
+
         maxHP=0;
         currentHP=0;
         tempHP=0;
+
         failedDeathSaves=0;
         succesfullDeathSaves=0;
-        coins= new int[5];
-        proficiencyBonus=0;
+
         spellSaveDC=0;
         spellAtackModifier=0;
+
+        toolProf=new ArrayList<>();
+        languages=new ArrayList<>();
+                      // C S E G P
+        coins= new int[]{0,0,0,0,0};
+        inventory=new ArrayList<>();
 
     }
 
@@ -62,35 +72,106 @@ public class Player {
 
     @Override
     public String toString(){
-        return "=========================================================================\nName: "+name+"\nRace: "+race+"\nClass: "+playerClass.toString()+"\nLevel: "+lvl+"\n=========================================================================\n"+abilitiesAndSkillsToString()+"\n=========================================================================\nAC: "+AC+"\nInitiative: "+initiative+"\nSpeed: "+speed+"\nProficiency Bonus: "+proficiencyBonus+"\n=========================================================================\nMaxHP: "+maxHP+"\nCurrentHP: "+currentHP+"\nTempHP: "+tempHP+"\n\nFailed Deathsaves: "+failedDeathSaves+"\nSuccesfull Deathsaves: "+succesfullDeathSaves+"\n=========================================================================\nSpellsave DC: "+spellSaveDC+"\nSpellattack Modifier: "+spellAtackModifier+"\n=========================================================================\nTool Proficiencies: "+toolProfToString()+"\n\nLanguages known: "+languagesToString()+"\n=========================================================================\nCoins: "+coinsToString()+"\nInventory: "+inventoryToString()+"\n=========================================================================";
+        StringBuilder returnString= new StringBuilder();
+        String border = "\n=========================================================================";
 
+        returnString.append(border);
+        returnString.append("\nName:  "+name);
+        returnString.append("\nRace:  "+race);
+        returnString.append("\nClass: "+playerClass.getNameString());
+        returnString.append("\nLevel: "+lvl);
+
+        returnString.append(border);
+        returnString.append("\nMax HP:      "+maxHP);
+        returnString.append("\nCurrent HP:  "+currentHP);
+        returnString.append("\nTemp HP:     "+tempHP+"\n");
+        returnString.append("\nFailed Deathsaves:      "+failedDeathSaves);
+        returnString.append("\nSuccesfull Deathsaves:  "+succesfullDeathSaves);
+
+        returnString.append(border);
+        returnString.append("\n"+abilitiesAndSkillsToString());
+
+        returnString.append(border);
+        returnString.append("\nAC:                  "+AC);
+        returnString.append("\nInitiative:          "+initiative);
+        returnString.append("\nSpeed:               "+speed);
+        returnString.append("\nProficiency Bonus:   "+proficiencyBonus);
+
+
+        returnString.append(border);
+        returnString.append("\nSpellsave DC:          "+spellSaveDC);
+        returnString.append("\nSpellattack Modifier:  "+spellAtackModifier);
+
+        returnString.append(border);
+        returnString.append("\nTool Proficiencies:  \n"+toolProfToString()+"\n");
+        returnString.append("\nLanguages known:     \n"+languagesToString());
+
+        returnString.append(border);
+        returnString.append("\nCoins:      \n"+coinsToString()+"\n");
+        returnString.append("\nInventory:  \n"+inventoryToString());
+
+        returnString.append(border);
+
+        return returnString.toString();
     }
 
     private String languagesToString() {
-        return "Player.languagesToString not implemented yet";
+        if (languages.size()==0){
+            return "No Languages known";
+        }
+
+        StringBuilder returnString= new StringBuilder();
+
+        for (String language : languages) {
+            returnString.append("\n").append(language);
+        }
+
+        return returnString.toString();
     }
 
     private String inventoryToString() {
-        return "Player.inventoryToString not implemented yet";
+        if (inventory.size()==0){
+            return "No Items in Inventory";
+        }
+
+        StringBuilder returnString= new StringBuilder();
+
+        for (String item : inventory) {
+            returnString.append("\n").append(item);
+        }
+
+        return returnString.toString();
     }
 
     private String toolProfToString() {
-        return "Player.toolProfToString not implemented yet";
+        if (toolProf.size()==0){
+            return "Not proficient with any Tool";
+        }
+
+        StringBuilder returnString= new StringBuilder();
+
+        for (String prof : toolProf) {
+            returnString.append("\n").append(prof);
+        }
+
+        return returnString.toString();
     }
 
     private String coinsToString() {
-        return "Player.coinsToString not implemented yet";
+        return "Copper:    "+coins[0]+"\nSilver:    "+coins[1]+"\nElectrum:  "+coins[2]+"\nGold:      "+coins[3]+"\nPlatinum:  "+coins[4];
     }
 
     private String abilitiesAndSkillsToString() {
         StringBuilder returnString= new StringBuilder();
 
+
         for (AbilityScore ability : abilities) {
-            returnString.append(ability.toString()).append("\n----------\n");
+            returnString.append(ability.toString()).append("\n----------");
 
             for (Skill skill : skills) {
-                returnString.append(skill.toString()).append("\n");
+                if(skill.skill.ability == ability.name) returnString.append(("\n")).append(skill.toString());
             }
+            returnString.append(("\n\n\n"));
         }
 
         return returnString.toString();

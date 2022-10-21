@@ -71,7 +71,7 @@ public class PlayerCreator {
     }
 
     public static Skill[] initSkills() {
-        Skill[] returnArr = new Skill[24];
+        Skill[] returnArr = new Skill[18];
         Skills[] skillArr= Skills.values();
 
         for (int i=0; i<skillArr.length;i++){

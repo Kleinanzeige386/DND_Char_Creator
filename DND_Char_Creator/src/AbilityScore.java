@@ -13,7 +13,7 @@ public class AbilityScore{
 
     @Override
     public String toString(){
-       return String.format("%12s Amount: %2d   Modifier: %2d",name,amount,modifier);
+       return String.format("%s \n  Amount: %d   \n  Modifier: %d",name,amount,modifier);
     }
 
 }

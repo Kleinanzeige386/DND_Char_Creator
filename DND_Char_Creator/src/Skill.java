@@ -14,9 +14,9 @@ public class Skill {
      @Override
      public String toString(){
          if (prof){
-             return "X "+ skill + value;
+             return "   X       "+ value+"  "+ skill ;
          }else{
-             return "O "+ skill + value;
+             return "   O       "+ value+"  "+ skill ;
          }
      }
  }

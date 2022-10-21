@@ -9,11 +9,5 @@ public class main {
 
         System.out.println(temp.toString());
 
-
-/*
-        Integer test[]={1,2,3,4,5,6,7};
-        InputManager.getArrayElement("Test",test);
-
- */
     }
 }
