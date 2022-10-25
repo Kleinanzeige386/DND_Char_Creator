@@ -4,7 +4,7 @@ public class main {
     public static void main(String[] args) throws IOException {
 
         PlayerCreator pc= new PlayerCreator();
-        Player temp= new Player();
+        Player temp= pc.createNewPlayer();
 
 
         System.out.println(temp.toString());

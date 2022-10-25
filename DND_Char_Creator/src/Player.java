@@ -77,7 +77,7 @@ public class Player {
 
         returnString.append(border);
         returnString.append("\nName:  "+name);
-        returnString.append("\nRace:  "+race);
+        returnString.append("\nRace:  "+race.getNameString());
         returnString.append("\nClass: "+playerClass.getNameString());
         returnString.append("\nLevel: "+lvl);
 
@@ -111,6 +111,8 @@ public class Player {
         returnString.append("\nInventory:  \n"+inventoryToString());
 
         returnString.append(border);
+
+        //TODO Add features to string
 
         return returnString.toString();
     }
@@ -173,6 +175,9 @@ public class Player {
             }
             returnString.append(("\n\n\n"));
         }
+
+
+
 
         return returnString.toString();
     }

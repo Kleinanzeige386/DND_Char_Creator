@@ -23,7 +23,7 @@ public class InputManager {
         String temp;
 
         do{
-            System.out.println(prompt);
+            System.out.println("\n"+prompt);
             temp=input.nextLine();
         }while(!isNumeric(temp));
 
@@ -41,7 +41,7 @@ public class InputManager {
 
 
     public static <T> T getArrayElement(String prompt,T[] arr) throws IOException {
-        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")];
+        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1];
     }
     private static <T> String arrToString(T[] arr){
         List<T> temp= new ArrayList<>();
@@ -49,7 +49,7 @@ public class InputManager {
         Collections.addAll(temp, arr);
 
         return temp.stream().map(Object::toString)
-                .collect(Collectors.joining("\n"));
+                .collect(Collectors.joining("\n\n"));
     }
 
 

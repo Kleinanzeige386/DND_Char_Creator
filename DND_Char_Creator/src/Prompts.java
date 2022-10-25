@@ -1,17 +1,18 @@
 public enum Prompts {
     PlayerName("Enter the Name of your Character: "),
-    Level("N.A."),
-    AC("N.A."),
-    Initiative("N.A."),
-    Speed("N.A."),
-    ProfBonus("N.A."),
-    MaxHP("N.A."),
-    CurrentHP("N.A."),
-    TempHP("N.A."),
-    FailedDeathSaves("N.A."),
-    SuccesfullDeathSaves("N.A."),
-    SpellSaveDc("N.A."),
-    SpellAttackModifier("N.A.");
+    Level("Enter the Character's Level: "),
+    AC("Enter the Character's AC: "),
+    Initiative("Enter the Character's Initiative: "),
+    Speed("Enter the Character's Speed: "),
+    ProfBonus("Enter the Character's Proficiency Bonus: "),
+    MaxHP("Enter the Character's max HP: "),
+    CurrentHP("Enter the Character's current HP: "),
+    TempHP("Enter the Character's temporary HP: "),
+    FailedDeathSaves("Enter the Amount of failed Deathsaves: "),
+    SuccesfullDeathSaves("Enter the Amount of succesfull Deathsaves: "),
+    SpellSaveDc("Enter the Character's Spellsave DC: "),
+    SpellAttackModifier("Enter the Character's Spell Attack-modifier: "),
+    chooseRace("Choose a Race for your Character: ");
 
 
     public String text;
