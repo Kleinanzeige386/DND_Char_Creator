@@ -17,7 +17,11 @@ public class Database {
             feature = new Feature(lvlReq,name,description);
         }
 
-        //TODO Add toString Method
+        @Override
+        public String toString(){
+
+            return feature.toString();
+        }
     }
     public static ArrayList<Race> races;
     public static ArrayList<PlayerClass> playerClasses;
@@ -32,7 +36,8 @@ public class Database {
 
     private static void initRaces() {
         //PHB
-        // ,new ArrayList<>((Arrays.asList( ) ))));
+        races.add(new Elf());
+        races.add(new Dragonborn());
 
     }
 

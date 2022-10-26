@@ -43,9 +43,9 @@ public class Dragonborn extends Race{
 
         draconicAncestry = DragonColor.BLACK; //TODO Change to InputManager.getARRElement
 
-
-
     }
+
+
 }
 
 
