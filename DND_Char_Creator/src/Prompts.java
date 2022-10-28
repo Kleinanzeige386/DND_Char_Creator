@@ -12,7 +12,9 @@ public enum Prompts {
     SuccesfullDeathSaves("Enter the Amount of succesfull Deathsaves: "),
     SpellSaveDc("Enter the Character's Spellsave DC: "),
     SpellAttackModifier("Enter the Character's Spell Attack-modifier: "),
-    chooseRace("Choose a Race for your Character: ");
+    ChooseRace("Choose a Race for your Character: "),
+    ChooseClass("Choose a Class for your Character: "),
+    DraconicAncestry("Choose a Draconic Ancestry for your Character:");
 
 
     public String text;

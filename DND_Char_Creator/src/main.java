@@ -10,8 +10,9 @@ public class main {
 
 
         System.out.println(temp.toString());
-        
+
         writeToFile(temp.name,temp.toString());
+        PDFFiller.buildPDF(temp);
 
 
 

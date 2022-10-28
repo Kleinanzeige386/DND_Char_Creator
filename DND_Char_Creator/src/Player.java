@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 
 public class Player {
+    public Ability spellcastingAbility;
     public String name;
     public Race race;
     public PlayerClass playerClass;
     public int lvl;
+    public Alignment alignment;
 
 
     public AbilityScore[] abilities;
@@ -38,9 +40,10 @@ public class Player {
 
     public Player() {
         name="N.A.";
-        race=new Race();
-        playerClass=new PlayerClass();
+        race=null;
+        playerClass=null;
         lvl=0;
+        alignment = Alignment.NEUTRAL;
 
         abilities= PlayerCreator.initAbilities();
         skills=PlayerCreator.initSkills();
@@ -54,6 +57,7 @@ public class Player {
         currentHP=0;
         tempHP=0;
 
+        spellcastingAbility = null;
         failedDeathSaves=0;
         succesfullDeathSaves=0;
 
@@ -77,8 +81,8 @@ public class Player {
 
         returnString.append(border);
         returnString.append("\nName:  "+name);
-        returnString.append("\nRace:  "+race.getNameString());
-        returnString.append("\nClass: "+playerClass.getNameString());
+        returnString.append("\nRace:  "+race.name);
+        returnString.append("\nClass: "+playerClass.name);
         returnString.append("\nLevel: "+lvl);
 
         returnString.append(border);
@@ -98,7 +102,7 @@ public class Player {
         returnString.append("\nProficiency Bonus:   "+proficiencyBonus);
 
 
-        returnString.append(border);
+        returnString.append(border); //TODO Only Print when player class instance of magical
         returnString.append("\nSpellsave DC:          "+spellSaveDC);
         returnString.append("\nSpellattack Modifier:  "+spellAtackModifier);
 

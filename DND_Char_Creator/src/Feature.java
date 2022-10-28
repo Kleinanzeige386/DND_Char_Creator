@@ -1,18 +1,18 @@
 public class Feature {
-    public int levelRequirement;
+
     public String name;
     public String description;
 
     public Feature() {}
 
-    public Feature(int levelRequirement, String name, String description) {
-        this.levelRequirement = levelRequirement;
+    public Feature(String name, String description) {
+
         this.name = name;
         this.description = description;
     }
 
     @Override
     public String toString(){
-        return ("\n"+name+"   LVL "+levelRequirement+"\n"+description);
+        return ("\n"+name+"\n"+description);
     }
 }

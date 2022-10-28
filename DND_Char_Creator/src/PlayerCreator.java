@@ -2,10 +2,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PlayerCreator {
+    private static Player newPlayer;
 
     public Player createNewPlayer() throws IOException {
-       Player newPlayer = new Player();
-       Database.initDatabase();
+
 
        newPlayer.name = InputManager.getString(Prompts.PlayerName.toString());
        newPlayer.race = generateRace();
@@ -15,15 +15,16 @@ public class PlayerCreator {
        newPlayer.proficiencyBonus= generateProfBonus(newPlayer.lvl);
        newPlayer.AC = InputManager.getInt(Prompts.AC.toString());
 
-       newPlayer.maxHP = InputManager.getInt(Prompts.MaxHP.toString()); //TODO Change from User Input to Calculation using Hit Die
+       newPlayer.maxHP = calcMaxHp(newPlayer);
        newPlayer.currentHP = InputManager.getInt(Prompts.CurrentHP.toString());
        newPlayer.tempHP = InputManager.getInt(Prompts.TempHP.toString());
 
        newPlayer.failedDeathSaves = InputManager.getInt(Prompts.FailedDeathSaves.toString());
        newPlayer.succesfullDeathSaves = InputManager.getInt(Prompts.SuccesfullDeathSaves.toString());
 
-       newPlayer.spellSaveDC = InputManager.getInt(Prompts.SpellSaveDc.toString()); //TODO Change to Calculation in PlayerClass
-       newPlayer.spellAtackModifier = InputManager.getInt(Prompts.SpellAttackModifier.toString());//TODO Change to Calculation in PlayerClass
+       newPlayer.spellcastingAbility = generateSpellcastingAbility(newPlayer);
+       newPlayer.spellSaveDC = generateSpellSaveDC(newPlayer);
+       newPlayer.spellAtackModifier = generateSpellAttackModifier(newPlayer);
 
        newPlayer.toolProf = generateToolProf();
        newPlayer.languages = generateLanguages();
@@ -40,7 +41,50 @@ public class PlayerCreator {
        return newPlayer;
     }
 
-    private int generateProfBonus(int lvl) {
+    private Ability generateSpellcastingAbility(Player newPlayer) {
+        if(newPlayer.playerClass instanceof Magical){
+            return ((Magical) newPlayer.playerClass).getcastingAbility();
+        }
+        return null;
+    }
+
+    private int generateSpellAttackModifier() {
+        if (newPlayer.spellcastingAbility != null){
+            return newPlayer.proficiencyBonus+ getCastingAbilityModifier(newPlayer);
+        }
+        return -1;
+    }
+
+    private int generateSpellSaveDC() {
+        if (newPlayer.playerClass instanceof Magical){
+            return newPlayer.spellAtackModifier + 8;
+        }
+        return -1;
+    }
+
+    private int getCastingAbilityModifier() {
+        int returnModifier= 0;
+        switch (newPlayer.spellcastingAbility){
+            case STRENGTH -> returnModifier = newPlayer.abilities[0].modifier;
+            case DEXTERITY -> returnModifier = newPlayer.abilities[1].modifier;
+            case CONSTITUTION -> returnModifier = newPlayer.abilities[2].modifier;
+            case INTELLIGENCE -> returnModifier = newPlayer.abilities[3].modifier;
+            case WISDOM -> returnModifier = newPlayer.abilities[4].modifier;
+            case CHARISMA -> returnModifier = newPlayer.abilities[5].modifier;
+        }
+
+        return returnModifier;
+    }
+
+    private int calcMaxHp() {
+        int temp= newPlayer.playerClass.hitDie;
+
+        return temp+((temp/2)+(temp%2))* newPlayer.lvl;
+    }
+
+    private int generateProfBonus() {
+        int lvl = newPlayer.lvl;
+
         if(lvl<5) return 2;
         if(lvl<9) return 3;
         if(lvl<13) return 4;
@@ -65,20 +109,24 @@ public class PlayerCreator {
     }
 
     private Race generateRace() throws IOException {
-        Race tempRace= new Race();
-
-        InputManager.getArrayElement(Prompts.chooseRace.toString(),Database.races.toArray());
-
-
-        return tempRace;
+        Race returnRace = (Race) InputManager.getArrayElement(Prompts.ChooseRace.toString(),Database.races.toArray());
+        return returnRace;
     }
 
-    private PlayerClass generateClass() {
-        PlayerClass returnClass= new PlayerClass();
-
-        //TODO Make user choose a class
-
+    private PlayerClass generateClass() throws IOException {
+        PlayerClass returnClass= (PlayerClass) InputManager.getArrayElement(Prompts.ChooseClass.toString(),Database.playerClasses.toArray());
         return returnClass;
+    }
+
+    /*
+     * Inits
+     */
+    public static void initAll() throws IOException {
+        newPlayer = new Player();
+        Database.initDatabase(newPlayer);
+
+        initSkills();
+        initAbilities();
     }
 
     public static Skill[] initSkills() {
@@ -91,6 +139,7 @@ public class PlayerCreator {
 
         return returnArr;
     }
+
     public static AbilityScore[] initAbilities() {
         AbilityScore[] returnArr = new AbilityScore[6];
 
@@ -104,6 +153,5 @@ public class PlayerCreator {
 
         return returnArr;
     }
-
 
 }
