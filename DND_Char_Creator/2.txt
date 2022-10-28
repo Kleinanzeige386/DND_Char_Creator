@@ -1,0 +1,94 @@
+
+=========================================================================
+Name:  2
+Race:  Elf
+Class: N.A.
+Level: 1
+=========================================================================
+Max HP:      0
+Current HP:  1
+Temp HP:     1
+
+Failed Deathsaves:      1
+Succesfull Deathsaves:  1
+=========================================================================
+STRENGTH 
+  Amount: 0   
+  Modifier: -5
+----------
+   O       0  ATHLETICS
+
+
+DEXTERITY 
+  Amount: 0   
+  Modifier: -5
+----------
+   O       0  ACROBATICS
+   O       0  SLEIGHT_OF_HAND
+   O       0  STEALTH
+
+
+CONSTITUTION 
+  Amount: 0   
+  Modifier: -5
+----------
+
+
+INTELLIGENCE 
+  Amount: 0   
+  Modifier: -5
+----------
+   O       0  ARCANA
+   O       0  HISTORY
+   O       0  INVESTIGATION
+   O       0  NATURE
+   O       0  RELIGION
+
+
+WISDOM 
+  Amount: 0   
+  Modifier: -5
+----------
+   O       0  ANIMAL_HANDLING
+   O       0  INSIGHT
+   O       0  MEDICINE
+   O       0  PERCEPTION
+   O       0  SURVIVAL
+
+
+CHARISMA 
+  Amount: 0   
+  Modifier: -5
+----------
+   O       0  DECEPTION
+   O       0  INTIMIDATION
+   O       0  PERFOMANCE
+   O       0  PERSUASION
+
+
+
+=========================================================================
+AC:                  1
+Initiative:          -5
+Speed:               30
+Proficiency Bonus:   2
+=========================================================================
+Spellsave DC:          -1
+Spellattack Modifier:  -1
+=========================================================================
+Tool Proficiencies:  
+Not proficient with any Tool
+
+Languages known:     
+No Languages known
+=========================================================================
+Coins:      
+Copper:    0
+Silver:    0
+Electrum:  0
+Gold:      0
+Platinum:  0
+
+Inventory:  
+No Items in Inventory
+=========================================================================
