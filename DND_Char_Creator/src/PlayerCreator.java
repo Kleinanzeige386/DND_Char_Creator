@@ -33,19 +33,35 @@ public class PlayerCreator {
        return newPlayer;
     }
 
-    private void getAbilities() {
+    private void getAbilities() throws IOException {
         switch (IOManager.getInt(Prompts.AbilityGeneration.text,2)){
             case 0: abilityStandardArray();
             case 1: abilityPointBuy();
             case 2: abilityRoll();
 
         }
+        calculateModifiers();
     }
-    private void abilityStandardArray() {
+    private void abilityStandardArray() throws IOException {
+        Integer[] standardArray = new Integer[]{15,14,13,12,10,8};
+        int input;
+
+        for (int i=0;i<6;i++){
+            input =IOManager.getArrayIndex(Prompts.chooseStandardArray.text+Ability.values()[i],standardArray);
+            newPlayer.abilities[i].amount += standardArray[input];
+            IOManager.removeArrayElement(standardArray,input);
+            standardArray[5] = -1;
+
+        }
     }
     private void abilityPointBuy() {
     }
     private void abilityRoll() {
+    }
+    private void calculateModifiers() {
+        for (int i = 0; i<6; i++){
+            newPlayer.abilities[i].modifier = (newPlayer.abilities[i].amount / 2) -5;
+        }
     }
 
 
@@ -63,9 +79,27 @@ public class PlayerCreator {
     }
 
     private void calculateRest() {
+        calculateModifiers();
+        calculateSkills();
         newPlayer.initiative = newPlayer.abilities[1].modifier; //Dex Modifier
         newPlayer.speed = newPlayer.race.speed;
-        newPlayer.AC = IOManager.getInt(Prompts.AC.toString());
+        newPlayer.AC = 10+ newPlayer.abilities[1].modifier;
+
+
+
+    }
+
+    private void calculateSkills() {
+        int tempIndex;
+
+        for (int i=0; i<newPlayer.skills.length;i++){
+            tempIndex = IOManager.getArrayIndex(Ability.values(),newPlayer.skills[i].skill.ability);
+            newPlayer.skills[i].value += newPlayer.abilities[tempIndex].modifier;
+
+            if (newPlayer.skills[i].prof){
+                newPlayer.skills[i].value += newPlayer.proficiencyBonus;
+            }
+        }
 
     }
 
@@ -116,9 +150,9 @@ public class PlayerCreator {
         int tempProf = 6;
 
         if(lvl<5) tempProf= 2;
-        if(lvl<9) tempProf= 3;
-        if(lvl<13) tempProf= 4;
-        if(lvl<17) tempProf= 5;
+        else if(lvl<9) tempProf= 3;
+        else if(lvl<13) tempProf= 4;
+        else if(lvl<17) tempProf= 5;
 
 
         newPlayer.proficiencyBonus = tempProf;

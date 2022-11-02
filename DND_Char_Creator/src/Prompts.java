@@ -16,7 +16,9 @@ public enum Prompts {
     ChooseClass("Choose a Class for your Character: "),
     DraconicAncestry("Choose a Draconic Ancestry for your Character:"),
     ChooseSkill("N.A."),
-    AbilityGeneration("N.A.");
+    AbilityGeneration("N.A."),
+    chooseStandardArray("N.A.")
+    ;
 
 
     public String text;
