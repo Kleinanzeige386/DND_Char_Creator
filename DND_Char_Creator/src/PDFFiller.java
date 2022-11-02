@@ -9,6 +9,7 @@ import java.util.List;
 
 
 
+
 public class PDFFiller {
     private static List<PDField> field;
     private static Player player;
@@ -17,6 +18,8 @@ public class PDFFiller {
 
     public static void buildPDF(Player playerData) throws IOException {
         player = playerData;
+
+        tyCreateDirectory();
         //load the document
         PDDocument pdfDocument = PDDocument.load(new File("template.pdf"));
 
@@ -37,103 +40,73 @@ public class PDFFiller {
         }
 
         //Save and close PDF
-        pdfDocument.save(playerData.name+".pdf");
+        pdfDocument.save("./Player/"+playerNameToDirectory()+"/"+player.name+".pdf");
         pdfDocument.close();
+
     }
 
-    private static void writeToField() throws IOException { //TODO Put in groups
-        field.get(PDFFields.CharacterName.value).setValue(player.name);
-        field.get(PDFFields.CharacterName_2.value).setValue(player.name);
-        field.get(PDFFields.Race_.value).setValue(player.race.name);
-        field.get(PDFFields.ClassLevel.value).setValue(player.playerClass.getNameString()+"  "+player.lvl);
+    private static void tyCreateDirectory(){
+        boolean succesfullCreation;
+        String pathname ="./Player/"+playerNameToDirectory();
+        int i=0;
 
-        field.get(PDFFields.HPMax.value).setValue(String.valueOf(player.maxHP));
-        field.get(PDFFields.HPCurrent.value).setValue(String.valueOf(player.currentHP));
-        field.get(PDFFields.HPTemp.value).setValue(String.valueOf(player.tempHP));
+
+        do {
+            File directory = new File(pathname);
+
+            if (!directory.exists()) {
+                directory.mkdirs();
+                succesfullCreation = true;
+            }else{
+                i++;
+                pathname="./Player/"+playerNameToDirectory()+i;
+                succesfullCreation = false;
+            }
+        }while(!succesfullCreation);
+    }
+
+    private static String playerNameToDirectory(){
+        String playerName = player.name;
+        playerName = playerName.replaceAll(" ", "_");
+        return playerName;
+    }
+
+    private static void writeToField() throws IOException {
+        writePlayerBasics();
+
+        writeHP();
 
         writeSavingThrows();
-
         writeAbilities();
         writeSkills();
 
-        field.get(PDFFields.AC.value).setValue(String.valueOf(player.AC));
-        field.get(PDFFields.Initiative.value).setValue(String.valueOf(player.initiative));
-        field.get(PDFFields.Speed.value).setValue(String.valueOf(player.speed));
-        field.get(PDFFields.ProfBonus.value).setValue(String.valueOf(player.proficiencyBonus));
+        writeFightValues();
+        writeSpellcast();
 
-        if(player.playerClass instanceof Magical){
-
-            field.get(PDFFields.Spellcasting_Class_2.value).setValue(player.playerClass.getNameString());
-            field.get(PDFFields.SpellcastingAbility_2.value).setValue(((Magical) player.playerClass).getcastingAbility().name());
-            field.get(PDFFields.SpellSaveDC__2.value).setValue(String.valueOf(player.spellSaveDC));
-            field.get(PDFFields.SpellAtkBonus_2.value).setValue(String.valueOf(player.spellAtackModifier+player.proficiencyBonus));
-
-        }else {
-
-            field.get(PDFFields.Spellcasting_Class_2.value).setValue("/////");
-            field.get(PDFFields.SpellcastingAbility_2.value).setValue("/////");
-            field.get(PDFFields.SpellSaveDC__2.value).setValue("/////");
-            field.get(PDFFields.SpellAtkBonus_2.value).setValue("/////");
-
-        }
-
-        field.get(PDFFields.HDTotal.value).setValue(String.valueOf(player.lvl));
-        field.get(PDFFields.HD.value).setValue(String.valueOf(player.playerClass.hitDie));
-
-        field.get(PDFFields.Alignment.value).setValue(String.valueOf(player.alignment));
-
-
-        writeToolProficiencies();
-        writeLanguages();
+        writeLanguagesAndOtherProficiencies();
 
         writeCoins();
         writeInventory();
 
     }
-
-
-
-    private static void writeCoins() throws IOException {
-        field.get(PDFFields.CP.value).setValue(String.valueOf(player.coins[0]));
-        field.get(PDFFields.SP.value).setValue(String.valueOf(player.coins[1]));
-        field.get(PDFFields.EP.value).setValue(String.valueOf(player.coins[2]));
-        field.get(PDFFields.GP.value).setValue(String.valueOf(player.coins[3]));
-        field.get(PDFFields.PP.value).setValue(String.valueOf(player.coins[4]));
-
+    private static void writePlayerBasics() throws IOException {
+        field.get(PDFFields.CharacterName.value).setValue(player.name);
+        field.get(PDFFields.CharacterName_2.value).setValue(player.name);
+        field.get(PDFFields.Race_.value).setValue(player.race.name);
+        field.get(PDFFields.ClassLevel.value).setValue(player.playerClass.getNameString()+"  "+player.lvl);
+        field.get(PDFFields.Alignment.value).setValue(String.valueOf(player.alignment));
     }
 
-    private static void writeInventory(){
 
+    private static void writeHP() throws IOException {
+        field.get(PDFFields.HDTotal.value).setValue(String.valueOf(player.lvl));
+        field.get(PDFFields.HD.value).setValue(String.valueOf(player.playerClass.hitDie));
+        field.get(PDFFields.HPMax.value).setValue(String.valueOf(player.maxHP));
+        field.get(PDFFields.HPCurrent.value).setValue(String.valueOf(player.currentHP));
+        field.get(PDFFields.HPTemp.value).setValue(String.valueOf(player.tempHP));
     }
 
-    private static void writeLanguages() {
-    }
 
-    private static void writeToolProficiencies() {
-
-    }
-
-    private static void writeAbilities() throws IOException {
-        //Player.abilities STR DEX CON INT WIS CHA
-        AbilityScore tempArr[] = player.abilities;
-        field.get(PDFFields.STR.value).setValue(String.valueOf(tempArr[0].modifier));
-        field.get(PDFFields.STRmod.value).setValue(String.valueOf(tempArr[0].amount));
-
-        field.get(PDFFields.DEX.value).setValue(String.valueOf(tempArr[1].modifier));
-        field.get(PDFFields.DEXmod_.value).setValue(String.valueOf(tempArr[1].amount));
-
-        field.get(PDFFields.CON.value).setValue(String.valueOf(tempArr[2].modifier));
-        field.get(PDFFields.CONmod.value).setValue(String.valueOf(tempArr[2].amount));
-
-        field.get(PDFFields.INT.value).setValue(String.valueOf(tempArr[3].modifier));
-        field.get(PDFFields.INTmod.value).setValue(String.valueOf(tempArr[3].amount));
-
-        field.get(PDFFields.WIS.value).setValue(String.valueOf(tempArr[4].modifier));
-        field.get(PDFFields.WISmod.value).setValue(String.valueOf(tempArr[4].amount));
-
-        field.get(PDFFields.CHA.value).setValue(String.valueOf(tempArr[5].modifier));
-        field.get(PDFFields.CHamod.value).setValue(String.valueOf(tempArr[5].amount));
-    }
     private static void writeSavingThrows() throws IOException {
         writeSingleST(47, PDFFields.ST_Strength.value, player.abilities[0]);
         writeSingleST(48, PDFFields.ST_Dexterity.value, player.abilities[1]);
@@ -153,41 +126,62 @@ public class PDFFiller {
 
     }
 
+    private static void writeAbilities() throws IOException {
+        //Player.abilities STR DEX CON INT WIS CHA
+        AbilityScore[] tempArr = player.abilities;
+        field.get(PDFFields.STR.value).setValue(String.valueOf(tempArr[0].modifier));
+        field.get(PDFFields.STRmod.value).setValue(String.valueOf(tempArr[0].amount));
 
-    private static int[] getSkillPositions(){
-        int temp[] = new int[18];
+        field.get(PDFFields.DEX.value).setValue(String.valueOf(tempArr[1].modifier));
+        field.get(PDFFields.DEXmod_.value).setValue(String.valueOf(tempArr[1].amount));
 
-        temp[0] = PDFFields.Acrobatics.value;
-        temp[1] = PDFFields.Animal.value;
-        temp[2] = PDFFields.Arcana.value;
-        temp[3] = PDFFields.Athletics.value;
-        temp[4] = PDFFields.Deception_.value;
-        temp[5] = PDFFields.History_.value;
-        temp[6] = PDFFields.Insight.value;
-        temp[7] = PDFFields.Intimidation.value;
-        temp[8] = PDFFields.Investigation_.value;
-        temp[9] = PDFFields.Medicine.value;
-        temp[10] = PDFFields.Nature.value;
-        temp[11] = PDFFields.Perception_.value;
-        temp[12] = PDFFields.Performance.value;
-        temp[13] = PDFFields.Persuasion.value;
-        temp[14] = PDFFields.Religion.value;
-        temp[15] = PDFFields.SleightofHand.value;
-        temp[16] = PDFFields.Stealth_.value;
-        temp[17] = PDFFields.Survival.value;
+        field.get(PDFFields.CON.value).setValue(String.valueOf(tempArr[2].modifier));
+        field.get(PDFFields.CONmod.value).setValue(String.valueOf(tempArr[2].amount));
 
+        field.get(PDFFields.INT.value).setValue(String.valueOf(tempArr[3].modifier));
+        field.get(PDFFields.INTmod.value).setValue(String.valueOf(tempArr[3].amount));
 
-        return temp;
+        field.get(PDFFields.WIS.value).setValue(String.valueOf(tempArr[4].modifier));
+        field.get(PDFFields.WISmod.value).setValue(String.valueOf(tempArr[4].amount));
+
+        field.get(PDFFields.CHA.value).setValue(String.valueOf(tempArr[5].modifier));
+        field.get(PDFFields.CHamod.value).setValue(String.valueOf(tempArr[5].amount));
+
+        field.get(PDFFields.Passive.value).setValue(String.valueOf(tempArr[4].modifier+10));
     }
+
     private static void writeSkills() throws IOException {
-        int skillFields[] = getSkillPositions();
+        int[] skillFields = getSkillPositions();
 
-        for (int i=0; i<18;i++)
-        writeSingleSkill(74+i,skillFields[i],player.skills[i]);
-
-
-
+        for (int i = 0; i < 18; i++) {
+            writeSingleSkill(74 + i, skillFields[i], player.skills[i]);
+        }
     }
+    private static int[] getSkillPositions(){
+            int[] temp = new int[18];
+
+            temp[0] = PDFFields.Acrobatics.value;
+            temp[1] = PDFFields.Animal.value;
+            temp[2] = PDFFields.Arcana.value;
+            temp[3] = PDFFields.Athletics.value;
+            temp[4] = PDFFields.Deception_.value;
+            temp[5] = PDFFields.History_.value;
+            temp[6] = PDFFields.Insight.value;
+            temp[7] = PDFFields.Intimidation.value;
+            temp[8] = PDFFields.Investigation_.value;
+            temp[9] = PDFFields.Medicine.value;
+            temp[10] = PDFFields.Nature.value;
+            temp[11] = PDFFields.Perception_.value;
+            temp[12] = PDFFields.Performance.value;
+            temp[13] = PDFFields.Persuasion.value;
+            temp[14] = PDFFields.Religion.value;
+            temp[15] = PDFFields.SleightofHand.value;
+            temp[16] = PDFFields.Stealth_.value;
+            temp[17] = PDFFields.Survival.value;
+
+
+            return temp;
+        }
     private static void writeSingleSkill(int profButton, int valueField, Skill skill) throws IOException {
         if (!skill.prof){
             field.get(profButton).setValue("Off");
@@ -199,9 +193,66 @@ public class PDFFiller {
     }
 
 
+    private static void writeFightValues() throws IOException {
+        field.get(PDFFields.AC.value).setValue(String.valueOf(player.AC));
+        field.get(PDFFields.Initiative.value).setValue(String.valueOf(player.initiative));
+        field.get(PDFFields.Speed.value).setValue(String.valueOf(player.speed));
+        field.get(PDFFields.ProfBonus.value).setValue(String.valueOf(player.proficiencyBonus));
+    }
+
+    private static void writeSpellcast() throws IOException {
+        if(player.playerClass instanceof Magical){
+
+            field.get(PDFFields.Spellcasting_Class_2.value).setValue(player.playerClass.getNameString());
+            field.get(PDFFields.SpellcastingAbility_2.value).setValue(((Magical) player.playerClass).getcastingAbility().name());
+            field.get(PDFFields.SpellSaveDC__2.value).setValue(String.valueOf(player.spellSaveDC));
+            field.get(PDFFields.SpellAtkBonus_2.value).setValue(String.valueOf(player.spellAtackModifier+player.proficiencyBonus));
+
+        }else {
+
+            field.get(PDFFields.Spellcasting_Class_2.value).setValue("/////");
+            field.get(PDFFields.SpellcastingAbility_2.value).setValue("/////");
+            field.get(PDFFields.SpellSaveDC__2.value).setValue("/////");
+            field.get(PDFFields.SpellAtkBonus_2.value).setValue("/////");
+
+        }
+    }
+
+
+    private static void writeLanguagesAndOtherProficiencies() throws IOException {
+        StringBuilder writeString =new StringBuilder();
+
+        writeString.append(IOManager.ArrayListToString(player.languages));
+        writeString.append("\n\n");
+        writeString.append(IOManager.ArrayListToString(player.toolProf));
+
+        field.get(PDFFields.ProficienciesLang.value).setValue(writeString.toString());
+
+    }
+
+
+    private static void writeCoins() throws IOException {
+        field.get(PDFFields.CP.value).setValue(String.valueOf(player.coins[0]));
+        field.get(PDFFields.SP.value).setValue(String.valueOf(player.coins[1]));
+        field.get(PDFFields.EP.value).setValue(String.valueOf(player.coins[2]));
+        field.get(PDFFields.GP.value).setValue(String.valueOf(player.coins[3]));
+        field.get(PDFFields.PP.value).setValue(String.valueOf(player.coins[4]));
+
+    }
+
+    private static void writeInventory() throws IOException {
+        field.get(PDFFields.Equipment.value).setValue(IOManager.ArrayListToString(player.inventory));
+    }
+
+
+
+
+
+
 
 }
 
+@SuppressWarnings("unused")
 enum PDFFields{
     //ST = Saving Throw
     //WPN = Weapon

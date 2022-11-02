@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +6,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
-public class InputManager {
+public class IOManager {
     private static Scanner input = new Scanner(System.in);
 
 
@@ -30,6 +28,28 @@ public class InputManager {
 
         return Integer.parseInt(temp);
     }
+
+    public static int getInt(String prompt,int upperLimit){
+        String temp;
+        boolean inLimit= true;
+
+        do {
+            inLimit =true;
+
+            do {
+                System.out.println("\n" + prompt+" [0-"+upperLimit+"]");
+                temp = input.nextLine();
+            } while (!isNumeric(temp));
+
+            if (Integer.parseInt(temp) >upperLimit){
+                System.out.println("ERROR: Input Integer to big, only input Integers up to "+upperLimit);
+                inLimit = false;
+            }
+        }while(!inLimit);
+
+        return Integer.parseInt(temp);
+    }
+
     private static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
@@ -51,6 +71,16 @@ public class InputManager {
 
         return temp.stream().map(Object::toString)
                 .collect(Collectors.joining("\n\n"));
+    }
+
+    public static <T> String ArrayListToString(ArrayList<T> input){
+        StringBuilder returnString= new StringBuilder();
+
+        for (T t : input) {
+            returnString.append("\n\n" + t.toString());
+        }
+
+        return returnString.toString();
     }
 
 

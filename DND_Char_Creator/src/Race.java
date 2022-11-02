@@ -37,11 +37,10 @@ public abstract class Race {
         returnString.append("\n----------");
         returnString.append("\n"+abilityScoreIncreaseToString());
         returnString.append("\nSpeed: "+speed+"ft.");
-        returnString.append("\nLanguages: \n -");
-        returnString.append(String.join("\n -",languages));
-        returnString.append("\n\nFeatures: \n -");
-        returnString.append(String.join(features.stream().map(Object::toString)
-                                                         .collect(Collectors.joining("\n\n")))); //TODO Update to String method
+        returnString.append("\nLanguages:");
+        returnString.append(IOManager.ArrayListToString(languages));
+        returnString.append("\n\nFeatures:");
+        returnString.append(IOManager.ArrayListToString(features));
 
         return returnString.toString();
     }
@@ -57,7 +56,7 @@ public abstract class Race {
         return name;
     }
 
-    public abstract void generateRace();
+    public abstract void generateRace() throws IOException;
 }
 
 
@@ -135,13 +134,13 @@ class Dragonborn extends Race{
         features.add(Database.Features.DRAGON_BORN_RESISTANCE.feature);
 
 
-        draconicAncestry = InputManager.getArrayElement(Prompts.DraconicAncestry.toString(),DragonColor.values());
 
 
     }
 
     @Override
-    public void generateRace(){
+    public void generateRace() throws IOException {
+        draconicAncestry = IOManager.getArrayElement(Prompts.DraconicAncestry.toString(),DragonColor.values());
 
     }
 

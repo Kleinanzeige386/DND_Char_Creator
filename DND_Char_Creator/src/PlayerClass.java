@@ -1,7 +1,9 @@
 
 
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public abstract class PlayerClass {
@@ -12,7 +14,7 @@ public abstract class PlayerClass {
     public ArrayList<Ability> savingThrowProf;
     public ArrayList<Skills> skillProf;
     public ArrayList<String> toolProf;
-
+    public Skills possibleSkills[];
     public ArrayList<Feature> features;
 
 
@@ -38,18 +40,14 @@ public abstract class PlayerClass {
         returnString.append(name);
         returnString.append("\n----------");
         returnString.append("\nHit Die: "+hitDie);
-        returnString.append("\nSaving Throw Proficiencies: \n -");
-        returnString.append(String.join(savingThrowProf.stream().map(Object::toString)
-                .collect(Collectors.joining("\n\n"))));
-        returnString.append("\nSkill Proficiencies: \n -");
-        returnString.append(String.join(skillProf.stream().map(Object::toString)
-                .collect(Collectors.joining("\n\n"))));
-        returnString.append("\nTool Proficiencies: \n -");
-        returnString.append(String.join(toolProf.stream().map(Object::toString)
-                .collect(Collectors.joining("\n\n"))));
-        returnString.append("\n\nFeatures: \n -");
-        returnString.append(String.join(features.stream().map(Object::toString)
-                .collect(Collectors.joining("\n\n"))));
+        returnString.append("\nSaving Throw Proficiencies:");
+        returnString.append(IOManager.ArrayListToString(savingThrowProf));
+        returnString.append("\nSkill Proficiencies:");
+        returnString.append(IOManager.ArrayListToString(skillProf));
+        returnString.append("\nTool Proficiencies:");
+        returnString.append(IOManager.ArrayListToString(toolProf));
+        returnString.append("\n\nFeatures:");
+        returnString.append(IOManager.ArrayListToString(features));
 
         return returnString.toString();
     }
@@ -57,8 +55,12 @@ public abstract class PlayerClass {
     public abstract void lvlUp();
     public abstract void lvlUPTo(int newLVl);
 
+    public Skills chooseSkill() throws IOException {
+        return IOManager.getArrayElement(Prompts.ChooseSkill.text,possibleSkills);
+    }
+
     protected void abilityScoreImprovement() {
-        //TODO Add abilityScoreImporvement()
+        //TODO Add abilityScoreImprovement()
     }
 
     public String getNameString() {
@@ -71,7 +73,23 @@ class Fighter extends PlayerClass{
 
     public Fighter(Player owner) {
         super(owner);
+
+        name = "Fighter";
+        classLvl = 0;
+        hitDie = 10;
+        savingThrowProf.add(Ability.STRENGTH);
+        savingThrowProf.add(Ability.CONSTITUTION);
+        possibleSkills= new Skills[]{Skills.ACROBATICS,Skills.ANIMAL_HANDLING,Skills.ATHLETICS,Skills.HISTORY,Skills.INSIGHT,Skills.INTIMIDATION,Skills.PERCEPTION,Skills.SURVIVAL};
+
     }
+
+    public void makeClass() throws IOException {
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+    }
+
+
+
+
 
     @Override
     public void lvlUp() {

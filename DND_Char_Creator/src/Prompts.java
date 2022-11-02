@@ -14,7 +14,9 @@ public enum Prompts {
     SpellAttackModifier("Enter the Character's Spell Attack-modifier: "),
     ChooseRace("Choose a Race for your Character: "),
     ChooseClass("Choose a Class for your Character: "),
-    DraconicAncestry("Choose a Draconic Ancestry for your Character:");
+    DraconicAncestry("Choose a Draconic Ancestry for your Character:"),
+    ChooseSkill("N.A."),
+    AbilityGeneration("N.A.");
 
 
     public String text;
