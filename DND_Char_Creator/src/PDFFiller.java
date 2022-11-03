@@ -21,7 +21,7 @@ public class PDFFiller {
 
         tyCreateDirectory();
         //load the document
-        PDDocument pdfDocument = PDDocument.load(new File("template.pdf"));
+        PDDocument pdfDocument = PDDocument.load(new File("./sources/template.pdf"));
 
         //get the document catalog
         PDDocumentCatalog docCatalog = pdfDocument.getDocumentCatalog();

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="apache.poi1" type="repository">
+    <properties maven-id="org.apache.poi:poi:4.1.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/poi-4.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections4-4.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-math3-3.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/SparseBitSet-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

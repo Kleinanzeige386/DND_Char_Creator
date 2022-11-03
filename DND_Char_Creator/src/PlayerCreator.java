@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Random;
 
 public class PlayerCreator {
     private static Player newPlayer;
@@ -57,6 +58,13 @@ public class PlayerCreator {
     private void abilityPointBuy() {
     }
     private void abilityRoll() {
+        Random randomNum = new Random();
+        int[] rolledScores = new int[]{0,0,0,0,0,0};
+        int[] singleRoll= new int[]{0,0,0};
+
+        for (int i=0; i<6; i++){
+
+        }
     }
     private void calculateModifiers() {
         for (int i = 0; i<6; i++){
