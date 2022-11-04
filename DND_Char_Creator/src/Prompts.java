@@ -16,12 +16,13 @@ public enum Prompts {
     ChooseClass("Choose a Class for your Character: "),
     DraconicAncestry("Choose a Draconic Ancestry for your Character:"),
     ChooseSkill("N.A."),
-    AbilityGeneration("N.A."),
-    chooseStandardArray("N.A.")
-    ;
+    AbilityGeneration("Which Method do you want to use to generate your Character's Abilityscores?"),
+    chooseAbilityScore("Choose the score you want to assign to "),
+    ASI("Which AbiltyScore do you want to improve by 1?");
 
 
-    public String text;
+
+    public final String text;
     Prompts(String text) {
         this.text=text;
     }

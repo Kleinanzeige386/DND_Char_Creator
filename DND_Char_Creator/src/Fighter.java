@@ -25,7 +25,7 @@ class Fighter extends PlayerClass{
 
 
     @Override
-    public void lvlUp() {
+    public void lvlUp() throws IOException {
         classLvl++;
 
         //TODO Add Martial Versatility Option to all Ability Score Lvls
@@ -46,7 +46,7 @@ class Fighter extends PlayerClass{
     }
 
     @Override
-    public void lvlUPTo(int newLVl){
+    public void lvlUPTo(int newLVl) throws IOException {
         for (int i=classLvl; i<newLVl; i++){
             lvlUp();
         }

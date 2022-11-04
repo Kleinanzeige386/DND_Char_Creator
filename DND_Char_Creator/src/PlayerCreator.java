@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Random;
 
 public class PlayerCreator {
@@ -8,13 +9,15 @@ public class PlayerCreator {
        initAll();
 
        newPlayer.name = IOManager.getString(Prompts.PlayerName.toString());
+       getAbilities();
        newPlayer.lvl= IOManager.getInt(Prompts.Level.toString(),20);
+
+       generateClass();
+       generateRace();
        generateProfBonus();
 
-       generateRace();
-       generateClass();
 
-       getAbilities();
+
 
        getHP(); // Calculates MAxHp, UserInput -> TempHP, CurrentHP
        getDeathsaves();
@@ -35,37 +38,83 @@ public class PlayerCreator {
     }
 
     private void getAbilities() throws IOException {
-        switch (IOManager.getInt(Prompts.AbilityGeneration.text,2)){
-            case 0: abilityStandardArray();
-            case 1: abilityPointBuy();
-            case 2: abilityRoll();
-
+        int input =IOManager.getArrayIndex(Prompts.AbilityGeneration.text,new String[]{"Standard Array","Point Buy","Dice Rolling"});
+        switch (input){
+            case 0: abilityStandardArray(); break;
+            case 1: abilityPointBuy(); break;
+            case 2: abilityRoll(); break;
         }
         calculateModifiers();
     }
     private void abilityStandardArray() throws IOException {
         Integer[] standardArray = new Integer[]{15,14,13,12,10,8};
-        int input;
+        assignAbilityScores(standardArray);
 
-        for (int i=0;i<6;i++){
-            input =IOManager.getArrayIndex(Prompts.chooseStandardArray.text+Ability.values()[i],standardArray);
-            newPlayer.abilities[i].amount += standardArray[input];
-            IOManager.removeArrayElement(standardArray,input);
-            standardArray[5] = -1;
-
-        }
     }
     private void abilityPointBuy() {
     }
-    private void abilityRoll() {
-        Random randomNum = new Random();
-        int[] rolledScores = new int[]{0,0,0,0,0,0};
-        int[] singleRoll= new int[]{0,0,0};
+    private void abilityRoll() throws IOException {
+        Integer[] rolledScores = new Integer[]{0,0,0,0,0,0};
+
 
         for (int i=0; i<6; i++){
+            rolledScores[i] = getSingleRoll();
+        }
+
+        assignAbilityScores(rolledScores);
+    }
+    private int getSingleRoll() {
+        Random randomNum = new Random();
+        int[] singleRoll= new int[]{0,0,0};
+        int temp;
+
+        //Roll 4 d6
+        for (int i=0; i<3; i++ ) singleRoll[i] = randomNum.nextInt(6)+1;
+        int smallest = randomNum.nextInt(6)+1;
+
+
+        //Remove smallest number;
+        for (int i=0; i<3; i++ ) {
+            if(smallest > singleRoll[i]){
+                temp = singleRoll[i];
+                singleRoll[i] = smallest;
+                smallest = temp;
+            }
+        }
+
+        //Return Sum of biggest 3 rolls
+        return singleRoll[0]+singleRoll[1]+singleRoll[2];
+
+
+    }
+
+
+    private void assignAbilityScores(Integer[] scores) throws IOException {
+        int input;
+        int size = scores.length;
+        boolean validInput;
+
+
+        for (int i=0;i<size;i++){
+            do{
+                input =IOManager.getArrayIndex(Prompts.chooseAbilityScore.text+ Ability.values()[i],Arrays.copyOfRange( scores,0,size-i)); //Get index of chosen Score
+
+                if((PlayerCreator.newPlayer.abilities[input].amount+scores[input]) <20){
+                    validInput = true;
+                } else{
+                    validInput = false;
+                    System.out.println("ERROR: Can't increase an Abiltyscore over 20, please choose a different Abilty");
+                }
+            }
+            while(!validInput);
+
+            newPlayer.abilities[i].amount += scores[input]; //Add score to Ability
+            IOManager.removeArrayElement(scores,input);  //Remove score from scores
+            scores[size-1] = -1;
 
         }
     }
+
     private void calculateModifiers() {
         for (int i = 0; i<6; i++){
             newPlayer.abilities[i].modifier = (newPlayer.abilities[i].amount / 2) -5;
@@ -81,7 +130,7 @@ public class PlayerCreator {
         newPlayer.succesfullDeathSaves = IOManager.getInt(Prompts.SuccesfullDeathSaves.toString(),3);
     }
     private void getHP(){
-        calcMaxHp(); //sths wrong
+        calcMaxHp();
         newPlayer.currentHP = IOManager.getInt(Prompts.CurrentHP.toString(),newPlayer.maxHP);
         newPlayer.tempHP = IOManager.getInt(Prompts.TempHP.toString());
     }
@@ -187,7 +236,7 @@ public class PlayerCreator {
     }
 
     private void generateClass() throws IOException {
-        newPlayer.playerClass= (PlayerClass) IOManager.getArrayElement(Prompts.ChooseClass.toString(),Database.playerClasses.toArray());
+        newPlayer.playerClass= (PlayerClass) IOManager.getNamedArrayElement(Prompts.ChooseClass.toString(),Database.playerClasses.toArray());
         newPlayer.playerClass.lvlUPTo(newPlayer.lvl);
     }
 

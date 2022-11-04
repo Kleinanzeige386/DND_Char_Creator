@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public abstract class PlayerClass {
+public abstract class PlayerClass implements Named {
     public Player owner;
     public int classLvl;
     public String name;
@@ -32,6 +32,9 @@ public abstract class PlayerClass {
     }
 
 
+    public String getName() {
+        return name;
+    }
 
     @Override
     public String toString(){
@@ -53,15 +56,31 @@ public abstract class PlayerClass {
         return returnString.toString();
     }
 
-    public abstract void lvlUp();
-    public abstract void lvlUPTo(int newLVl);
+    public abstract void lvlUp() throws IOException;
+    public abstract void lvlUPTo(int newLVl) throws IOException;
 
     public Skills chooseSkill() throws IOException {
         return IOManager.getArrayElement(Prompts.ChooseSkill.text,possibleSkills);
     }
 
-    protected void abilityScoreImprovement() {
-        //TODO Add abilityScoreImprovement()
+    protected void abilityScoreImprovement() throws IOException {
+        int input;
+        boolean validInput;
+
+        for(int i = 0; i < 2;i++) {
+            do{
+                input = IOManager.getArrayIndex("Abilty Score Improvement  LVL:"+classLvl+"\n"+Prompts.ASI.text, PlayerCreator.newPlayer.abilities);
+                if(PlayerCreator.newPlayer.abilities[input].amount<20){
+                    validInput = true;
+                } else{
+                    validInput = false;
+                    System.out.println("ERROR: Can't increase an Abiltyscore over 20, please choose a different Abilty");
+                }
+            }
+            while(!validInput);
+            PlayerCreator.newPlayer.abilities[input].amount += 1;
+        }
+
     }
 
     public String getNameString() {

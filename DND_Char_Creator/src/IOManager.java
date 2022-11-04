@@ -66,24 +66,25 @@ public class IOManager {
     }
 
     public static <T> T getNamedArrayElement(String prompt,T[] arr) throws IOException {
-        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToNames(arr)+"\n")-1];
+        return arr[getInt(prompt+" [1-"+arr.length+"]"+arrToNames(arr)+"\n")-1];
     }
 
 
 
     public static <T> int getArrayIndex(String prompt,T[] arr) throws IOException {
-        return getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1;
+        return getInt(prompt+" [1-"+arr.length+"]"+arrToString(arr)+"\n")-1;
     }
 
 
 
     private static <T> String arrToString(T[] arr){
-        List<T> temp= new ArrayList<>();
+        StringBuilder returnString= new StringBuilder();
 
-        Collections.addAll(temp, arr);
-
-        return temp.stream().map(Object::toString)
-                .collect(Collectors.joining("\n\n"));
+        for (int i=0; i<arr.length; i++){
+            returnString.append("\n"+(i+1)+". ");
+            returnString.append(arr[i].toString());
+        }
+        return returnString.toString();
     }
 
     private static <T> String arrToNames(T[] arr){
@@ -91,8 +92,10 @@ public class IOManager {
             StringBuilder returnString= new StringBuilder();
 
             for (int i=0; i<arr.length; i++){
+                returnString.append("\n"+(i+1)+". ");
                 returnString.append(((Named)arr[i]).getName());
             }
+            return returnString.toString();
         }
         return "ERROR";
     }

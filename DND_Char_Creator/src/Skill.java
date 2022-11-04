@@ -1,6 +1,6 @@
 import java.util.stream.Stream;
 
-public class Skill {
+public class Skill implements Named{
     public Skills skill;
     public boolean prof;
     public int value;
@@ -19,4 +19,9 @@ public class Skill {
              return "   O       "+ value+"  "+ skill ;
          }
      }
- }
+
+    @Override
+    public String getName() {
+        return skill.name() ;
+    }
+}

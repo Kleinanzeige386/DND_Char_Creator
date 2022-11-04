@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public abstract class Race {
+public abstract class Race implements Named{
     public String name;
     public ArrayList<AbilityScore> abilityScoreIncrease;
     public int speed;
@@ -52,7 +52,7 @@ public abstract class Race {
     }
 
 
-    public String getNameString() {
+    public String getName() {
         return name;
     }
 
