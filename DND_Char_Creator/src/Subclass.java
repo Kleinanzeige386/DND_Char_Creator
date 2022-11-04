@@ -1,11 +1,21 @@
-public abstract class Subclass {
-    public final String name="";
+public abstract class Subclass implements Named {
+    public String name;
     public final Player owner;
 
+    public abstract void lvlUpTo(int level);
 
-    protected Subclass(Player owner) {
-        this.owner = owner;
+    public Subclass() {
+        this.owner = PlayerCreator.newPlayer;
     }
+
+    public String getName() {
+        return name;
+    }
+
+
+
+
+
 }
 
 

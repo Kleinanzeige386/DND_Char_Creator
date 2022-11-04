@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Random;
 
 public class PlayerCreator {
-    private static Player newPlayer;
+    public static Player newPlayer;
 
     public Player createNewPlayer() throws IOException {
        initAll();
@@ -92,7 +92,7 @@ public class PlayerCreator {
         newPlayer.initiative = newPlayer.abilities[1].modifier; //Dex Modifier
         newPlayer.speed = newPlayer.race.speed;
         newPlayer.AC = 10+ newPlayer.abilities[1].modifier;
-
+        //TODO Merge Race and Class Features into Player Features ?
 
 
     }
@@ -183,7 +183,7 @@ public class PlayerCreator {
     }
 
     private void generateRace() throws IOException {
-        newPlayer.race = (Race) IOManager.getArrayElement(Prompts.ChooseRace.toString(),Database.races.toArray());
+        newPlayer.race = (Race) IOManager.getNamedArrayElement(Prompts.ChooseRace.toString(),Database.races.toArray());
     }
 
     private void generateClass() throws IOException {
@@ -199,7 +199,7 @@ public class PlayerCreator {
      */
     public static void initAll() throws IOException {
         newPlayer = new Player();
-        Database.initDatabase(newPlayer);
+        Database.initDatabase();
 
         initSkills();
         initAbilities();

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-//TODO Add second toString Method that gives a shorter version instead of the full class description
 public abstract class PlayerClass {
     public Player owner;
     public int classLvl;
@@ -17,10 +16,11 @@ public abstract class PlayerClass {
     public ArrayList<String> toolProf;
     public Skills possibleSkills[];
     public ArrayList<Feature> features;
+    public Subclass subclass;
 
 
-    public PlayerClass(Player o) {
-        owner = o;
+    public PlayerClass() {
+        owner = PlayerCreator.newPlayer;
         name = "N.A.";
         classLvl = 0;
         hitDie = 0;

@@ -3,10 +3,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 class Fighter extends PlayerClass{
-    public PlayerClass subclass;
 
-    public Fighter(Player owner) {
-        super(owner);
+    public Fighter() {
+
 
         name = "Fighter";
         classLvl = 0;
@@ -32,12 +31,12 @@ class Fighter extends PlayerClass{
         //TODO Add Martial Versatility Option to all Ability Score Lvls
         switch (classLvl){
             case 1  -> {features.add(Database.Features.FIGHTING_STYLE.feature);  features.add(Database.Features.SECOND_WIND.feature);}
-            case 2  -> {features.add(Database.Features.ACTION_SURGE.feature);}
-            case 3  -> {subclass = chooseSubclass();}
-            case 4, 19, 16, 14, 12, 8, 6 -> {abilityScoreImprovement();}
-            case 5  -> {features.add(Database.Features.EXTRA_ATTACK.feature);}
-            case 7, 15, 10, 18 -> {/*subclass.lvlUPTo(classLvl);*/} //TODO !!!! ADD child class SUbClass to Playyerclass!!! Atm : Recursive call of lvlUpTo
-            case 9  -> {features.add(Database.Features.INDOMITABLE.feature);}
+            case 2  -> features.add(Database.Features.ACTION_SURGE.feature);
+            case 3  -> subclass = chooseSubclass();
+            case 4, 19, 16, 14, 12, 8, 6 -> abilityScoreImprovement();
+            case 5  -> features.add(Database.Features.EXTRA_ATTACK.feature);
+            case 7, 15, 10, 18 -> {subclass.lvlUpTo(classLvl);}
+            case 9  -> features.add(Database.Features.INDOMITABLE.feature);
             case 11 -> {/* Already added at lvl 5 */}
             case 13 -> {/* Already added at lvl 9 */}
             case 17 -> {/* Already added at lvl 2 and 9 */}
@@ -55,8 +54,8 @@ class Fighter extends PlayerClass{
 
 
 
-    private Fighter chooseSubclass() {
-        return new Fighter(this.owner);
+    private subFighter chooseSubclass() {
+        return new Arcane_Archer();
     }
 }
 

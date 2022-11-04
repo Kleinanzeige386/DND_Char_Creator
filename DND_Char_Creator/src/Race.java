@@ -2,7 +2,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-//TODO Add second toString Method that gives a shorter version instead of the full race description
 public abstract class Race {
     public String name;
     public ArrayList<AbilityScore> abilityScoreIncrease;

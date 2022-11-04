@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="756.5" y="325.5">Eldritch_Knight</node>
+    <node x="475.0" y="325.5">Banneret</node>
+    <node x="566.0" y="105.5">subFighter</node>
+    <node x="603.5" y="325.5">Rune_Knight</node>
+    <node x="1078.0" y="325.5">Arcane_Archer</node>
+    <node x="1390.0" y="325.5">Champion</node>
+    <node x="575.5" y="-14.5">Subclass</node>
+    <node x="357.0" y="325.5">Samurai</node>
+    <node x="81.0" y="325.5">Battle_Master</node>
+    <node x="1244.5" y="325.5">Echo_Knight</node>
+    <node x="-72.0" y="105.5">PlayerClass</node>
+    <node x="-39.0" y="325.5">Fighter</node>
+    <node x="238.5" y="325.5">Cavalier</node>
+    <node x="927.5" y="325.5">Psi_Warrior</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Arcane_Archer" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1148.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Fighter" target="Fighter" relationship="CREATE">
+      <point x="-47.0" y="-0.0" />
+      <point x="-132.0" y="340.0" />
+      <point x="-132.0" y="440.0" />
+      <point x="8.0" y="440.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="subFighter" target="subFighter" relationship="DEPENDENCY">
+      <point x="-62.0" y="-0.0" />
+      <point x="468.0" y="120.0" />
+      <point x="468.0" y="240.0" />
+      <point x="586.6666666666666" y="240.0" />
+      <point x="-41.33333333333333" y="14.5" />
+    </edge>
+    <edge source="Echo_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1308.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Fighter" target="PlayerClass" relationship="GENERALIZATION">
+      <point x="-20.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="subFighter" target="Subclass" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="Eldritch_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="828.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Fighter" target="subFighter" relationship="TO_ONE">
+      <point x="24.666666666666657" y="-14.5" />
+      <point x="32.66666666666666" y="280.0" />
+      <point x="600.0" y="280.0" />
+      <point x="-28.0" y="14.5" />
+    </edge>
+    <edge source="Banneret" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="528.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Rune_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Champion" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="1448.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Psi_Warrior" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="988.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Battle_Master" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="148.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Cavalier" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="288.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+    <edge source="Samurai" target="subFighter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.5" />
+      <point x="408.0" y="300.0" />
+      <point x="668.0" y="300.0" />
+      <point x="40.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7466827503015682" showDependencies="true" x="696.9999999999999" y="222.49999999999994" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

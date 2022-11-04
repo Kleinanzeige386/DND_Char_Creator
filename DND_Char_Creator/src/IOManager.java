@@ -64,9 +64,18 @@ public class IOManager {
     public static <T> T getArrayElement(String prompt,T[] arr) throws IOException {
         return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1];
     }
+
+    public static <T> T getNamedArrayElement(String prompt,T[] arr) throws IOException {
+        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToNames(arr)+"\n")-1];
+    }
+
+
+
     public static <T> int getArrayIndex(String prompt,T[] arr) throws IOException {
         return getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1;
     }
+
+
 
     private static <T> String arrToString(T[] arr){
         List<T> temp= new ArrayList<>();
@@ -75,6 +84,17 @@ public class IOManager {
 
         return temp.stream().map(Object::toString)
                 .collect(Collectors.joining("\n\n"));
+    }
+
+    private static <T> String arrToNames(T[] arr){
+        if (arr[0] instanceof Named) {
+            StringBuilder returnString= new StringBuilder();
+
+            for (int i=0; i<arr.length; i++){
+                returnString.append(((Named)arr[i]).getName());
+            }
+        }
+        return "ERROR";
     }
 
     public static <T> String ArrayListToString(ArrayList<T> input){
@@ -87,6 +107,15 @@ public class IOManager {
         return returnString.toString();
     }
 
+    public static <T> String ArrayListToNames(ArrayList<T> input){
+        StringBuilder returnString= new StringBuilder();
+
+        for (T t : input) {
+            if(t instanceof Named)  returnString.append("\n\n" + ((Named)t).getName());
+        }
+
+        return returnString.toString();
+    }
     public static <T> void removeArrayElement(T[] array,int index){
 
         System.arraycopy(array, index + 1, array, index, array.length - index - 1);
