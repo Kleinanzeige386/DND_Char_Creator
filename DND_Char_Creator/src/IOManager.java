@@ -1,13 +1,10 @@
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
 
 
 public class IOManager {
-    private static Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
 
 
 
@@ -24,14 +21,14 @@ public class IOManager {
         do{
             System.out.println("\n"+prompt);
             temp=input.nextLine();
-        }while(!isNumeric(temp));
+        }while(isNumeric(temp));
 
         return Integer.parseInt(temp);
     }
 
     public static int getInt(String prompt,int upperLimit){
         String temp;
-        boolean inLimit= true;
+        boolean inLimit;
 
         do {
             inLimit =true;
@@ -39,7 +36,7 @@ public class IOManager {
             do {
                 System.out.println("\n" + prompt+" [0-"+upperLimit+"]");
                 temp = input.nextLine();
-            } while (!isNumeric(temp));
+            } while (isNumeric(temp));
 
             if (Integer.parseInt(temp) >upperLimit){
                 System.out.println("ERROR: Input Integer to big, only input Integers up to "+upperLimit);
@@ -53,25 +50,25 @@ public class IOManager {
     private static boolean isNumeric(String str) {
         try {
             Integer.parseInt(str);
-            return true;
+            return false;
         } catch(NumberFormatException e){
             System.out.println("ERROR: Please enter a valid Integer");
-            return false;
+            return true;
         }
     }
 
 
-    public static <T> T getArrayElement(String prompt,T[] arr) throws IOException {
+    public static <T> T getArrayElement(String prompt,T[] arr) {
         return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1];
     }
 
-    public static <T> T getNamedArrayElement(String prompt,T[] arr) throws IOException {
+    public static <T> T getNamedArrayElement(String prompt,T[] arr) {
         return arr[getInt(prompt+" [1-"+arr.length+"]"+arrToNames(arr)+"\n")-1];
     }
 
 
 
-    public static <T> int getArrayIndex(String prompt,T[] arr) throws IOException {
+    public static <T> int getArrayIndex(String prompt,T[] arr) {
         return getInt(prompt+" [1-"+arr.length+"]"+arrToString(arr)+"\n")-1;
     }
 
@@ -81,7 +78,7 @@ public class IOManager {
         StringBuilder returnString= new StringBuilder();
 
         for (int i=0; i<arr.length; i++){
-            returnString.append("\n"+(i+1)+". ");
+            returnString.append("\n").append(i + 1).append(". ");
             returnString.append(arr[i].toString());
         }
         return returnString.toString();
@@ -92,7 +89,7 @@ public class IOManager {
             StringBuilder returnString= new StringBuilder();
 
             for (int i=0; i<arr.length; i++){
-                returnString.append("\n"+(i+1)+". ");
+                returnString.append("\n").append(i + 1).append(". ");
                 returnString.append(((Named)arr[i]).getName());
             }
             return returnString.toString();
@@ -104,7 +101,7 @@ public class IOManager {
         StringBuilder returnString= new StringBuilder();
 
         for (T t : input) {
-            returnString.append("\n\n" + t.toString());
+            returnString.append("\n\n").append(t.toString());
         }
 
         return returnString.toString();
@@ -114,7 +111,7 @@ public class IOManager {
         StringBuilder returnString= new StringBuilder();
 
         for (T t : input) {
-            if(t instanceof Named)  returnString.append("\n\n" + ((Named)t).getName());
+            if(t instanceof Named)  returnString.append("\n\n").append(((Named) t).getName());
         }
 
         return returnString.toString();

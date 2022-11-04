@@ -16,10 +16,10 @@ public class PDFFiller {
 
 
 
-    public static void buildPDF(Player playerData) throws IOException {
+    public static void buildPDF(Player playerData, String path) throws IOException {
         player = playerData;
 
-        tyCreateDirectory();
+
         //load the document
         PDDocument pdfDocument = PDDocument.load(new File("./sources/template.pdf"));
 
@@ -40,36 +40,11 @@ public class PDFFiller {
         }
 
         //Save and close PDF
-        pdfDocument.save("./Player/"+playerNameToDirectory()+"/"+player.name+".pdf");
+        pdfDocument.save(path+"/"+player.name+".pdf");
         pdfDocument.close();
 
     }
 
-    private static void tyCreateDirectory(){
-        boolean succesfullCreation;
-        String pathname ="./Player/"+playerNameToDirectory();
-        int i=0;
-
-
-        do {
-            File directory = new File(pathname);
-
-            if (!directory.exists()) {
-                directory.mkdirs();
-                succesfullCreation = true;
-            }else{
-                i++;
-                pathname="./Player/"+playerNameToDirectory()+i;
-                succesfullCreation = false;
-            }
-        }while(!succesfullCreation);
-    }
-
-    private static String playerNameToDirectory(){
-        String playerName = player.name;
-        playerName = playerName.replaceAll(" ", "_");
-        return playerName;
-    }
 
     private static void writeToField() throws IOException {
         writePlayerBasics();
@@ -88,7 +63,14 @@ public class PDFFiller {
         writeCoins();
         writeInventory();
 
+        writeFeatures();
+
     }
+
+    private static void writeFeatures() throws IOException {
+        field.get(PDFFields.Features_and_Traits.value).setValue(IOManager.ArrayListToNames(player.features));
+    }
+
     private static void writePlayerBasics() throws IOException {
         field.get(PDFFields.CharacterName.value).setValue(player.name);
         field.get(PDFFields.CharacterName_2.value).setValue(player.name);
@@ -220,13 +202,12 @@ public class PDFFiller {
 
 
     private static void writeLanguagesAndOtherProficiencies() throws IOException {
-        StringBuilder writeString =new StringBuilder();
 
-        writeString.append(IOManager.ArrayListToString(player.languages));
-        writeString.append("\n\n");
-        writeString.append(IOManager.ArrayListToString(player.toolProf));
+        String writeString = player.languagesToString() +
+                "\n\n" +
+                player.toolProfToString();
 
-        field.get(PDFFields.ProficienciesLang.value).setValue(writeString.toString());
+        field.get(PDFFields.ProficienciesLang.value).setValue(writeString);
 
     }
 
@@ -241,7 +222,7 @@ public class PDFFiller {
     }
 
     private static void writeInventory() throws IOException {
-        field.get(PDFFields.Equipment.value).setValue(IOManager.ArrayListToString(player.inventory));
+        field.get(PDFFields.Equipment.value).setValue(player.inventoryToString());
     }
 
 

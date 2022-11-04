@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 public abstract class subFighter extends Subclass {
     subFighter() {
@@ -35,6 +34,7 @@ class Arcane_Archer extends subFighter{
 
     @Override
     protected void addLVL3Features() {
+        owner.playerClass.features.add(Database.Features.ARCANE_ARCHER_LORE.feature);
         owner.playerClass.features.add(Database.Features.ARCANE_SHOT.feature);
     }
 
@@ -242,7 +242,7 @@ class Echo_Knight extends subFighter{
 
 
 
-class Eldritch_Knight extends subFighter implements Magical{ //TODO get spell slots and shit right
+class Eldritch_Knight extends subFighter implements Magical{
     private int[] spellSlots;
 
     public Eldritch_Knight() {
@@ -278,7 +278,7 @@ class Eldritch_Knight extends subFighter implements Magical{ //TODO get spell sl
 
     @Override
     public Ability getcastingAbility() {
-        return null;
+        return Ability.INTELLIGENCE;
     }
 
     @Override

@@ -1,4 +1,3 @@
-import java.util.stream.Stream;
 
 public class Skill implements Named{
     public Skills skill;

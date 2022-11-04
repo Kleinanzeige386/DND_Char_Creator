@@ -14,9 +14,9 @@ class Dragonborn extends Race{
         WHITE("Cold","15' cone",Ability.CONSTITUTION)
         ;
 
-        public String damageType;
-        public String area;
-        public Ability savingThrow;
+        public final String damageType;
+        public final String area;
+        public final Ability savingThrow;
         DragonColor(String DT, String ar, Ability a) {
             damageType = DT;
             area = ar;
@@ -27,7 +27,7 @@ class Dragonborn extends Race{
 
     public DragonColor draconicAncestry;
 
-    public Dragonborn() throws IOException {
+    public Dragonborn() {
         super();
 
         name= "Dragonborn";
@@ -49,7 +49,7 @@ class Dragonborn extends Race{
     }
 
     @Override
-    public void generateRace() throws IOException {
+    public void generateRace() throws IOException { //TODO Add somewhere
         draconicAncestry = IOManager.getArrayElement(Prompts.DraconicAncestry.toString(),DragonColor.values());
 
     }

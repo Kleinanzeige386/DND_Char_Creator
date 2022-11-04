@@ -35,7 +35,7 @@ class Fighter extends PlayerClass{
             case 3  -> subclass = chooseSubclass();
             case 4, 19, 16, 14, 12, 8, 6 -> abilityScoreImprovement();
             case 5  -> features.add(Database.Features.EXTRA_ATTACK.feature);
-            case 7, 15, 10, 18 -> {subclass.lvlUpTo(classLvl);}
+            case 7, 15, 10, 18 -> subclass.lvlUpTo(classLvl);
             case 9  -> features.add(Database.Features.INDOMITABLE.feature);
             case 11 -> {/* Already added at lvl 5 */}
             case 13 -> {/* Already added at lvl 9 */}

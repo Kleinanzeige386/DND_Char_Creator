@@ -1,9 +1,8 @@
-public class Feature {
+public class Feature implements Named {
 
     public String name;
     public String description;
 
-    public Feature() {}
 
     public Feature(String name, String description) {
 
@@ -14,5 +13,10 @@ public class Feature {
     @Override
     public String toString(){
         return ("\n"+name+"\n"+description);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

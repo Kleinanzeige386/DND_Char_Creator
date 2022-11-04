@@ -1,10 +1,5 @@
-
-
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public abstract class PlayerClass implements Named {
     public Player owner;
@@ -14,7 +9,7 @@ public abstract class PlayerClass implements Named {
     public ArrayList<Ability> savingThrowProf;
     public ArrayList<Skills> skillProf;
     public ArrayList<String> toolProf;
-    public Skills possibleSkills[];
+    public Skills[] possibleSkills;
     public ArrayList<Feature> features;
     public Subclass subclass;
 
@@ -39,31 +34,27 @@ public abstract class PlayerClass implements Named {
     @Override
     public String toString(){
 
-        StringBuilder returnString = new StringBuilder();
-
-        returnString.append(name);
-        returnString.append("\n----------");
-        returnString.append("\nHit Die: "+hitDie);
-        returnString.append("\nSaving Throw Proficiencies:");
-        returnString.append(IOManager.ArrayListToString(savingThrowProf));
-        returnString.append("\nSkill Proficiencies:");
-        returnString.append(IOManager.ArrayListToString(skillProf));
-        returnString.append("\nTool Proficiencies:");
-        returnString.append(IOManager.ArrayListToString(toolProf));
-        returnString.append("\n\nFeatures:");
-        returnString.append(IOManager.ArrayListToString(features));
-
-        return returnString.toString();
+        return name +
+                "\n----------" +
+                "\nHit Die: " + hitDie +
+                "\nSaving Throw Proficiencies:" +
+                IOManager.ArrayListToString(savingThrowProf) +
+                "\nSkill Proficiencies:" +
+                IOManager.ArrayListToString(skillProf) +
+                "\nTool Proficiencies:" +
+                IOManager.ArrayListToString(toolProf) +
+                "\n\nFeatures:" +
+                IOManager.ArrayListToString(features);
     }
 
     public abstract void lvlUp() throws IOException;
     public abstract void lvlUPTo(int newLVl) throws IOException;
 
-    public Skills chooseSkill() throws IOException {
+    public Skills chooseSkill() {
         return IOManager.getArrayElement(Prompts.ChooseSkill.text,possibleSkills);
     }
 
-    protected void abilityScoreImprovement() throws IOException {
+    protected void abilityScoreImprovement(){
         int input;
         boolean validInput;
 
@@ -79,6 +70,7 @@ public abstract class PlayerClass implements Named {
             }
             while(!validInput);
             PlayerCreator.newPlayer.abilities[input].amount += 1;
+            PlayerCreator.calculateModifiers();
         }
 
     }

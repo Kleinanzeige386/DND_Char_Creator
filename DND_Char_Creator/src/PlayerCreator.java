@@ -5,16 +5,22 @@ import java.util.Random;
 public class PlayerCreator {
     public static Player newPlayer;
 
+    public PlayerCreator() throws IOException {
+        initAll();
+    }
+
     public Player createNewPlayer() throws IOException {
-       initAll();
+
 
        newPlayer.name = IOManager.getString(Prompts.PlayerName.toString());
        getAbilities();
        newPlayer.lvl= IOManager.getInt(Prompts.Level.toString(),20);
+       calcProfBonus();
 
        generateClass();
        generateRace();
-       generateProfBonus();
+       generateAlignment();
+
 
 
 
@@ -37,23 +43,27 @@ public class PlayerCreator {
        return newPlayer;
     }
 
-    private void getAbilities() throws IOException {
+    private void generateAlignment(){
+        newPlayer.alignment = IOManager.getArrayElement(Prompts.chooseAlignment.text,Alignment.values());
+    }
+
+    private void getAbilities() {
         int input =IOManager.getArrayIndex(Prompts.AbilityGeneration.text,new String[]{"Standard Array","Point Buy","Dice Rolling"});
-        switch (input){
-            case 0: abilityStandardArray(); break;
-            case 1: abilityPointBuy(); break;
-            case 2: abilityRoll(); break;
+        switch (input) {
+            case 0 -> abilityStandardArray();
+            case 1 -> abilityPointBuy();
+            case 2 -> abilityRoll();
         }
         calculateModifiers();
     }
-    private void abilityStandardArray() throws IOException {
+    private void abilityStandardArray() {
         Integer[] standardArray = new Integer[]{15,14,13,12,10,8};
         assignAbilityScores(standardArray);
 
     }
     private void abilityPointBuy() {
     }
-    private void abilityRoll() throws IOException {
+    private void abilityRoll() {
         Integer[] rolledScores = new Integer[]{0,0,0,0,0,0};
 
 
@@ -89,7 +99,7 @@ public class PlayerCreator {
     }
 
 
-    private void assignAbilityScores(Integer[] scores) throws IOException {
+    private void assignAbilityScores(Integer[] scores) {
         int input;
         int size = scores.length;
         boolean validInput;
@@ -102,7 +112,7 @@ public class PlayerCreator {
                 if((PlayerCreator.newPlayer.abilities[input].amount+scores[input]) <20){
                     validInput = true;
                 } else{
-                    validInput = false;
+                    validInput = true; //TODO Somethings wrong here
                     System.out.println("ERROR: Can't increase an Abiltyscore over 20, please choose a different Abilty");
                 }
             }
@@ -115,7 +125,7 @@ public class PlayerCreator {
         }
     }
 
-    private void calculateModifiers() {
+    public static void calculateModifiers() {
         for (int i = 0; i<6; i++){
             newPlayer.abilities[i].modifier = (newPlayer.abilities[i].amount / 2) -5;
         }
@@ -141,9 +151,12 @@ public class PlayerCreator {
         newPlayer.initiative = newPlayer.abilities[1].modifier; //Dex Modifier
         newPlayer.speed = newPlayer.race.speed;
         newPlayer.AC = 10+ newPlayer.abilities[1].modifier;
-        //TODO Merge Race and Class Features into Player Features ?
+        mergeFeatures();
+    }
 
-
+    private void mergeFeatures() {
+        newPlayer.features.addAll(newPlayer.playerClass.features);
+        newPlayer.features.addAll(newPlayer.race.features);
     }
 
     private void calculateSkills() {
@@ -202,7 +215,7 @@ public class PlayerCreator {
         newPlayer.maxHP = temp+((temp/2)+(temp%2))* newPlayer.lvl;
     }
 
-    private void generateProfBonus() {
+    private void calcProfBonus() {
         int lvl = newPlayer.lvl;
         int tempProf = 6;
 
@@ -231,7 +244,7 @@ public class PlayerCreator {
 
     }
 
-    private void generateRace() throws IOException {
+    private void generateRace() {
         newPlayer.race = (Race) IOManager.getNamedArrayElement(Prompts.ChooseRace.toString(),Database.races.toArray());
     }
 
@@ -248,6 +261,7 @@ public class PlayerCreator {
      */
     public static void initAll() throws IOException {
         newPlayer = new Player();
+
         Database.initDatabase();
 
         initSkills();

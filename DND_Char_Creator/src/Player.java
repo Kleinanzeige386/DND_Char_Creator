@@ -36,6 +36,8 @@ public class Player {
     public int[] coins ; // Copper Silver Electrum Gold Platinum
     public ArrayList<String> inventory;
 
+    public ArrayList<Feature> features;
+
 
 
     public Player() {
@@ -70,58 +72,47 @@ public class Player {
         coins= new int[]{0,0,0,0,0};
         inventory=new ArrayList<>();
 
+        features = new ArrayList<>();
     }
 
 
 
     @Override
     public String toString(){
-        StringBuilder returnString= new StringBuilder();
         String border = "\n=========================================================================";
 
-        returnString.append(border);
-        returnString.append("\nName:  "+name);
-        returnString.append("\nRace:  "+race.name);
-        returnString.append("\nClass: "+playerClass.name);
-        returnString.append("\nLevel: "+lvl);
 
-        returnString.append(border);
-        returnString.append("\nMax HP:      "+maxHP);
-        returnString.append("\nCurrent HP:  "+currentHP);
-        returnString.append("\nTemp HP:     "+tempHP+"\n");
-        returnString.append("\nFailed Deathsaves:      "+failedDeathSaves);
-        returnString.append("\nSuccesfull Deathsaves:  "+succesfullDeathSaves);
-
-        returnString.append(border);
-        returnString.append("\n"+abilitiesAndSkillsToString());
-
-        returnString.append(border);
-        returnString.append("\nAC:                  "+AC);
-        returnString.append("\nInitiative:          "+initiative);
-        returnString.append("\nSpeed:               "+speed);
-        returnString.append("\nProficiency Bonus:   "+proficiencyBonus);
-
-
-        returnString.append(border); //TODO Only Print when player class instance of magical
-        returnString.append("\nSpellsave DC:          "+spellSaveDC);
-        returnString.append("\nSpellattack Modifier:  "+spellAtackModifier);
-
-        returnString.append(border);
-        returnString.append("\nTool Proficiencies:  \n"+toolProfToString()+"\n");
-        returnString.append("\nLanguages known:     \n"+languagesToString());
-
-        returnString.append(border);
-        returnString.append("\nCoins:      \n"+coinsToString()+"\n");
-        returnString.append("\nInventory:  \n"+inventoryToString());
-
-        returnString.append(border);
-
-        //TODO Add features to string
-
-        return returnString.toString();
+        return border +
+                "\nName:  " + name +
+                "\nRace:  " + race.name +
+                "\nClass: " + playerClass.name +
+                "\nLevel: " + lvl +
+                border +
+                "\nMax HP:      " + maxHP +
+                "\nCurrent HP:  " + currentHP +
+                "\nTemp HP:     " + tempHP + "\n" +
+                "\nFailed Deathsaves:      " + failedDeathSaves +
+                "\nSuccesfull Deathsaves:  " + succesfullDeathSaves +
+                border +
+                "\n" + abilitiesAndSkillsToString() +
+                border +
+                "\nAC:                  " + AC +
+                "\nInitiative:          " + initiative +
+                "\nSpeed:               " + speed +
+                "\nProficiency Bonus:   " + proficiencyBonus +
+                border +
+                "\nSpellsave DC:          " + spellSaveDC +
+                "\nSpellattack Modifier:  " + spellAtackModifier +
+                border +
+                "\nTool Proficiencies:  \n" + toolProfToString() + "\n" +
+                "\nLanguages known:     \n" + languagesToString() +
+                border +
+                "\nCoins:      \n" + coinsToString() + "\n" +
+                "\nInventory:  \n" + inventoryToString() +
+                border;
     }
 
-    private String languagesToString() {
+    public String languagesToString() {
         if (languages.size()==0){
             return "No Languages known";
         }
@@ -135,7 +126,7 @@ public class Player {
         return returnString.toString();
     }
 
-    private String inventoryToString() {
+    public String inventoryToString() {
         if (inventory.size()==0){
             return "No Items in Inventory";
         }
@@ -149,7 +140,7 @@ public class Player {
         return returnString.toString();
     }
 
-    private String toolProfToString() {
+    public String toolProfToString() {
         if (toolProf.size()==0){
             return "Not proficient with any Tool";
         }
@@ -175,7 +166,7 @@ public class Player {
             returnString.append(ability.toString()).append("\n----------");
 
             for (Skill skill : skills) {
-                if(skill.skill.ability == ability.name) returnString.append(("\n")).append(skill.toString());
+                if(skill.skill.ability == ability.name) returnString.append(("\n")).append(skill);
             }
             returnString.append(("\n\n\n"));
         }

@@ -1,24 +1,18 @@
 public enum Prompts {
     PlayerName("Enter the Name of your Character: "),
     Level("Enter the Character's Level: "),
-    AC("Enter the Character's AC: "),
-    Initiative("Enter the Character's Initiative: "),
-    Speed("Enter the Character's Speed: "),
-    ProfBonus("Enter the Character's Proficiency Bonus: "),
-    MaxHP("Enter the Character's max HP: "),
     CurrentHP("Enter the Character's current HP: "),
     TempHP("Enter the Character's temporary HP: "),
     FailedDeathSaves("Enter the Amount of failed Deathsaves: "),
     SuccesfullDeathSaves("Enter the Amount of succesfull Deathsaves: "),
-    SpellSaveDc("Enter the Character's Spellsave DC: "),
-    SpellAttackModifier("Enter the Character's Spell Attack-modifier: "),
     ChooseRace("Choose a Race for your Character: "),
     ChooseClass("Choose a Class for your Character: "),
     DraconicAncestry("Choose a Draconic Ancestry for your Character:"),
     ChooseSkill("N.A."),
     AbilityGeneration("Which Method do you want to use to generate your Character's Abilityscores?"),
     chooseAbilityScore("Choose the score you want to assign to "),
-    ASI("Which AbiltyScore do you want to improve by 1?");
+    ASI("Which AbiltyScore do you want to improve by 1?"),
+    chooseAlignment("Choose an alignment for your Character: ");
 
 
 
