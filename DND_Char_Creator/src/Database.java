@@ -292,7 +292,7 @@ public class Database {
 
     public static Player owner;
     
-    public static void initDatabase() throws IOException {
+    public static void initDatabase(){
         owner =PlayerCreator.newPlayer;
 
         races= new ArrayList<>();
@@ -306,7 +306,7 @@ public class Database {
 
 
 
-    private static void initRaces() throws IOException {
+    private static void initRaces(){
         //PHB
         races.add(new Elf());
         races.add(new Dragonborn());
