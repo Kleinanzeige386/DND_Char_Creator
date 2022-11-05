@@ -20,7 +20,7 @@ public class PlayerCreator {
        generateClass();
        generateRace();
        generateAlignment();
-
+       generateBackgound();
 
 
 
@@ -32,15 +32,13 @@ public class PlayerCreator {
        generateSpellSaveDC();
        generateSpellAttackModifier();
 
-       generateToolProf();
-       generateLanguages();
-
-       generateCoins();
-       generateInventory();
-
        calculateRest();
 
        return newPlayer;
+    }
+
+    private void generateBackgound() {
+        //TODO Implement
     }
 
     private void generateAlignment(){
@@ -152,6 +150,11 @@ public class PlayerCreator {
         newPlayer.speed = newPlayer.race.speed;
         newPlayer.AC = 10+ newPlayer.abilities[1].modifier;
         mergeFeatures();
+        mergeBackground();
+    }
+
+    private void mergeBackground() {
+        //TODO Implement
     }
 
     private void mergeFeatures() {
@@ -228,24 +231,11 @@ public class PlayerCreator {
         newPlayer.proficiencyBonus = tempProf;
     }
 
-    private void generateInventory() {//TODO Implement
 
-    }
 
-    private void generateCoins() { //TODO Implement
-
-    }
-
-    private void generateLanguages() { //TODO Implement
-
-    }
-
-    private void generateToolProf() { //TODO Implement
-
-    }
-
-    private void generateRace() {
+    private void generateRace() throws IOException {
         newPlayer.race = (Race) IOManager.getNamedArrayElement(Prompts.ChooseRace.toString(),Database.races.toArray());
+        newPlayer.race.buildRace();
     }
 
     private void generateClass() throws IOException {

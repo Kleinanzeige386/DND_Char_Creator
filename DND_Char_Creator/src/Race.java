@@ -25,7 +25,7 @@ public abstract class Race implements Named{
         return name;
     }
 
-    public abstract void generateRace() throws IOException;
+    public abstract void buildRace() throws IOException;
 }
 
 
@@ -46,7 +46,7 @@ class Elf extends Race{
     }
 
     @Override
-    public void generateRace() {
+    public void buildRace() {
 
     }
 }
@@ -102,7 +102,7 @@ class Dragonborn extends Race{
     }
 
     @Override
-    public void generateRace() throws IOException { //TODO Add somewhere
+    public void buildRace() throws IOException { //TODO Add somewhere
         draconicAncestry = IOManager.getArrayElement(Prompts.DraconicAncestry.toString(),DragonColor.values());
 
     }
