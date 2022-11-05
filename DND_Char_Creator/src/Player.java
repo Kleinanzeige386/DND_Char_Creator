@@ -7,6 +7,7 @@ public class Player {
     public PlayerClass playerClass;
     public int lvl;
     public Alignment alignment;
+    public Background background;
 
 
     public AbilityScore[] abilities;
@@ -46,6 +47,7 @@ public class Player {
         playerClass=null;
         lvl=0;
         alignment = Alignment.NEUTRAL;
+        background = new Background();
 
         abilities= PlayerCreator.initAbilities();
         skills=PlayerCreator.initSkills();

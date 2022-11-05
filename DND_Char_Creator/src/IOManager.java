@@ -63,7 +63,7 @@ public class IOManager {
     }
 
     public static <T> T getNamedArrayElement(String prompt,T[] arr) {
-        return arr[getInt(prompt+" [1-"+arr.length+"]"+arrToNames(arr)+"\n")-1];
+        return arr[getInt(prompt+" [1-"+arr.length+"]"+arrToNames(arr)+"\n",arr.length)-1];
     }
 
 

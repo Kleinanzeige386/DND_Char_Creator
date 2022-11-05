@@ -109,10 +109,10 @@ public class PlayerCreator {
             do{
                 input =IOManager.getArrayIndex(Prompts.chooseAbilityScore.text+ Ability.values()[i],Arrays.copyOfRange( scores,0,size-i)); //Get index of chosen Score
 
-                if((PlayerCreator.newPlayer.abilities[input].amount+scores[input]) <20){
+                if((PlayerCreator.newPlayer.abilities[i].amount+scores[input]) <20){
                     validInput = true;
                 } else{
-                    validInput = true; //TODO Somethings wrong here
+                    validInput = false;
                     System.out.println("ERROR: Can't increase an Abiltyscore over 20, please choose a different Abilty");
                 }
             }
@@ -259,7 +259,7 @@ public class PlayerCreator {
     /*
      * Inits
      */
-    public static void initAll() throws IOException {
+    public static void initAll(){
         newPlayer = new Player();
 
         Database.initDatabase();

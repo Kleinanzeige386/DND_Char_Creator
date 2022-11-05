@@ -289,6 +289,7 @@ public class Database {
     }
     public static ArrayList<Race> races;
     public static ArrayList<PlayerClass> playerClasses;
+    public static ArrayList<Background> backgrounds;
 
     public static Player owner;
     
