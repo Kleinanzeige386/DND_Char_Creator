@@ -5,7 +5,7 @@ import java.util.Random;
 public class PlayerCreator {
     public static Player newPlayer;
 
-    public PlayerCreator() throws IOException {
+    public PlayerCreator() {
         initAll();
     }
 
@@ -60,6 +60,7 @@ public class PlayerCreator {
 
     }
     private void abilityPointBuy() {
+        //TODO IMPLEMENT
     }
     private void abilityRoll() {
         Integer[] rolledScores = new Integer[]{0,0,0,0,0,0};

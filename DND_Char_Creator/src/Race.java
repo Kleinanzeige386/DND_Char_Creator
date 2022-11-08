@@ -25,7 +25,7 @@ public abstract class Race implements Named{
         return name;
     }
 
-    public abstract void buildRace() throws IOException;
+    public abstract void buildRace();
 }
 
 
@@ -102,7 +102,7 @@ class Dragonborn extends Race{
     }
 
     @Override
-    public void buildRace() throws IOException { //TODO Add somewhere
+    public void buildRace() {
         draconicAncestry = IOManager.getArrayElement(Prompts.DraconicAncestry.toString(),DragonColor.values());
 
     }

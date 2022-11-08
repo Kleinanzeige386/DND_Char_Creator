@@ -3,153 +3,120 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1287.9197204506968" y="301.10349143411196">Feature</node>
-    <node x="1055.7224801455309" y="570.6461745406754">Race</node>
-    <node x="1279.9764541479306" y="487.4282320069051">Skill</node>
-    <node x="939.0970970159244" y="1520.9410399364208">PDFFiller</node>
-    <node x="624.5867954825526" y="44.626704199207936">Champion</node>
-    <node x="530.2158364622113" y="530.4665787441141">Banneret</node>
-    <node x="867.2346615844943" y="38.79234949267263">Echo_Knight</node>
-    <node x="813.7569981884874" y="462.0562035334543">Prompts</node>
-    <node x="997.0479147051994" y="1052.982004079353">PlayerClass</node>
-    <node x="1277.8153773003578" y="1097.7221741139042">Rune_Knight</node>
-    <node x="507.68402062031635" y="951.6926896693681">Subclass</node>
-    <node x="694.886726671364" y="1463.0408427969692">Samurai</node>
-    <node x="-120.97119379206814" y="151.7263032806748">Dragonborn.DragonColor</node>
-    <node x="381.5093081419791" y="77.62165088380647">Arcane_Archer</node>
-    <node x="1039.1755373426774" y="824.759110965707">Database</node>
-    <node x="1289.7069538266517" y="838.4741349927809">Database.Features</node>
-    <node x="449.43518146149825" y="1137.7592925153003">Skills</node>
-    <node x="209.07779874407618" y="975.0331323491412">Magical</node>
-    <node x="246.28881206390685" y="755.3195018229712">Fighter</node>
-    <node x="708.7785262905777" y="871.5281080953478">Player</node>
-    <node x="352.4123880188915" y="322.044417020713">Background</node>
-    <node x="1287.645266403781" y="1372.2733609014078">Psi_Warrior</node>
-    <node x="-73.99057869306684" y="554.6433502001881">IOManager</node>
-    <node x="522.4738119117287" y="836.8591574871798">Named</node>
-    <node x="280.6937921188747" y="436.84127040037924">Eldritch_Knight</node>
-    <node x="181.4542635145564" y="152.23732643538142">Dragonborn</node>
-    <node x="988.0100969223436" y="1349.43465940205">PDFFields</node>
-    <node x="-2.8750250194609777" y="322.0721354265408">main</node>
-    <node x="395.85664374604096" y="1298.4352075887273">PlayerCreator</node>
-    <node x="1077.3467132135856" y="399.8130473823569">Elf</node>
-    <node x="796.3472962522267" y="644.5350330136063">Battle_Master</node>
-    <node x="828.9000037387116" y="290.1626154369634">Alignment</node>
-    <node x="38.49554675759842" y="-10.468283614075226">Ability</node>
-    <node x="267.656053573061" y="-60.881626681407354">AbilityScore</node>
-    <node x="694.9361919651037" y="1207.2637952995024">subFighter</node>
-    <node x="571.2430157755183" y="303.77851393433775">Cavalier</node>
+    <node x="63.028806207931865" y="129.7263032806748">Dragonborn.DragonColor</node>
+    <node x="808.5867954825526" y="22.626704199207936">Champion</node>
+    <node x="755.2430157755183" y="281.77851393433775">Cavalier</node>
+    <node x="393.0777987440762" y="953.0331323491412">Magical</node>
+    <node x="1239.7224801455309" y="548.6461745406754">Race</node>
+    <node x="-88.04573648544363" y="998.7637952995024">Wild_Magic</node>
+    <node x="103.95426351455637" y="1206.7637952995024">Battlerager</node>
+    <node x="1172.0100969223436" y="1327.43465940205">PDFFields</node>
+    <node x="430.28881206390685" y="733.3195018229712">Fighter</node>
+    <node x="980.3472962522267" y="622.5350330136063">Battle_Master</node>
+    <node x="365.4542635145564" y="130.23732643538142">Dragonborn</node>
+    <node x="878.886726671364" y="1441.0408427969692">Samurai</node>
+    <node x="565.5093081419791" y="55.62165088380647">Arcane_Archer</node>
+    <node x="1261.3467132135856" y="377.8130473823569">Elf</node>
+    <node x="1473.7069538266517" y="816.4741349927809">Database.Features</node>
+    <node x="997.7569981884874" y="440.0562035334543">Prompts</node>
+    <node x="1463.9764541479306" y="465.4282320069051">Skill</node>
+    <node x="1181.0479147051994" y="1030.982004079353">PlayerClass</node>
+    <node x="110.00942130693318" y="532.6433502001881">IOManager</node>
+    <node x="149.00942130693318" y="998.7637952995024">Beast</node>
+    <node x="222.4955467575984" y="-32.468283614075226">Ability</node>
+    <node x="343.9542635145564" y="1414.7637952995024">Ancestral_Guardian</node>
+    <node x="1012.9000037387116" y="268.1626154369634">Alignment</node>
+    <node x="343.9542635145564" y="1630.9410399364208">Storm_Herald</node>
+    <node x="1461.8153773003578" y="1075.7221741139042">Rune_Knight</node>
+    <node x="103.95426351455637" y="1630.9410399364208">Totem_Warrior</node>
+    <node x="691.6840206203163" y="929.6926896693681">Subclass</node>
+    <node x="878.9361919651037" y="1185.2637952995024">subFighter</node>
+    <node x="103.95426351455637" y="1414.7637952995024">Berserker</node>
+    <node x="1471.9197204506968" y="279.10349143411196">Feature</node>
+    <node x="579.856643746041" y="1276.4352075887273">PlayerCreator</node>
+    <node x="1471.645266403781" y="1350.2733609014078">Psi_Warrior</node>
+    <node x="1051.2346615844945" y="16.792349492672628">Echo_Knight</node>
+    <node x="892.7785262905777" y="849.5281080953478">Player</node>
+    <node x="181.12497498053904" y="300.0721354265408">main</node>
+    <node x="1223.1755373426774" y="802.759110965707">Database</node>
+    <node x="536.4123880188915" y="300.044417020713">Background</node>
+    <node x="714.2158364622113" y="508.46657874411414">Banneret</node>
+    <node x="343.9542635145564" y="1195.7637952995024">subBarbarian</node>
+    <node x="-120.04573648544363" y="1304.93465940205">Zealot</node>
+    <node x="451.656053573061" y="-82.88162668140735">AbilityScore</node>
+    <node x="464.6937921188746" y="414.84127040037924">Eldritch_Knight</node>
+    <node x="1123.0970970159244" y="1498.9410399364208">PDFFiller</node>
+    <node x="633.4351814614982" y="1115.7592925153003">Skills</node>
+    <node x="706.4738119117287" y="814.8591574871798">Named</node>
   </nodes>
   <notes />
   <edges>
     <edge source="Arcane_Archer" target="subFighter" relationship="GENERALIZATION">
       <point x="-3.081419790760265E-4" y="83.00034911619355" />
-      <point x="472.509" y="267.0" />
-      <point x="775.0" y="267.0" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
+      <point x="656.509" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
-    <edge source="Dragonborn" target="Race" relationship="GENERALIZATION">
-      <point x="-0.7982635145563961" y="-39.000326435381425" />
-      <point x="250.156" y="-78.382" />
-      <point x="1084.847" y="-78.382" />
-      <point x="1084.847" y="252.0" />
-      <point x="1052.0" y="252.0" />
-      <point x="1052.0" y="495.313" />
-      <point x="1125.222" y="495.313" />
-      <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
+    <edge source="Totem_Warrior" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="0.0" />
+      <point x="318.4542635145564" y="1702.9410399364208" />
+      <point x="318.4542635145564" y="1293.7637952995024" />
+      <point x="-91.0" y="15.0" />
     </edge>
     <edge source="Feature" target="Named" relationship="REALIZATION">
       <point x="-84.99972045069671" y="-4.914341119501842E-4" />
-      <point x="1261.0" y="364.103" />
-      <point x="1261.0" y="721.5" />
-      <point x="1014.0" y="721.5" />
-      <point x="1014.0" y="854.028" />
+      <point x="1445.0" y="342.103" />
+      <point x="1445.0" y="699.5" />
+      <point x="1198.0" y="699.5" />
+      <point x="1198.0" y="832.028" />
       <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="Beast" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.00000000000001" y="-0.5711056301342978" />
+      <point x="419.9542635145564" y="1070.192689669368" />
+      <point x="-15.0" y="-83.0" />
     </edge>
     <edge source="Subclass" target="Named" relationship="REALIZATION">
       <point x="-68.71002062031636" y="-62.99968966936808" />
-      <point x="509.474" y="823.535" />
-      <point x="1014.0" y="823.535" />
-      <point x="1014.0" y="854.028" />
+      <point x="693.4739999999999" y="801.535" />
+      <point x="1198.0" y="801.535" />
+      <point x="1198.0" y="832.028" />
       <point x="57.00018808827133" y="-9.83115748717978" />
-    </edge>
-    <edge source="Echo_Knight" target="subFighter" relationship="GENERALIZATION">
-      <point x="3.384155056664895E-4" y="82.99965050732737" />
-      <point x="958.235" y="267.0" />
-      <point x="775.0" y="267.0" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
     <edge source="Skill" target="Named" relationship="REALIZATION">
       <point x="-68.00045414793044" y="-2.3200690509384003E-4" />
-      <point x="1261.0" y="538.428" />
-      <point x="1261.0" y="721.5" />
-      <point x="1014.0" y="721.5" />
-      <point x="1014.0" y="854.028" />
+      <point x="1445.0" y="516.428" />
+      <point x="1445.0" y="699.5" />
+      <point x="1198.0" y="699.5" />
+      <point x="1198.0" y="832.028" />
       <point x="57.00018808827133" y="-9.83115748717978" />
-    </edge>
-    <edge source="Eldritch_Knight" target="Magical" relationship="REALIZATION">
-      <point x="-93.5" y="0.0" />
-      <point x="210.62497498053904" y="565.8412704003792" />
-      <point x="-91.95282376353714" y="-50.0" />
     </edge>
     <edge source="Fighter" target="PlayerClass" relationship="GENERALIZATION">
       <point x="66.78898668016933" y="72.0" />
-      <point x="413.5777987440762" y="1120.2592925153003" />
+      <point x="597.5777987440762" y="1098.2592925153003" />
       <point x="-110.0" y="-50.72271156405259" />
-    </edge>
-    <edge source="Race" target="Named" relationship="REALIZATION">
-      <point x="-69.5004801455309" y="-1.74540675402568E-4" />
-      <point x="1014.0" y="633.646" />
-      <point x="1014.0" y="854.028" />
-      <point x="57.00018808827133" y="-9.83115748717978" />
-    </edge>
-    <edge source="subFighter" target="Subclass" relationship="GENERALIZATION">
-      <point x="-91.0" y="-71.00450278420203" />
-      <point x="624.9351814614982" y="1230.2592925153003" />
-      <point x="46.7511608411819" y="63.0" />
     </edge>
     <edge source="Dragonborn.DragonColor" target="Dragonborn" relationship="INNER_CLASS">
       <point x="120.5" y="-10.488976845293394" />
       <point x="-69.5" y="0.0" />
     </edge>
-    <edge source="PlayerClass" target="Named" relationship="REALIZATION">
-      <point x="110.00008529480056" y="-5.260004079352939" />
-      <point x="1261.0" y="1165.722" />
-      <point x="1261.0" y="721.5" />
-      <point x="1014.0" y="721.5" />
-      <point x="1014.0" y="854.028" />
-      <point x="57.00018808827133" y="-9.83115748717978" />
-    </edge>
     <edge source="Eldritch_Knight" target="subFighter" relationship="GENERALIZATION">
       <point x="93.50020788112533" y="-2.704003792359799E-4" />
-      <point x="488.0" y="565.841" />
-      <point x="488.0" y="757.0" />
-      <point x="672.0" y="757.0" />
-      <point x="672.0" y="1301.264" />
+      <point x="672.0" y="543.841" />
+      <point x="672.0" y="735.0" />
+      <point x="856.0" y="735.0" />
+      <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
     <edge source="Banneret" target="subFighter" relationship="GENERALIZATION">
       <point x="-90.9998364622113" y="4.212558858398552E-4" />
-      <point x="488.0" y="613.467" />
-      <point x="488.0" y="757.0" />
-      <point x="672.0" y="757.0" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
-    </edge>
-    <edge source="Rune_Knight" target="subFighter" relationship="GENERALIZATION">
-      <point x="-91.00037730035774" y="-1.7411390422239492E-4" />
-      <point x="1243.597" y="1180.722" />
-      <point x="1243.597" y="267.0" />
-      <point x="775.0" y="267.0" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
+      <point x="672.0" y="591.467" />
+      <point x="672.0" y="735.0" />
+      <point x="856.0" y="735.0" />
+      <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
     <edge source="Database.Features" target="Database" relationship="INNER_CLASS">
@@ -158,52 +125,142 @@
     </edge>
     <edge source="Champion" target="subFighter" relationship="GENERALIZATION">
       <point x="2.045174474005762E-4" y="83.00029580079207" />
-      <point x="715.587" y="267.0" />
-      <point x="775.0" y="267.0" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
-    </edge>
-    <edge source="Battle_Master" target="subFighter" relationship="GENERALIZATION">
-      <point x="-91.00029625222669" y="-3.3013606298482046E-5" />
-      <point x="775.0" y="727.535" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
-    </edge>
-    <edge source="Samurai" target="subFighter" relationship="GENERALIZATION">
-      <point x="-90.9997266713641" y="1.5720303076705022E-4" />
-      <point x="672.0" y="1546.041" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
-    </edge>
-    <edge source="Cavalier" target="subFighter" relationship="GENERALIZATION">
-      <point x="90.99998422448175" y="4.860656622440729E-4" />
-      <point x="775.0" y="386.779" />
-      <point x="775.0" y="772.0" />
-      <point x="672.0" y="772.0" />
-      <point x="672.0" y="1301.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
-    </edge>
-    <edge source="Psi_Warrior" target="subFighter" relationship="GENERALIZATION">
-      <point x="-91.0002664037811" y="15.267639098592099" />
-      <point x="909.436" y="1470.541" />
-      <point x="909.436" y="1186.0" />
-      <point x="672.0" y="1186.0" />
-      <point x="672.0" y="1301.264" />
+      <point x="899.587" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
     <edge source="Elf" target="Race" relationship="GENERALIZATION">
       <point x="-69.49971321358566" y="-4.738235691092996E-5" />
-      <point x="1052.0" y="438.813" />
-      <point x="1052.0" y="495.313" />
-      <point x="1125.222" y="495.313" />
+      <point x="1236.0" y="416.813" />
+      <point x="1236.0" y="473.313" />
+      <point x="1309.222" y="473.313" />
       <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
     </edge>
+    <edge source="Dragonborn" target="Race" relationship="GENERALIZATION">
+      <point x="-0.7982635145563961" y="-39.000326435381425" />
+      <point x="434.156" y="-100.382" />
+      <point x="1268.847" y="-100.382" />
+      <point x="1268.847" y="230.0" />
+      <point x="1236.0" y="230.0" />
+      <point x="1236.0" y="473.313" />
+      <point x="1309.222" y="473.313" />
+      <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
+    </edge>
+    <edge source="Ancestral_Guardian" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="Echo_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="3.384155056664895E-4" y="82.99965050732737" />
+      <point x="1142.2350000000001" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Eldritch_Knight" target="Magical" relationship="REALIZATION">
+      <point x="-93.5" y="0.0" />
+      <point x="394.62497498053904" y="543.8412704003792" />
+      <point x="-91.95282376353714" y="-50.0" />
+    </edge>
+    <edge source="Race" target="Named" relationship="REALIZATION">
+      <point x="-69.5004801455309" y="-1.74540675402568E-4" />
+      <point x="1198.0" y="611.646" />
+      <point x="1198.0" y="832.028" />
+      <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="subFighter" target="Subclass" relationship="GENERALIZATION">
+      <point x="-91.0" y="-71.00450278420203" />
+      <point x="808.9351814614982" y="1208.2592925153003" />
+      <point x="46.7511608411819" y="63.0" />
+    </edge>
+    <edge source="PlayerClass" target="Named" relationship="REALIZATION">
+      <point x="110.00008529480056" y="-5.260004079352939" />
+      <point x="1445.0" y="1143.722" />
+      <point x="1445.0" y="699.5" />
+      <point x="1198.0" y="699.5" />
+      <point x="1198.0" y="832.028" />
+      <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="Storm_Herald" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="0.0" />
+      <point x="543.4542635145564" y="1702.9410399364208" />
+      <point x="543.4542635145564" y="1283.9352075887273" />
+      <point x="91.0" y="5.171412289224918" />
+    </edge>
+    <edge source="subBarbarian" target="Subclass" relationship="GENERALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="434.9542635145564" y="1085.192689669368" />
+      <point x="762.1840206203163" y="1085.192689669368" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="Wild_Magic" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="0.0" y="72.0" />
+      <point x="2.9542635145563736" y="1175.2637952995024" />
+      <point x="404.9542635145564" y="1175.2637952995024" />
+      <point x="-30.0" y="-83.0" />
+    </edge>
+    <edge source="Rune_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="-91.00037730035774" y="-1.7411390422239492E-4" />
+      <point x="1427.597" y="1158.722" />
+      <point x="1427.597" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Psi_Warrior" target="subFighter" relationship="GENERALIZATION">
+      <point x="-91.0002664037811" y="15.267639098592099" />
+      <point x="1093.4360000000001" y="1448.541" />
+      <point x="1093.4360000000001" y="1164.0" />
+      <point x="856.0" y="1164.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Cavalier" target="subFighter" relationship="GENERALIZATION">
+      <point x="90.99998422448175" y="4.860656622440729E-4" />
+      <point x="959.0" y="364.779" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Battle_Master" target="subFighter" relationship="GENERALIZATION">
+      <point x="-91.00029625222669" y="-3.3013606298482046E-5" />
+      <point x="959.0" y="705.535" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Samurai" target="subFighter" relationship="GENERALIZATION">
+      <point x="-90.9997266713641" y="1.5720303076705022E-4" />
+      <point x="856.0" y="1524.041" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Battlerager" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="0.0" />
+      <point x="-91.0" y="0.0" />
+    </edge>
+    <edge source="Zealot" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="2.329135897452261" />
+      <point x="404.9542635145564" y="1379.2637952995024" />
+      <point x="-30.0" y="83.0" />
+    </edge>
+    <edge source="Berserker" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="194.95426351455637" y="1394.2637952995024" />
+      <point x="419.9542635145564" y="1394.2637952995024" />
+      <point x="-15.0" y="83.0" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Compact" zoom="0.32097560975609757" showDependencies="false" x="684.5" y="946.0" />
+  <settings layout="Hierarchic Compact" zoom="0.32097560975609757" showDependencies="false" x="1508.7294832826747" y="1241.1352583586627" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>

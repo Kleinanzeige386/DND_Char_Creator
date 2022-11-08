@@ -1,7 +1,7 @@
 public class AbilityScore{
     public int amount;
     public int modifier;
-    public Ability name;
+    public final Ability name;
     public boolean proficient;
 
 

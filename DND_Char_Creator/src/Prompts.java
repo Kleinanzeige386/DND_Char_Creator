@@ -12,7 +12,8 @@ public enum Prompts {
     AbilityGeneration("Which Method do you want to use to generate your Character's Abilityscores?"),
     chooseAbilityScore("Choose the score you want to assign to "),
     ASI("Which AbiltyScore do you want to improve by 1?"),
-    chooseAlignment("Choose an alignment for your Character: ");
+    chooseAlignment("Choose an alignment for your Character: "),
+    chooseSubclass("Choose a subclass for your Character: ");
 
 
 
