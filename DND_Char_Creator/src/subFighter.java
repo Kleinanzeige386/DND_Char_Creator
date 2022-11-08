@@ -1,7 +1,7 @@
 
 public abstract class subFighter extends Subclass {
     subFighter() {
-
+        super();
     }
 
     public void lvlUpTo(int n) {

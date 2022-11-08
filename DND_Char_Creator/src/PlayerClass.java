@@ -200,7 +200,7 @@ class Bard extends PlayerClass implements Magical{
 
     @Override
     public int[] getSpellSlots() {
-        return new int[0];
+        return spellSlots;
     }
 
     @Override
