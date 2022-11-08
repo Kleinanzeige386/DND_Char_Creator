@@ -53,7 +53,7 @@ public abstract class PlayerClass implements Named {
     }
 
     public abstract void lvlUp();
-    public void lvlUPTo(int newLVl) throws IOException{
+    public void lvlUPTo(int newLVl) {
         for (int i=classLvl; i<newLVl; i++){
             lvlUp();
         }
@@ -102,7 +102,6 @@ class Barbarian extends PlayerClass{
     public Barbarian() {
         super();
         name = "Barbarian";
-        classLvl = 0;
         rages=0;
         hitDie = 12;
         savingThrowProf.add(Ability.STRENGTH);
@@ -124,21 +123,38 @@ class Barbarian extends PlayerClass{
                 features.add(Database.Features.RECKLESS_ATTACK.feature);
                 features.add(Database.Features.DANGER_SENSE.feature);
             }
-            case 3 -> chooseSubclass();
-            case 4,8,12,16,19 -> abilityScoreImprovement();
+            case 3 -> {
+                chooseSubclass();
+            }
+            case 4, 8, 12, 16, 19 -> {
+                abilityScoreImprovement();
+            }
             case 5 -> {
                 features.add(Database.Features.BARBARIAN_EXTRA_ATTACK.feature);
                 features.add(Database.Features.FAST_MOVEMENT.feature);
             }
-            case 6, 10, 14 -> subclass.lvlUpTo(classLvl);
-            case 7 ->features.add(Database.Features.FERAL_INSTINCT.feature);
-            case 9 -> features.add(Database.Features.BRUTAL_CRITICAL.feature);
-            case 11 -> features.add(Database.Features.RELENTLESS_RAGE.feature);
-            case 13 -> {/* Already added at lvl 9 */}
-            case 15 ->features.add(Database.Features.PERSISTENT_RAGE.feature);
-            case 17 -> {/* Already added at lvl 9 */}
-            case 18 ->features.add(Database.Features.INDOMITABLE_MIGHT.feature);
-            case 20 ->features.add(Database.Features.PRIMAL_CHAMPION.feature);
+            case 6, 10, 14 -> {
+                subclass.lvlUpTo(classLvl);
+            }
+            case 7 -> {
+                features.add(Database.Features.FERAL_INSTINCT.feature);
+            }
+            case 9 -> {
+                features.add(Database.Features.BRUTAL_CRITICAL.feature);
+            }
+            case 11 -> {
+                features.add(Database.Features.RELENTLESS_RAGE.feature);
+            }
+            case 13, 17 -> {/* Already added at lvl 9 */}
+            case 15 -> {
+                features.add(Database.Features.PERSISTENT_RAGE.feature);
+            }
+            case 18 -> {
+                features.add(Database.Features.INDOMITABLE_MIGHT.feature);
+            }
+            case 20 -> {
+                features.add(Database.Features.PRIMAL_CHAMPION.feature);
+            }
         }
     }
 
@@ -159,13 +175,127 @@ class Barbarian extends PlayerClass{
 }
 
 
-/*
-class Bard extends PlayerClass{
 
+class Bard extends PlayerClass implements Magical{
+    private int[] spellSlots;
+
+    Bard() {
+        super();
+        name="Bard";
+        hitDie = 8;
+        this.spellSlots = new int[10];
+        toolProf.add("Three musical instruments");
+        savingThrowProf.add(Ability.DEXTERITY);
+        savingThrowProf.add(Ability.CHARISMA);
+        possibleSkills= Skills.values();
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill(),chooseSkill()});
+
+    }
+
+
+    @Override
+    public Ability getcastingAbility() {
+        return Ability.CHARISMA;
+    }
+
+    @Override
+    public int[] getSpellSlots() {
+        return new int[0];
+    }
+
+    @Override
+    public void magicalLvlUpTo(int level) {
+        switch (level) {
+            case 1 -> {
+                spellSlots = new int[]{2, 2, 0, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 2 -> {
+                spellSlots = new int[]{2, 3, 0, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 3 -> {
+                spellSlots = new int[]{2, 4, 2, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 4 -> {
+                spellSlots = new int[]{3, 4, 3, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 5 -> {
+                spellSlots = new int[]{3, 4, 3, 2, 0, 0, 0, 0, 0, 0};
+            }
+            case 6 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 0, 0, 0, 0, 0, 0};
+            }
+            case 7 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 1, 0, 0, 0, 0, 0};
+            }
+            case 8 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 2, 0, 0, 0, 0, 0};
+            }
+            case 9 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 3, 1, 0, 0, 0, 0};
+            }
+            case 10 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 2, 0, 0, 0, 0};
+            }
+            case 11, 12 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 2, 1, 0, 0, 0};
+            }
+            case 13, 14 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 2, 1, 1, 0, 0};
+            }
+            case 15, 16 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 2, 1, 1, 1, 0};
+            }
+            case 17 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 2, 1, 1, 1, 1};
+            }
+            case 18 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 3, 1, 1, 1, 1};
+            }
+            case 19 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 3, 2, 1, 1, 1};
+            }
+            case 20 -> {
+                spellSlots = new int[]{4, 4, 3, 3, 3, 3, 2, 2, 1, 1};
+            }
+        }
+
+    }
+
+    @Override
+    public void lvlUp() {
+        classLvl++;
+
+        switch (classLvl) {
+            case 1 ->{features.add(Database.Features.BARDIC_INSPIRATION.feature);
+            }
+            case 2 ->{
+                features.add(Database.Features.JACK_OF_ALL_TRADES.feature);
+                features.add(Database.Features.SONG_OF_REST.feature);
+            }
+            case 3 ->{
+                chooseSubclass();
+                subclass.lvlUpTo(classLvl);
+                features.add(Database.Features.EXPERTISE.feature);
+            }
+            case 4,8,12,16,19 ->abilityScoreImprovement();
+            case 5 ->features.add(Database.Features.FONT_OF_INSPIRATION.feature);
+            case 6 ->{features.add(Database.Features.COUNTERCHARM.feature);subclass.lvlUpTo(classLvl);}
+            case 10 ->features.add(Database.Features.MAGICAL_SECRETS.feature);
+            case 14 ->{subclass.lvlUpTo(classLvl);
+            }
+            case 20 ->features.add(Database.Features.SUPERIOR_INSPIRATION.feature);
+        }
+        magicalLvlUpTo(classLvl);
+    }
+
+    @Override
+    public void initPossibleSubclasses() {
+
+    }
 }
 
 
-
+/*
 class Cleric extends PlayerClass{
 
 }
@@ -183,7 +313,6 @@ class Fighter extends PlayerClass{
     public Fighter() {
         super();
         name = "Fighter";
-        classLvl = 0;
         hitDie = 10;
         savingThrowProf.add(Ability.STRENGTH);
         savingThrowProf.add(Ability.CONSTITUTION);
@@ -200,17 +329,29 @@ class Fighter extends PlayerClass{
 
         //TODO Add Martial Versatility Option to all Ability Score Lvls
         switch (classLvl){
-            case 1  -> {features.add(Database.Features.FIGHTING_STYLE.feature);  features.add(Database.Features.SECOND_WIND.feature);}
-            case 2  -> features.add(Database.Features.ACTION_SURGE.feature);
-            case 3  -> chooseSubclass();
-            case 4, 19, 16, 14, 12, 8, 6 -> abilityScoreImprovement();
-            case 5  -> features.add(Database.Features.FIGHTER_EXTRA_ATTACK.feature);
-            case 7, 15, 10, 18 -> subclass.lvlUpTo(classLvl);
-            case 9  -> features.add(Database.Features.INDOMITABLE.feature);
-            case 11 -> {/* Already added at lvl 5 */}
-            case 13 -> {/* Already added at lvl 9 */}
-            case 17 -> {/* Already added at lvl 2 and 9 */}
-            case 20 -> {/* Already added at lvl 5 */}
+            case 1  -> {features.add(Database.Features.FIGHTING_STYLE.feature);  features.add(Database.Features.SECOND_WIND.feature);
+            }
+            case 2 -> {
+                features.add(Database.Features.ACTION_SURGE.feature);
+            }
+            case 3 -> {
+                chooseSubclass();
+            }
+            case 4, 19, 16, 14, 12, 8, 6 -> {
+                abilityScoreImprovement();
+            }
+            case 5 -> {
+                features.add(Database.Features.FIGHTER_EXTRA_ATTACK.feature);
+            }
+            case 7, 15, 10, 18 -> {
+                subclass.lvlUpTo(classLvl);
+            }
+            case 9 -> {
+                features.add(Database.Features.INDOMITABLE.feature);
+            }
+            case 11, 20, 17, 13 -> {/* Already added at lvl 5 */}
+            /* Already added at lvl 9 */
+            /* Already added at lvl 2 and 9 */
         }
 
     }

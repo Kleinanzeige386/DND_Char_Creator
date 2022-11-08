@@ -6,11 +6,21 @@ public abstract class subFighter extends Subclass {
 
     public void lvlUpTo(int n) {
         switch (n) {
-            case 3 -> addLVL3Features();
-            case 7 -> addLVL7Features();
-            case 10 -> addLVL10Features();
-            case 15 -> addLVL15Features();
-            case 18 -> addLVL18Features();
+            case 3 -> {
+                addLVL3Features();
+            }
+            case 7 -> {
+                addLVL7Features();
+            }
+            case 10 -> {
+                addLVL10Features();
+            }
+            case 15 -> {
+                addLVL15Features();
+            }
+            case 18 -> {
+                addLVL18Features();
+            }
         }
         if(this instanceof Magical){  ((Magical) this).magicalLvlUpTo(n);}
     }
@@ -289,13 +299,26 @@ class Eldritch_Knight extends subFighter implements Magical{
     @Override
     public void magicalLvlUpTo(int level) {
         switch(level) {
-            case 3  ->spellSlots = new int[]{2, 2, 0, 0, 0, 0, 0, 0, 0, 0};
-            case 4, 6, 5 ->spellSlots = new int[]{2, 3, 0, 0, 0, 0, 0, 0, 0, 0};
-            case 7, 8, 9 ->spellSlots = new int[]{2, 4, 2, 0, 0, 0, 0, 0, 0, 0};
-            case 10, 11, 12 ->spellSlots = new int[]{3, 4, 3, 0, 0, 0, 0, 0, 0, 0};
-            case 13, 14, 15 ->spellSlots = new int[]{3, 4, 3, 2, 0, 0, 0, 0, 0, 0};
-            case 16, 17, 18 ->spellSlots = new int[]{3, 4, 3, 3, 0, 0, 0, 0, 0, 0};
-            case 19, 20 ->spellSlots = new int[]{3, 4, 3, 3, 1, 0, 0, 0, 0, 0};
+            case 3  ->{spellSlots = new int[]{2, 2, 0, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 4, 6, 5 -> {
+                spellSlots = new int[]{2, 3, 0, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 7, 8, 9 -> {
+                spellSlots = new int[]{2, 4, 2, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 10, 11, 12 -> {
+                spellSlots = new int[]{3, 4, 3, 0, 0, 0, 0, 0, 0, 0};
+            }
+            case 13, 14, 15 -> {
+                spellSlots = new int[]{3, 4, 3, 2, 0, 0, 0, 0, 0, 0};
+            }
+            case 16, 17, 18 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 0, 0, 0, 0, 0, 0};
+            }
+            case 19, 20 -> {
+                spellSlots = new int[]{3, 4, 3, 3, 1, 0, 0, 0, 0, 0};
+            }
 
 
         }
