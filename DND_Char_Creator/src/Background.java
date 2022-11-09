@@ -32,7 +32,7 @@ class Acolyte extends Background{
         items.add("Holy Symbol");
         items.add("Prayer Book or Prayer Wheel");
         items.add("5 sticks of incense");
-        items.add("vestmens");
+        items.add("vestments");
         items.add("Common clothes");
 
         coins[3]= 15;

@@ -8,7 +8,7 @@ public class Database {
         BREATH_WEAPON("Breath Weapon" ,"You can use your action to exhale destructive energy. It deals damage in an area according to your ancestry. When you use your breath weapon, all creatures in the area must make a saving throw, the type of which is determined by your ancestry. The DC of this saving throw is 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increase to 3d6 at 6th level, 4d6 at 11th, and 5d6 at 16th level. After using your breath weapon, you cannot use it again until you complete a short or long rest." ),
         DRAGON_BORN_RESISTANCE("Damage Resistance" ,"You have resistance to the damage type associated with your ancestry." ),
         DRACONIC_ANCESTRY("Draconic Ancestry","You are distantly related to a particular kind of dragon. Choose a type of dragon from the below list; this determines the damage and area of your breath weapon, and the type of resistance you gain."),
-        FIGHTING_STYLE("Fighting Style", """
+        FIGHTER_FIGHTING_STYLE("Fighting Style", """
                 You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.
                 Archery. You gain a +2 bonus to attack rolls you make with ranged weapons.
                 Blind Fighting. You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
@@ -790,14 +790,120 @@ public class Database {
                 You can't cast spells, and your ability to speak or take any action that requires hands is limited to the capabilities of your beast form. Transforming doesn't break your concentration on a spell you've already cast, however, or prevent you from taking actions that are part of a spell, such as Call Lightning, that you've already cast.
                 You retain the benefit of any features from your class, race, or other source and can use them if the new form is physically capable of doing so. However, you can't use any of your special senses, such as darkvision, unless your new form also has that sense.
                 You choose whether your equipment falls to the ground in your space, merges into your new form, or is worn by it. Worn equipment functions as normal, but the DM decides whether it is practical for the new form to wear a piece of equipment, based on the creature's shape and size. Your equipment doesn't change size or shape to match the new form, and any equipment that the new form can't wear must either fall to the ground or merge with it. Equipment that merges with the form has no effect until you leave the form.""" ), 
-        TIMELESS_BODY("Timeless Body", """
+        DRUID_TIMELESS_BODY("Timeless Body", """
                 Starting at 18th level, the primal magic that you wield causes you to age more slowly. For every 10 years that pass, your body ages only 1 year.""" ),
         BEAST_SPELLS("Beast Spells", """
                 Beginning at 18th level, you can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while in a beast shape, but you aren't able to provide material components.""" ),
         ARCHDRUID("Archdruid", """
                 At 20th level, you can use your Wild Shape an unlimited number of times.
                                 
-                Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.""" );
+                Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.""" ),
+
+
+        //Base Monk
+        MONK_UNARMORED_DEFENSE("Unarmored Defense", """
+                Beginning at 1st level, while you are wearing no armor and not wielding a shield, your AC equals 10 + your Dexterity modifier + your Wisdom modifier.""" ),
+        MARTIAL_ARTS("Martial Arts", """
+                At 1st level, your practice of martial arts gives you mastery of combat styles that use unarmed strikes and monk weapons, which are shortswords and any simple melee weapons that don't have the two-handed or heavy property.
+                                
+                You gain the following benefits while you are unarmed or wielding only monk weapons and you aren't wearing armor or wielding a shield:
+                                
+                You can use Dexterity instead of Strength for the attack and damage rolls of your unarmed strikes and monk weapons.
+                You can roll a d4 in place of the normal damage of your unarmed strike or monk weapon. This die changes as you gain monk levels, as shown in the Martial Arts column of the Monk table.
+                When you use the Attack action with an unarmed strike or a monk weapon on your turn, you can make one unarmed strike as a bonus action. For example, if you take the Attack action and attack with a quarterstaff, you can also make an unarmed strike as a bonus action, assuming you haven't already taken a bonus action this turn.
+                Certain monasteries use specialized forms of the monk weapons. For example, you might use a club that is two lengths of wood connected by a short chain (called a nunchaku) or a sickle with a shorter, straighter blade (called a kama). Whatever name you use for a monk weapon, you can use the game statistics provided for the weapon on the Weapons page.""" ),
+        KI("KI", """
+                Starting at 2nd level, your training allows you to harness the mystic energy of ki. Your access to this energy is represented by a number of ki points. Your monk level determines the number of points you have, as shown in the Ki Points column of the Monk table.
+                                
+                You can spend these points to fuel various ki features. You start knowing three such features: Flurry of Blows, Patient Defense, and Step of the Wind. You learn more ki features as you gain levels in this class.
+                                
+                When you spend a ki point, it is unavailable until you finish a short or long rest, at the end of which you draw all of your expended ki back into yourself. You must spend at least 30 minutes of the rest meditating to regain your ki points.
+                                
+                Some of your ki features require your target to make a saving throw to resist the feature's effects. The saving throw DC is calculated as follows:
+                                
+                Ki save DC = 8 + your proficiency bonus + your Wisdom modifier
+                                
+                Flurry of Blows. Immediately after you take the Attack action on your turn, you can spend 1 ki point to make two unarmed strikes as a bonus action.
+                Patient Defense. You can spend 1 ki point to take the Dodge action as a bonus action on your turn.
+                Step of the Wind. You can spend 1 ki point to take the Disengage or Dash action as a bonus action on your turn, and your jump distance is doubled for the turn.""" ),
+        UNARMORED_MOVEMENT("Unarmored Movement", """
+                Starting at 2nd level, your speed increases by 10 feet while you are not wearing armor or wielding a shield. This bonus increases when you reach certain monk levels, as shown in the Monk table.
+                                
+                At 9th level, you gain the ability to move along vertical surfaces and across liquids on your turn without falling during the move.""" ),
+        DEFLECT_MISSILES("Deflect Missiles", """
+                Starting at 3rd level, you can use your reaction to deflect or catch the missile when you are hit by a ranged weapon attack. When you do so, the damage you take from the attack is reduced by 1d10 + your Dexterity modifier + your monk level.
+                                
+                If you reduce the damage to 0, you can catch the missile if it is small enough for you to hold in one hand and you have at least one hand free. If you catch a missile in this way, you can spend 1 ki point to make a ranged attack with a range of 20/60 using the weapon or piece of ammunition you just caught, as part of the same reaction. You make this attack with proficiency, regardless of your weapon proficiencies, and the missile counts as a monk weapon for the attack.""" ),
+        SLOW_FALL("Slow Fall", """
+                Beginning at 4th level, you can use your reaction when you fall to reduce any falling damage you take by an amount equal to five times your monk level.""" ),
+        MONK_EXTRA_ATTACK("Extra Attack", """
+                Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.""" ),
+        STUNNING_STRIKE("Stunning Strike", """
+                Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.""" ),
+        KI_EMPOWERED_STRIKES("Ki-Empowered Strikes", """
+                Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.""" ),
+        EVASION("Evasion", """
+                At 7th level, your instinctive agility lets you dodge out of the way of certain area effects, such as a blue dragon's lightning breath or a fireball spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.""" ),
+        STILLNESS_OF_MIND("Stilness of Mind", """
+                Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened""" ),
+        PURITY_OF_BODY("Purity of Body", """
+                At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.""" ),
+        TONGUE_OF_THE_SUN_AND_MOON("Tongue of the Sun and Moon", """
+                Starting at 13th level, you learn to touch the ki of other minds so that you understand all spoken languages. Moreover, any creature that can understand a language can understand what you say.""" ),
+        DIAMOND_SOUL("Diamond Soul", """
+                Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws.
+                                
+                Additionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.""" ), 
+        MONK_TIMELESS_BODY("Timeless Body", """
+                At 15th level, your ki sustains you so that you suffer none of the frailty of old age, and you can't be aged magically. You can still die of old age, however. In addition, you no longer need food or water.""" ),
+        EMPTY_BODY("Empty Body", """
+                Beginning at 18th level, you can use your action to spend 4 ki points to become invisible for 1 minute. During that time, you also have resistance to all damage but force damage.
+                                
+                Additionally, you can spend 8 ki points to cast the astral projection spell, without needing material components. When you do so, you can't take any other creatures with you.""" ),
+        PERFECT_SELF("Perfect Self", """
+                At 20th level, when you roll for initiative and have no ki points remaining, you regain 4 ki points.""" ),
+        DIVINE_SENSE("Divine Sense", """
+                The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the Hallow spell.
+                                
+                You can use this feature a number of times equal to 1 + your Charisma modifier. When you finish a long rest, you regain all expended uses.""" ),
+        LAY_ON_HANDS("Lay on Hands", """
+                Your blessed touch can heal wounds. You have a pool of healing power that replenishes when you take a long rest. With that pool, you can restore a total number of hit points equal to your paladin level x 5.
+                                
+                As an action, you can touch a creature and draw power from the pool to restore a number of hit points to that creature, up to the maximum amount remaining in your pool.
+                                
+                Alternatively, you can expend 5 hit points from your pool of healing to cure the target of one disease or neutralize one poison affecting it. You can cure multiple diseases and neutralize multiple poisons with a single use of Lay on Hands, expending hit points separately for each one.
+                                
+                This feature has no effect on undead and constructs.""" ),
+        PALADIN_FIGHTING_STYLE("Fighting Style", """
+                Starting at 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.
+                                
+                Blessed Warrior. You learn two cantrips of your choice from the cleric spell list. They count as paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a level in this class, you can replace one of these cantrips with another cantrip from the cleric spell list.
+                Blind Fighting. You have blindsight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
+                Defense. While you are wearing armor, you gain a +1 bonus to AC.
+                Dueling. When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+                Great Weapon Fighting. When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+                Interception. When a creature you can see hits a target, other than you, within 5 feet of you with an attack, you can use your reaction to reduce the damage the target takes by 1d10 + your proficiency bonus (to a minimum of 0 damage). You must be wielding a shield or a simple or martial weapon to use this reaction.
+                Protection. When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield."""),
+        DIVINE_SMITE("Divine Smite", """
+                Starting at 2nd level, when you hit a creature with a melee weapon attack, you can expend one spell slot to deal radiant damage to the target, in addition to the weapon's damage. The extra damage is 2d8 for a 1st-level spell slot, plus 1d8 for each spell level higher than 1st, to a maximum of 5d8. The damage increases by 1d8 if the target is an undead or a fiend, to a maximum of 6d8."""),
+        DIVINE_HEALTH("Divine Health", """
+                By 3rd level, the divine magic flowing through you makes you immune to disease.""" ),
+        PALADIN_EXTRA_ATTACK("Extra Attack", """
+                Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.""" ),
+        AURA_OF_PROTECTION("Aura of Protection", """
+                Starting at 6th level, whenever you or a friendly creature within 10 feet of you must make a saving throw, the creature gains a bonus to the saving throw equal to your Charisma modifier (with a minimum bonus of +1). You must be conscious to grant this bonus.
+                                
+                At 18th level, the range of this aura increases to 30 feet.""" ),
+        AURA_OF_COURAGE("Aura of Courage", """
+                Starting at 10th level, you and friendly creatures within 10 feet of you can't be frightened while you are conscious.
+                                
+                At 18th level, the range of this aura increases to 30 feet.""" ), 
+        IMPROVED_DIVINE_SMITE("Improved Divine Smite", """
+                By 11th level, you are so suffused with righteous might that all your melee weapon strikes carry divine power with them. Whenever you hit a creature with a melee weapon, the creature takes an extra 1d8 radiant damage.""" ),
+        CLEANSING_TOUCH("Cleansing Touch", """
+                Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
+                                
+                You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.""" );
 
 
 
