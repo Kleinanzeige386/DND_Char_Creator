@@ -160,7 +160,7 @@ class Barbarian extends PlayerClass{
     @Override
     public void buildClass() {
 
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
     }
 
 
@@ -258,7 +258,7 @@ class Bard extends PlayerClass implements Magical{
     @Override
     public void buildClass() {
 
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill(),chooseSkill()});
+        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill(),chooseSkill()));
     }
 }
 
@@ -355,7 +355,7 @@ class Cleric extends PlayerClass implements Magical{
     @Override
     public void buildClass() {
 
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
     }
 }
 
@@ -451,7 +451,7 @@ class Druid extends PlayerClass implements Magical{
 
     @Override
     public void buildClass() {
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
     }
 }
 
@@ -510,7 +510,7 @@ class Fighter extends PlayerClass{
 
     @Override
     public void buildClass() {
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
     }
 }
 

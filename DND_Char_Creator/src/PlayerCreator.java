@@ -151,7 +151,27 @@ public class PlayerCreator {
         newPlayer.speed = newPlayer.race.speed;
         newPlayer.AC = 10+ newPlayer.abilities[1].modifier;
         mergeFeatures();
+        mergeProficiencies();
         mergeBackground();
+    }
+
+    private void mergeProficiencies() {
+
+        for (int i=0; i<newPlayer.playerClass.skillProf.size(); i++) {
+            for (int j=0;j<newPlayer.skills.length;j++) {
+                if(newPlayer.skills[j].skill == newPlayer.playerClass.skillProf.get(i)){
+                    newPlayer.skills[j].prof = true;
+                }
+            }
+        }
+
+        for (int i=0; i<newPlayer.playerClass.savingThrowProf.size(); i++){
+            for (int j=0;j<newPlayer.abilities.length;j++) {
+                if(newPlayer.abilities[j].name == newPlayer.playerClass.savingThrowProf.get(i)){
+                    newPlayer.abilities[j].proficient = true;
+                }
+            }
+        }
     }
 
     private void mergeBackground() {
@@ -241,6 +261,7 @@ public class PlayerCreator {
 
     private void generateClass() {
         newPlayer.playerClass= (PlayerClass) IOManager.getNamedArrayElement(Prompts.ChooseClass.toString(),Database.playerClasses.toArray());
+        newPlayer.playerClass.buildClass();
         newPlayer.playerClass.lvlUPTo(newPlayer.lvl);
     }
 

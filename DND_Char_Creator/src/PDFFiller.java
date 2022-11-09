@@ -64,7 +64,12 @@ public class PDFFiller {
         writeInventory();
 
         writeFeatures();
+        
+        writeSpellslots();
 
+    }
+
+    private static void writeSpellslots() {
     }
 
     private static void writeFeatures() throws IOException {
@@ -164,6 +169,15 @@ public class PDFFiller {
 
             return temp;
         }
+    private static int[] getSkillProfPositions(){
+        int[] temp = new int[18];
+
+        for (int i=0; i<18; i++){
+            temp[i] = 74+i;
+        }
+
+        return temp;
+    }
     private static void writeSingleSkill(int profButton, int valueField, Skill skill) throws IOException {
         if (!skill.prof){
             field.get(profButton).setValue("Off");
