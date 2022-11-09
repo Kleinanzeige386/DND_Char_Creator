@@ -59,7 +59,7 @@ public class IOManager {
 
 
     public static <T> T getArrayElement(String prompt,T[] arr) {
-        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n")-1];
+        return arr[getInt(prompt+" [1-"+arr.length+"]   \n\n"+arrToString(arr)+"\n",arr.length)-1];
     }
 
     public static <T> T getNamedArrayElement(String prompt,T[] arr) {
@@ -69,7 +69,7 @@ public class IOManager {
 
 
     public static <T> int getArrayIndex(String prompt,T[] arr) {
-        return getInt(prompt+" [1-"+arr.length+"]"+arrToString(arr)+"\n")-1;
+        return getInt(prompt+" [1-"+arr.length+"]"+arrToString(arr)+"\n",arr.length)-1;
     }
 
 
