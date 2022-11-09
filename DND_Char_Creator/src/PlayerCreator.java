@@ -48,15 +48,9 @@ public class PlayerCreator {
     private void getAbilities() {
         int input =IOManager.getArrayIndex(Prompts.AbilityGeneration.text,new String[]{"Standard Array","Point Buy","Dice Rolling"});
         switch (input) {
-            case 0 -> {
-                abilityStandardArray();
-            }
-            case 1 -> {
-                abilityPointBuy();
-            }
-            case 2 -> {
-                abilityRoll();
-            }
+            case 0 -> abilityStandardArray();
+            case 1 -> abilityPointBuy();
+            case 2 -> abilityRoll();
         }
         calculateModifiers();
     }
@@ -208,24 +202,12 @@ public class PlayerCreator {
     private int getCastingAbilityModifier() {
         int returnModifier= 0;
         switch (newPlayer.spellcastingAbility){
-            case STRENGTH -> {
-                returnModifier = newPlayer.abilities[0].modifier;
-            }
-            case DEXTERITY -> {
-                returnModifier = newPlayer.abilities[1].modifier;
-            }
-            case CONSTITUTION -> {
-                returnModifier = newPlayer.abilities[2].modifier;
-            }
-            case INTELLIGENCE -> {
-                returnModifier = newPlayer.abilities[3].modifier;
-            }
-            case WISDOM -> {
-                returnModifier = newPlayer.abilities[4].modifier;
-            }
-            case CHARISMA -> {
-                returnModifier = newPlayer.abilities[5].modifier;
-            }
+            case STRENGTH -> returnModifier = newPlayer.abilities[0].modifier;
+            case DEXTERITY -> returnModifier = newPlayer.abilities[1].modifier;
+            case CONSTITUTION -> returnModifier = newPlayer.abilities[2].modifier;
+            case INTELLIGENCE -> returnModifier = newPlayer.abilities[3].modifier;
+            case WISDOM -> returnModifier = newPlayer.abilities[4].modifier;
+            case CHARISMA -> returnModifier = newPlayer.abilities[5].modifier;
         }
 
         return returnModifier;
@@ -257,7 +239,7 @@ public class PlayerCreator {
         newPlayer.race.buildRace();
     }
 
-    private void generateClass() throws IOException {
+    private void generateClass() {
         newPlayer.playerClass= (PlayerClass) IOManager.getNamedArrayElement(Prompts.ChooseClass.toString(),Database.playerClasses.toArray());
         newPlayer.playerClass.lvlUPTo(newPlayer.lvl);
     }

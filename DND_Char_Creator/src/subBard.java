@@ -6,17 +6,12 @@ public abstract class subBard extends Subclass{
 
     public void lvlUpTo(int n) {
         switch (n) {
-            case 3 -> {
-                addLVL3Features();
-            }
-            case 6 -> {
-                addLVL6Features();
-            }
-            case 14 -> {
-                addLVL14Features();
-            }
+            case 3 -> addLVL3Features();
+            case 6 -> addLVL6Features();
+            case 14 -> addLVL14Features();
 
         }
+        if(this instanceof Magical){  ((Magical) this).magicalLvlUpTo(n);}
     }
 
     abstract void addLVL3Features();
@@ -202,7 +197,7 @@ class Valor extends subBard{
 }
 
 
-
+//Why git no getting this?
 class Whispers extends subBard{
 
     Whispers() {

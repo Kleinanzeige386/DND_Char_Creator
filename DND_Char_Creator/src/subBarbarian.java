@@ -1,18 +1,10 @@
 public abstract class subBarbarian extends Subclass{
     public void lvlUpTo(int n){
         switch(n){
-            case 3 -> {
-                addLVL3Features();
-            }
-            case 6 -> {
-                addLVL6Features();
-            }
-            case 10 -> {
-                addLVL10Features();
-            }
-            case 14 -> {
-                addLVL14Features();
-            }
+            case 3 -> addLVL3Features();
+            case 6 -> addLVL6Features();
+            case 10 -> addLVL10Features();
+            case 14 -> addLVL14Features();
         }
 
         if(this instanceof Magical){  ((Magical) this).magicalLvlUpTo(n);}
