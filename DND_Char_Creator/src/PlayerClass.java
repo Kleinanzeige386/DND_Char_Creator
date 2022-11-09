@@ -92,10 +92,12 @@ public abstract class PlayerClass implements Named {
     }
 
     public void chooseSubclass(){
-        this.subclass = (Subclass) IOManager.getArrayElement(Prompts.chooseSubclass.text,possibleSubclasses.toArray());
+        this.subclass = (Subclass) IOManager.getArrayElement(Prompts.chooseSubclass.text,possibleSubclasses.toArray()); //TODO Maybe use named Array instead
     }
 
     public abstract void initPossibleSubclasses();
+
+    public abstract void buildClass();
 }
 
 
@@ -110,7 +112,6 @@ class Barbarian extends PlayerClass{
         savingThrowProf.add(Ability.STRENGTH);
         savingThrowProf.add(Ability.CONSTITUTION);
         possibleSkills= new Skills[]{Skills.ANIMAL_HANDLING,Skills.ATHLETICS,Skills.INTIMIDATION,Skills.NATURE,Skills.PERCEPTION,Skills.SURVIVAL};
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
     }
 
     @Override
@@ -156,6 +157,12 @@ class Barbarian extends PlayerClass{
         possibleSubclasses.add(new Zealot());
     }
 
+    @Override
+    public void buildClass() {
+
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+    }
+
 
 }
 
@@ -173,7 +180,6 @@ class Bard extends PlayerClass implements Magical{
         savingThrowProf.add(Ability.DEXTERITY);
         savingThrowProf.add(Ability.CHARISMA);
         possibleSkills= Skills.values();
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill(),chooseSkill()});
 
     }
 
@@ -248,6 +254,12 @@ class Bard extends PlayerClass implements Magical{
         possibleSubclasses.add(new Valor());
         possibleSubclasses.add(new Whispers());
     }
+
+    @Override
+    public void buildClass() {
+
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill(),chooseSkill()});
+    }
 }
 
 
@@ -265,7 +277,6 @@ class Cleric extends PlayerClass implements Magical{
         savingThrowProf.add(Ability.CHARISMA);
 
         possibleSkills= new Skills[]{Skills.HISTORY, Skills.INSIGHT, Skills.MEDICINE, Skills.PERSUASION, Skills.RELIGION};
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
 
     }
 
@@ -340,6 +351,12 @@ class Cleric extends PlayerClass implements Magical{
     public void initPossibleSubclasses() {
         //TODO Implement Subclasses
     }
+
+    @Override
+    public void buildClass() {
+
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+    }
 }
 
 
@@ -360,7 +377,7 @@ class Druid extends PlayerClass implements Magical{
         possibleSkills= new Skills[]{Skills.ARCANA,Skills.ANIMAL_HANDLING,Skills.INSIGHT,Skills.MEDICINE,Skills.NATURE,Skills.PERCEPTION,Skills.RELIGION,Skills.SURVIVAL};
 
         toolProf = (ArrayList<String>) Arrays.asList(new String[]{"Herbalism Kit", "Light Armor","Medium Armor", "Shields", "Clubs","Daggers","Darts","Javelins","Maces","Quarterstaffs","Scimitars","Sickles","Slings","Spears"});
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+
 
     }
     @Override
@@ -431,6 +448,11 @@ class Druid extends PlayerClass implements Magical{
     public void initPossibleSubclasses() {
 //TODO Implement Subclasses
     }
+
+    @Override
+    public void buildClass() {
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+    }
 }
 
 
@@ -444,7 +466,7 @@ class Fighter extends PlayerClass{
         savingThrowProf.add(Ability.STRENGTH);
         savingThrowProf.add(Ability.CONSTITUTION);
         possibleSkills= new Skills[]{Skills.ACROBATICS,Skills.ANIMAL_HANDLING,Skills.ATHLETICS,Skills.HISTORY,Skills.INSIGHT,Skills.INTIMIDATION,Skills.PERCEPTION,Skills.SURVIVAL};
-        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
+
     }
 
 
@@ -484,6 +506,11 @@ class Fighter extends PlayerClass{
         possibleSubclasses.add(new Psi_Warrior());
         possibleSubclasses.add(new Rune_Knight());
         possibleSubclasses.add(new Samurai());
+    }
+
+    @Override
+    public void buildClass() {
+        skillProf = (ArrayList<Skills>) Arrays.asList(new Skills[]{chooseSkill(),chooseSkill()});
     }
 }
 

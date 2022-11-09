@@ -8,7 +8,7 @@ public enum Prompts {
     ChooseRace("Choose a Race for your Character: "),
     ChooseClass("Choose a Class for your Character: "),
     DraconicAncestry("Choose a Draconic Ancestry for your Character:"),
-    ChooseSkill("N.A."),
+    ChooseSkill("Choose a Skill you want to be proficient with"),
     AbilityGeneration("Which Method do you want to use to generate your Character's Abilityscores?"),
     chooseAbilityScore("Choose the score you want to assign to "),
     ASI("Which AbiltyScore do you want to improve by 1?"),

@@ -11,10 +11,8 @@
     <node x="-88.04573648544363" y="998.7637952995024">Wild_Magic</node>
     <node x="103.95426351455637" y="1206.7637952995024">Battlerager</node>
     <node x="1172.0100969223436" y="1327.43465940205">PDFFields</node>
-    <node x="430.28881206390685" y="733.3195018229712">Fighter</node>
     <node x="980.3472962522267" y="622.5350330136063">Battle_Master</node>
     <node x="365.4542635145564" y="130.23732643538142">Dragonborn</node>
-    <node x="878.886726671364" y="1441.0408427969692">Samurai</node>
     <node x="565.5093081419791" y="55.62165088380647">Arcane_Archer</node>
     <node x="1261.3467132135856" y="377.8130473823569">Elf</node>
     <node x="1473.7069538266517" y="816.4741349927809">Database.Features</node>
@@ -25,18 +23,21 @@
     <node x="149.00942130693318" y="998.7637952995024">Beast</node>
     <node x="222.4955467575984" y="-32.468283614075226">Ability</node>
     <node x="343.9542635145564" y="1414.7637952995024">Ancestral_Guardian</node>
+    <node x="430.28881206390685" y="733.3195018229712">Fighter</node>
     <node x="1012.9000037387116" y="268.1626154369634">Alignment</node>
     <node x="343.9542635145564" y="1630.9410399364208">Storm_Herald</node>
-    <node x="1461.8153773003578" y="1075.7221741139042">Rune_Knight</node>
     <node x="103.95426351455637" y="1630.9410399364208">Totem_Warrior</node>
+    <node x="1461.8153773003578" y="1075.7221741139042">Rune_Knight</node>
     <node x="691.6840206203163" y="929.6926896693681">Subclass</node>
+    <node x="1471.645266403781" y="1350.2733609014078">Psi_Warrior</node>
+    <node x="878.886726671364" y="1441.0408427969692">Samurai</node>
     <node x="878.9361919651037" y="1185.2637952995024">subFighter</node>
     <node x="103.95426351455637" y="1414.7637952995024">Berserker</node>
     <node x="1471.9197204506968" y="279.10349143411196">Feature</node>
     <node x="579.856643746041" y="1276.4352075887273">PlayerCreator</node>
-    <node x="1471.645266403781" y="1350.2733609014078">Psi_Warrior</node>
     <node x="1051.2346615844945" y="16.792349492672628">Echo_Knight</node>
     <node x="892.7785262905777" y="849.5281080953478">Player</node>
+    <node x="3289.5505068556135" y="3370.760683074105">Barbarian</node>
     <node x="181.12497498053904" y="300.0721354265408">main</node>
     <node x="1223.1755373426774" y="802.759110965707">Database</node>
     <node x="536.4123880188915" y="300.044417020713">Background</node>
@@ -51,6 +52,14 @@
   </nodes>
   <notes />
   <edges>
+    <edge source="Barbarian" target="Battlerager" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Subclass" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
     <edge source="Arcane_Archer" target="subFighter" relationship="GENERALIZATION">
       <point x="-3.081419790760265E-4" y="83.00034911619355" />
       <point x="656.509" y="245.0" />
@@ -60,11 +69,237 @@
       <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
+    <edge source="main" target="main" relationship="DEPENDENCY">
+      <point x="-55.25" y="84.5" />
+      <point x="-39.058686026587566" y="2543.1184793631064" />
+      <point x="-45.058686026587566" y="2549.1184793631064" />
+      <point x="-109.30868602658757" y="2549.1184793631064" />
+      <point x="-115.30868602658757" y="2543.1184793631064" />
+      <point x="-115.30868602658757" y="2491.8684793631064" />
+      <point x="-109.30868602658757" y="2485.8684793631064" />
+      <point x="-110.5" y="42.25" />
+    </edge>
+    <edge source="Totem_Warrior" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Champion" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Samurai" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Subclass" target="PlayerCreator" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Arcane_Archer" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Dragonborn" target="Prompts" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Cavalier" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="Subclass" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Alignment" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="AbilityScore" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database" target="Player" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Dragonborn" target="IOManager" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="AbilityScore" target="Ability" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Ancestral_Guardian" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Ancestral_Guardian" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="0.0" y="-72.0" />
+      <point x="0.0" y="83.0" />
+    </edge>
+    <edge source="PDFFiller" target="PDFFields" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="main" target="IOManager" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Echo_Knight" target="subFighter" relationship="GENERALIZATION">
+      <point x="3.384155056664895E-4" y="82.99965050732737" />
+      <point x="1142.2350000000001" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Database" target="Background" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PDFFiller" target="Magical" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Eldritch_Knight" target="Magical" relationship="REALIZATION">
+      <point x="-93.5" y="0.0" />
+      <point x="394.62497498053904" y="543.8412704003792" />
+      <point x="-91.95282376353714" y="-50.0" />
+    </edge>
+    <edge source="Barbarian" target="PlayerClass" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Race" target="Named" relationship="REALIZATION">
+      <point x="-69.5004801455309" y="-1.74540675402568E-4" />
+      <point x="1198.0" y="611.646" />
+      <point x="1198.0" y="832.028" />
+      <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="Barbarian" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Zealot" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Dragonborn.DragonColor" target="Ability" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Eldritch_Knight" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Subclass" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="Named" relationship="REALIZATION">
+      <point x="110.00008529480056" y="-5.260004079352939" />
+      <point x="1445.0" y="1143.722" />
+      <point x="1445.0" y="699.5" />
+      <point x="1198.0" y="699.5" />
+      <point x="1198.0" y="832.028" />
+      <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="Wild_Magic" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="0.0" y="72.0" />
+      <point x="2.9542635145563736" y="1175.2637952995024" />
+      <point x="404.9542635145564" y="1175.2637952995024" />
+      <point x="-30.0" y="-83.0" />
+    </edge>
+    <edge source="subBarbarian" target="subBarbarian" relationship="DEPENDENCY">
+      <point x="45.5" y="84.5" />
+      <point x="3612.630654014841" y="3321.0145061571175" />
+      <point x="3618.630654014841" y="3327.0145061571175" />
+      <point x="3673.130654014841" y="3327.0145061571175" />
+      <point x="3679.130654014841" y="3321.0145061571175" />
+      <point x="3679.130654014841" y="3269.7645061571175" />
+      <point x="3673.130654014841" y="3263.7645061571175" />
+      <point x="91.0" y="42.25" />
+    </edge>
+    <edge source="subBarbarian" target="Magical" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Cavalier" target="subFighter" relationship="GENERALIZATION">
+      <point x="90.99998422448175" y="4.860656622440729E-4" />
+      <point x="959.0" y="364.779" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Background" target="Feature" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database.Features" target="Feature" relationship="TO_ONE">
+      <point x="-4.874334904506895" y="-1.1139386153224677" />
+      <point x="-4.8743349045068385" y="-1.1139386153224677" />
+    </edge>
+    <edge source="PlayerCreator" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="7.06798657133163" />
+      <point x="7.074153085653506" y="-0.0" />
+    </edge>
+    <edge source="Database" target="PlayerCreator" relationship="DEPENDENCY">
+      <point x="-3.533991941834074" y="-3.53707519782256" />
+      <point x="-3.533991941834074" y="-3.53707519782256" />
+    </edge>
+    <edge source="Player" target="Background" relationship="TO_ONE">
+      <point x="0.0" y="-5.828948143559842" />
+      <point x="-9.727547885832792" y="-0.0" />
+    </edge>
+    <edge source="PDFFiller" target="IOManager" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="PlayerCreator" relationship="DEPENDENCY">
+      <point x="-11.908859624550814" y="-0.0" />
+      <point x="0.0" y="18.41506659172478" />
+    </edge>
+    <edge source="Zealot" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="2.329135897452261" />
+      <point x="404.9542635145564" y="1379.2637952995024" />
+      <point x="-30.0" y="83.0" />
+    </edge>
+    <edge source="Subclass" target="Player" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="PlayerClass" relationship="DEPENDENCY">
+      <point x="-55.0" y="144.5" />
+      <point x="1132.2698917942566" y="4005.4715716661376" />
+      <point x="1126.2698917942566" y="4011.4715716661376" />
+      <point x="1062.2698917942566" y="4011.4715716661376" />
+      <point x="1056.2698917942566" y="4005.4715716661376" />
+      <point x="1056.2698917942566" y="3924.2215716661376" />
+      <point x="1062.2698917942566" y="3918.2215716661376" />
+      <point x="-110.0" y="72.25" />
+    </edge>
+    <edge source="PlayerCreator" target="Player" relationship="CREATE">
+      <point x="0.0" y="-18.415066591724553" />
+      <point x="11.908859624550814" y="-0.0" />
+    </edge>
+    <edge source="Skill" target="Skills" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
     <edge source="Totem_Warrior" target="subBarbarian" relationship="GENERALIZATION">
       <point x="91.0" y="0.0" />
       <point x="318.4542635145564" y="1702.9410399364208" />
       <point x="318.4542635145564" y="1293.7637952995024" />
       <point x="-91.0" y="15.0" />
+    </edge>
+    <edge source="Beast" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.00000000000001" y="-0.5711056301342978" />
+      <point x="419.9542635145564" y="1070.192689669368" />
+      <point x="-15.0" y="-83.0" />
     </edge>
     <edge source="Feature" target="Named" relationship="REALIZATION">
       <point x="-84.99972045069671" y="-4.914341119501842E-4" />
@@ -74,17 +309,19 @@
       <point x="1198.0" y="832.028" />
       <point x="57.00018808827133" y="-9.83115748717978" />
     </edge>
-    <edge source="Beast" target="subBarbarian" relationship="GENERALIZATION">
-      <point x="91.00000000000001" y="-0.5711056301342978" />
-      <point x="419.9542635145564" y="1070.192689669368" />
-      <point x="-15.0" y="-83.0" />
+    <edge source="Fighter" target="Eldritch_Knight" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Subclass" target="Named" relationship="REALIZATION">
-      <point x="-68.71002062031636" y="-62.99968966936808" />
-      <point x="693.4739999999999" y="801.535" />
-      <point x="1198.0" y="801.535" />
-      <point x="1198.0" y="832.028" />
-      <point x="57.00018808827133" y="-9.83115748717978" />
+    <edge source="subFighter" target="subFighter" relationship="DEPENDENCY">
+      <point x="45.5" y="95.5" />
+      <point x="3013.8338248349837" y="3853.910967949064" />
+      <point x="3019.8338248349837" y="3859.910967949064" />
+      <point x="3074.3338248349837" y="3859.910967949064" />
+      <point x="3080.3338248349837" y="3853.910967949064" />
+      <point x="3080.3338248349837" y="3797.160967949064" />
+      <point x="3074.3338248349837" y="3791.160967949064" />
+      <point x="91.0" y="47.75" />
     </edge>
     <edge source="Skill" target="Named" relationship="REALIZATION">
       <point x="-68.00045414793044" y="-2.3200690509384003E-4" />
@@ -99,9 +336,37 @@
       <point x="597.5777987440762" y="1098.2592925153003" />
       <point x="-110.0" y="-50.72271156405259" />
     </edge>
-    <edge source="Dragonborn.DragonColor" target="Dragonborn" relationship="INNER_CLASS">
-      <point x="120.5" y="-10.488976845293394" />
-      <point x="-69.5" y="0.0" />
+    <edge source="Battlerager" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database" target="Race" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Feature" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database" target="Fighter" relationship="CREATE">
+      <point x="-5.00789376086982" y="-0.0" />
+      <point x="-5.007893760869592" y="-2.2737367544323206E-13" />
+    </edge>
+    <edge source="Player" target="Background" relationship="CREATE">
+      <point x="2.57002075892251" y="4.288938481571904" />
+      <point x="2.57002075892251" y="4.288938481571904" />
+    </edge>
+    <edge source="subFighter" target="Magical" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Race" target="AbilityScore" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
     <edge source="Eldritch_Knight" target="subFighter" relationship="GENERALIZATION">
       <point x="93.50020788112533" y="-2.704003792359799E-4" />
@@ -111,33 +376,51 @@
       <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
-    <edge source="Banneret" target="subFighter" relationship="GENERALIZATION">
-      <point x="-90.9998364622113" y="4.212558858398552E-4" />
-      <point x="672.0" y="591.467" />
-      <point x="672.0" y="735.0" />
-      <point x="856.0" y="735.0" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="PlayerCreator" target="PlayerClass" relationship="DEPENDENCY">
+      <point x="0.0" y="6.0732058957603385" />
+      <point x="0.0" y="6.0732058957603385" />
     </edge>
-    <edge source="Database.Features" target="Database" relationship="INNER_CLASS">
-      <point x="-87.5" y="-2.715024027073923" />
-      <point x="80.5" y="0.0" />
+    <edge source="PlayerClass" target="PlayerCreator" relationship="DEPENDENCY">
+      <point x="2.838116456734724" y="-4.116442028987194" />
+      <point x="2.838116456734724" y="-4.116442028987194" />
     </edge>
-    <edge source="Champion" target="subFighter" relationship="GENERALIZATION">
-      <point x="2.045174474005762E-4" y="83.00029580079207" />
-      <point x="899.587" y="245.0" />
-      <point x="959.0" y="245.0" />
-      <point x="959.0" y="750.0" />
-      <point x="856.0" y="750.0" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="Fighter" target="Skills" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Elf" target="Race" relationship="GENERALIZATION">
-      <point x="-69.49971321358566" y="-4.738235691092996E-5" />
-      <point x="1236.0" y="416.813" />
-      <point x="1236.0" y="473.313" />
-      <point x="1309.222" y="473.313" />
-      <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
+    <edge source="PlayerCreator" target="PlayerCreator" relationship="DEPENDENCY">
+      <point x="-59.75" y="329.0" />
+      <point x="467.83541843972375" y="3735.1464224484944" />
+      <point x="461.83541843972375" y="3741.1464224484944" />
+      <point x="393.08541843972375" y="3741.1464224484944" />
+      <point x="387.08541843972375" y="3735.1464224484944" />
+      <point x="387.08541843972375" y="3561.6464224484944" />
+      <point x="393.08541843972375" y="3555.6464224484944" />
+      <point x="-119.5" y="164.5" />
+    </edge>
+    <edge source="Barbarian" target="Totem_Warrior" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Database" relationship="DEPENDENCY">
+      <point x="4.9921186817782655" y="0.2806262051904014" />
+      <point x="4.9921186817782655" y="0.2806262051904014" />
+    </edge>
+    <edge source="Battle_Master" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Psi_Warrior" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Beast" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Champion" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
     <edge source="Dragonborn" target="Race" relationship="GENERALIZATION">
       <point x="-0.7982635145563961" y="-39.000326435381425" />
@@ -149,42 +432,25 @@
       <point x="1309.222" y="473.313" />
       <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
     </edge>
-    <edge source="Ancestral_Guardian" target="subBarbarian" relationship="GENERALIZATION">
-      <point x="0.0" y="-72.0" />
-      <point x="0.0" y="83.0" />
+    <edge source="Magical" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Echo_Knight" target="subFighter" relationship="GENERALIZATION">
-      <point x="3.384155056664895E-4" y="82.99965050732737" />
-      <point x="1142.2350000000001" y="245.0" />
-      <point x="959.0" y="245.0" />
-      <point x="959.0" y="750.0" />
-      <point x="856.0" y="750.0" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="Database" target="Elf" relationship="CREATE">
+      <point x="-5.6137814365188206" y="-0.0" />
+      <point x="-5.6137814365188206" y="-0.0" />
     </edge>
-    <edge source="Eldritch_Knight" target="Magical" relationship="REALIZATION">
-      <point x="-93.5" y="0.0" />
-      <point x="394.62497498053904" y="543.8412704003792" />
-      <point x="-91.95282376353714" y="-50.0" />
+    <edge source="Fighter" target="Psi_Warrior" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Race" target="Named" relationship="REALIZATION">
-      <point x="-69.5004801455309" y="-1.74540675402568E-4" />
-      <point x="1198.0" y="611.646" />
-      <point x="1198.0" y="832.028" />
-      <point x="57.00018808827133" y="-9.83115748717978" />
+    <edge source="Fighter" target="Battle_Master" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="subFighter" target="Subclass" relationship="GENERALIZATION">
-      <point x="-91.0" y="-71.00450278420203" />
-      <point x="808.9351814614982" y="1208.2592925153003" />
-      <point x="46.7511608411819" y="63.0" />
-    </edge>
-    <edge source="PlayerClass" target="Named" relationship="REALIZATION">
-      <point x="110.00008529480056" y="-5.260004079352939" />
-      <point x="1445.0" y="1143.722" />
-      <point x="1445.0" y="699.5" />
-      <point x="1198.0" y="699.5" />
-      <point x="1198.0" y="832.028" />
-      <point x="57.00018808827133" y="-9.83115748717978" />
+    <edge source="PDFFiller" target="Player" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
     <edge source="Storm_Herald" target="subBarbarian" relationship="GENERALIZATION">
       <point x="91.0" y="0.0" />
@@ -192,23 +458,23 @@
       <point x="543.4542635145564" y="1283.9352075887273" />
       <point x="91.0" y="5.171412289224918" />
     </edge>
-    <edge source="subBarbarian" target="Subclass" relationship="GENERALIZATION">
-      <point x="0.0" y="-83.0" />
-      <point x="434.9542635145564" y="1085.192689669368" />
-      <point x="762.1840206203163" y="1085.192689669368" />
-      <point x="0.0" y="61.5" />
-    </edge>
-    <edge source="Wild_Magic" target="subBarbarian" relationship="GENERALIZATION">
-      <point x="0.0" y="72.0" />
-      <point x="2.9542635145563736" y="1175.2637952995024" />
-      <point x="404.9542635145564" y="1175.2637952995024" />
-      <point x="-30.0" y="-83.0" />
-    </edge>
     <edge source="Rune_Knight" target="subFighter" relationship="GENERALIZATION">
       <point x="-91.00037730035774" y="-1.7411390422239492E-4" />
       <point x="1427.597" y="1158.722" />
       <point x="1427.597" y="245.0" />
       <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Barbarian" target="Storm_Herald" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Battle_Master" target="subFighter" relationship="GENERALIZATION">
+      <point x="-91.00029625222669" y="-3.3013606298482046E-5" />
+      <point x="959.0" y="705.535" />
       <point x="959.0" y="750.0" />
       <point x="856.0" y="750.0" />
       <point x="856.0" y="1279.264" />
@@ -222,36 +488,21 @@
       <point x="856.0" y="1279.264" />
       <point x="-91.00019196510368" y="2.0470049753384956E-4" />
     </edge>
-    <edge source="Cavalier" target="subFighter" relationship="GENERALIZATION">
-      <point x="90.99998422448175" y="4.860656622440729E-4" />
-      <point x="959.0" y="364.779" />
-      <point x="959.0" y="750.0" />
-      <point x="856.0" y="750.0" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="Barbarian" target="Berserker" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Battle_Master" target="subFighter" relationship="GENERALIZATION">
-      <point x="-91.00029625222669" y="-3.3013606298482046E-5" />
-      <point x="959.0" y="705.535" />
-      <point x="959.0" y="750.0" />
-      <point x="856.0" y="750.0" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="Database" target="PlayerClass" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Samurai" target="subFighter" relationship="GENERALIZATION">
-      <point x="-90.9997266713641" y="1.5720303076705022E-4" />
-      <point x="856.0" y="1524.041" />
-      <point x="856.0" y="1279.264" />
-      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    <edge source="Fighter" target="Rune_Knight" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
-    <edge source="Battlerager" target="subBarbarian" relationship="GENERALIZATION">
-      <point x="91.0" y="0.0" />
-      <point x="-91.0" y="0.0" />
-    </edge>
-    <edge source="Zealot" target="subBarbarian" relationship="GENERALIZATION">
-      <point x="91.0" y="2.329135897452261" />
-      <point x="404.9542635145564" y="1379.2637952995024" />
-      <point x="-30.0" y="83.0" />
+    <edge source="PlayerClass" target="Skills" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
     </edge>
     <edge source="Berserker" target="subBarbarian" relationship="GENERALIZATION">
       <point x="0.0" y="-72.0" />
@@ -259,8 +510,332 @@
       <point x="419.9542635145564" y="1394.2637952995024" />
       <point x="-15.0" y="83.0" />
     </edge>
+    <edge source="Barbarian" target="Skills" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="Prompts" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="IOManager" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database" target="Dragonborn" relationship="CREATE">
+      <point x="-5.4221901011796945" y="-0.0" />
+      <point x="-5.422190101179609" y="-0.0" />
+    </edge>
+    <edge source="Wild_Magic" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Subclass" target="Named" relationship="REALIZATION">
+      <point x="-68.71002062031636" y="-62.99968966936808" />
+      <point x="693.4739999999999" y="801.535" />
+      <point x="1198.0" y="801.535" />
+      <point x="1198.0" y="832.028" />
+      <point x="57.00018808827133" y="-9.83115748717978" />
+    </edge>
+    <edge source="PlayerCreator" target="Skills" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Beast" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Background" target="Skills" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database.Features" target="Feature" relationship="CREATE">
+      <point x="5.128904863899606" y="-0.0" />
+      <point x="5.128904863899606" y="-0.0" />
+    </edge>
+    <edge source="PDFFiller" target="PDFFiller" relationship="DEPENDENCY">
+      <point x="71.75" y="208.0" />
+      <point x="4030.5801644372623" y="2528.938496876851" />
+      <point x="4036.5801644372623" y="2534.938496876851" />
+      <point x="4117.330164437262" y="2534.938496876851" />
+      <point x="4123.330164437262" y="2528.938496876851" />
+      <point x="4123.330164437262" y="2415.938496876851" />
+      <point x="4117.330164437262" y="2409.938496876851" />
+      <point x="143.5" y="104.0" />
+    </edge>
+    <edge source="Dragonborn.DragonColor" target="Dragonborn" relationship="INNER_CLASS">
+      <point x="120.5" y="-10.488976845293394" />
+      <point x="-69.5" y="0.0" />
+    </edge>
+    <edge source="Rune_Knight" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="main" target="Player" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Dragonborn" target="Database" relationship="DEPENDENCY">
+      <point x="4.610683051219688" y="1.9343220520884188" />
+      <point x="4.610683051219667" y="1.9343220520884188" />
+    </edge>
+    <edge source="Samurai" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Champion" target="subFighter" relationship="GENERALIZATION">
+      <point x="2.045174474005762E-4" y="83.00029580079207" />
+      <point x="899.587" y="245.0" />
+      <point x="959.0" y="245.0" />
+      <point x="959.0" y="750.0" />
+      <point x="856.0" y="750.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="PlayerCreator" target="Prompts" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Elf" target="Race" relationship="GENERALIZATION">
+      <point x="-69.49971321358566" y="-4.738235691092996E-5" />
+      <point x="1236.0" y="416.813" />
+      <point x="1236.0" y="473.313" />
+      <point x="1309.222" y="473.313" />
+      <point x="-4.8014553090069967E-4" y="-63.0001745406754" />
+    </edge>
+    <edge source="main" target="PlayerCreator" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Echo_Knight" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Arcane_Archer" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Zealot" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="Magical" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Banneret" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Eldritch_Knight" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Ability" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="AbilityScore" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="Race" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Cavalier" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Elf" target="AbilityScore" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PDFFiller" target="AbilityScore" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Wild_Magic" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="subBarbarian" target="Subclass" relationship="GENERALIZATION">
+      <point x="0.0" y="-83.0" />
+      <point x="434.9542635145564" y="1085.192689669368" />
+      <point x="762.1840206203163" y="1085.192689669368" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="PlayerCreator" target="IOManager" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Samurai" target="subFighter" relationship="GENERALIZATION">
+      <point x="-90.9997266713641" y="1.5720303076705022E-4" />
+      <point x="856.0" y="1524.041" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="Elf" target="Database" relationship="DEPENDENCY">
+      <point x="4.453326208492854" y="-2.273298414364149" />
+      <point x="4.453326208492854" y="-2.273298414364035" />
+    </edge>
+    <edge source="Dragonborn" target="AbilityScore" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Ancestral_Guardian" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="Alignment" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="IOManager" target="IOManager" relationship="DEPENDENCY">
+      <point x="-65.0" y="172.5" />
+      <point x="1530.4705057036701" y="4158.085565490002" />
+      <point x="1524.4705057036701" y="4164.085565490002" />
+      <point x="1450.4705057036701" y="4164.085565490002" />
+      <point x="1444.4705057036701" y="4158.085565490002" />
+      <point x="1444.4705057036701" y="4062.8355654900024" />
+      <point x="1450.4705057036701" y="4056.8355654900024" />
+      <point x="-130.0" y="86.25" />
+    </edge>
+    <edge source="main" target="PDFFiller" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Dragonborn" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Echo_Knight" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Elf" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Skills" target="Ability" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Race" target="Feature" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Player" relationship="DEPENDENCY">
+      <point x="-57.0" y="95.5" />
+      <point x="53.814632134991825" y="2857.1798634956303" />
+      <point x="47.814632134991825" y="2863.1798634956303" />
+      <point x="-18.185367865008175" y="2863.1798634956303" />
+      <point x="-24.185367865008175" y="2857.1798634956303" />
+      <point x="-24.185367865008175" y="2800.4298634956303" />
+      <point x="-18.185367865008175" y="2794.4298634956303" />
+      <point x="-114.0" y="47.75" />
+    </edge>
+    <edge source="Berserker" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Race" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerCreator" target="Skill" relationship="CREATE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Banneret" target="subFighter" relationship="GENERALIZATION">
+      <point x="-90.9998364622113" y="4.212558858398552E-4" />
+      <point x="672.0" y="591.467" />
+      <point x="672.0" y="735.0" />
+      <point x="856.0" y="735.0" />
+      <point x="856.0" y="1279.264" />
+      <point x="-91.00019196510368" y="2.0470049753384956E-4" />
+    </edge>
+    <edge source="PlayerClass" target="Feature" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database.Features" target="Database" relationship="INNER_CLASS">
+      <point x="-87.5" y="-2.715024027073923" />
+      <point x="80.5" y="0.0" />
+    </edge>
+    <edge source="PlayerClass" target="Ability" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="IOManager" target="Named" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PDFFiller" target="PlayerClass" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Barbarian" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Database" target="Database" relationship="DEPENDENCY">
+      <point x="42.75" y="-73.5" />
+      <point x="3411.0010981351425" y="464.4569410181168" />
+      <point x="3417.0010981351425" y="458.4569410181168" />
+      <point x="3468.7510981351425" y="458.4569410181168" />
+      <point x="3474.7510981351425" y="464.4569410181168" />
+      <point x="3474.7510981351425" y="510.2069410181168" />
+      <point x="3468.7510981351425" y="516.2069410181168" />
+      <point x="85.5" y="-36.75" />
+    </edge>
+    <edge source="PlayerCreator" target="Player" relationship="TO_ONE">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="PlayerClass" target="Player" relationship="TO_ONE">
+      <point x="3.5724457860241046" y="-3.498232568872254" />
+      <point x="3.5724457860242183" y="-3.498232568872254" />
+    </edge>
+    <edge source="Player" target="PlayerClass" relationship="TO_ONE">
+      <point x="-6.99800682708883" y="-0.0" />
+      <point x="0.0" y="7.146465967544373" />
+    </edge>
+    <edge source="Dragonborn" target="Dragonborn.DragonColor" relationship="TO_ONE">
+      <point x="4.090774090732012" y="2.8749899719121004" />
+      <point x="4.090774090732111" y="2.874989971912214" />
+    </edge>
+    <edge source="subFighter" target="Subclass" relationship="GENERALIZATION">
+      <point x="-91.0" y="-71.00450278420203" />
+      <point x="808.9351814614982" y="1208.2592925153003" />
+      <point x="46.7511608411819" y="63.0" />
+    </edge>
+    <edge source="PDFFiller" target="Skill" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Fighter" target="Ability" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Player" target="Skill" relationship="TO_MANY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Storm_Herald" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Banneret" target="Database" relationship="DEPENDENCY">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="Battlerager" target="subBarbarian" relationship="GENERALIZATION">
+      <point x="91.0" y="0.0" />
+      <point x="-91.0" y="0.0" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Compact" zoom="0.32097560975609757" showDependencies="false" x="1508.7294832826747" y="1241.1352583586627" />
+  <settings layout="Circular" zoom="0.15440487347703843" showDependencies="true" x="2519.0" y="2051.0" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
