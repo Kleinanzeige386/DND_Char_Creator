@@ -65,11 +65,22 @@ public class PDFFiller {
 
         writeFeatures();
         
-        writeSpellslots();
+        if (player.playerClass instanceof Magical)writeSpellslots();
 
     }
 
-    private static void writeSpellslots() {
+    private static void writeSpellslots() throws IOException {
+        int[] slots = ((Magical)player.playerClass).getSpellSlots();
+        field.get(PDFFields.SlotsTotal_19.value).setValue(String.valueOf(slots[1]));
+        field.get(PDFFields.SlotsTotal_20.value).setValue(String.valueOf(slots[2]));
+        field.get(PDFFields.SlotsTotal_21.value).setValue(String.valueOf(slots[3]));
+        field.get(PDFFields.SlotsTotal_22.value).setValue(String.valueOf(slots[4]));
+        field.get(PDFFields.SlotsTotal_23.value).setValue(String.valueOf(slots[5]));
+        field.get(PDFFields.SlotsTotal_24.value).setValue(String.valueOf(slots[6]));
+        field.get(PDFFields.SlotsTotal_25.value).setValue(String.valueOf(slots[7]));
+        field.get(PDFFields.SlotsTotal_26.value).setValue(String.valueOf(slots[8]));
+        field.get(PDFFields.SlotsTotal_27.value).setValue(String.valueOf(slots[9]));
+
     }
 
     private static void writeFeatures() throws IOException {
@@ -169,15 +180,6 @@ public class PDFFiller {
 
             return temp;
         }
-    private static int[] getSkillProfPositions(){
-        int[] temp = new int[18];
-
-        for (int i=0; i<18; i++){
-            temp[i] = 74+i;
-        }
-
-        return temp;
-    }
     private static void writeSingleSkill(int profButton, int valueField, Skill skill) throws IOException {
         if (!skill.prof){
             field.get(profButton).setValue("Off");

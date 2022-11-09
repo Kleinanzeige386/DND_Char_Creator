@@ -38,7 +38,8 @@ public class PlayerCreator {
     }
 
     private void generateBackgound() {
-        //TODO Implement
+
+        newPlayer.background = (Background) IOManager.getNamedArrayElement(Prompts.ChooseBackground.text, Database.backgrounds.toArray());
     }
 
     private void generateAlignment(){
@@ -172,10 +173,23 @@ public class PlayerCreator {
                 }
             }
         }
+
+        for (int i=0; i<newPlayer.background.proficiencies.size(); i++){
+            for (int j=0;j<newPlayer.skills.length;j++) {
+                if(newPlayer.skills[j].skill == newPlayer.background.proficiencies.get(i)){
+                    newPlayer.skills[j].prof = true;
+                }
+            }
+        }
     }
 
     private void mergeBackground() {
-        //TODO Implement
+        for (int i=0; i<newPlayer.coins.length; i++) {
+            newPlayer.coins[i]+= newPlayer.background.coins[i];
+        }
+        newPlayer.languages.addAll(newPlayer.background.languages);
+        newPlayer.features.addAll(newPlayer.background.features);
+        newPlayer.inventory.addAll(newPlayer.background.items);
     }
 
     private void mergeFeatures() {

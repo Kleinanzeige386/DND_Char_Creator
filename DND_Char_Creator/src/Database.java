@@ -831,6 +831,8 @@ public class Database {
     private static void initBackgrounds() {
         backgrounds = new ArrayList<>();
 
+        backgrounds.add(new Acolyte());
+
     }
 
 
