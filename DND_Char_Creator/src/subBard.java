@@ -5,6 +5,7 @@ public abstract class subBard extends Subclass{
     }
 
     public void lvlUpTo(int n) {
+        identifier = "College of ";
         switch (n) {
             case 3 -> addLVL3Features();
             case 6 -> addLVL6Features();

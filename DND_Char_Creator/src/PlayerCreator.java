@@ -9,7 +9,7 @@ public class PlayerCreator {
         initAll();
     }
 
-    public Player createNewPlayer() throws IOException {
+    public Player createNewPlayer() {
 
 
        newPlayer.name = IOManager.getString(Prompts.PlayerName.toString());

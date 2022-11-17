@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class main {
     private static Player player;
+    @SuppressWarnings("MethodNameSameAsClassName")
     public static void main(String[] args) throws IOException {
 
 

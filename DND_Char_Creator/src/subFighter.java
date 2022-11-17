@@ -5,6 +5,7 @@ public abstract class subFighter extends Subclass {
     }
 
     public void lvlUpTo(int n) {
+        identifier = "";
         switch (n) {
             case 3 -> addLVL3Features();
             case 7 -> addLVL7Features();

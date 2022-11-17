@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+
+
 public class Database {
     public enum Features {
         DARKVISION("Darkvision","You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."),
@@ -294,7 +296,7 @@ public class Database {
                 By 7th level, your instincts are so honed that you have advantage on initiative rolls.
                                 
                 Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.""" ),
-        BRUTAL_CRITICAL("Brutal Criticla", """
+        BRUTAL_CRITICAL("Brutal Critical", """
                 Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.
                                 
                 This increases to two additional dice at 13th level and three additional dice at 17th level.""" ),
@@ -842,7 +844,7 @@ public class Database {
                 Starting at 5th level, you can interfere with the flow of ki in an opponent's body. When you hit another creature with a melee weapon attack, you can spend 1 ki point to attempt a stunning strike. The target must succeed on a Constitution saving throw or be stunned until the end of your next turn.""" ),
         KI_EMPOWERED_STRIKES("Ki-Empowered Strikes", """
                 Starting at 6th level, your unarmed strikes count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.""" ),
-        EVASION("Evasion", """
+        MONK_EVASION("Evasion", """
                 At 7th level, your instinctive agility lets you dodge out of the way of certain area effects, such as a blue dragon's lightning breath or a fireball spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.""" ),
         STILLNESS_OF_MIND("Stilness of Mind", """
                 Starting at 7th level, you can use your action to end one effect on yourself that is causing you to be charmed or frightened""" ),
@@ -903,7 +905,182 @@ public class Database {
         CLEANSING_TOUCH("Cleansing Touch", """
                 Beginning at 14th level, you can use your action to end one spell on yourself or on one willing creature that you touch.
                                 
-                You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.""" );
+                You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain expended uses when you finish a long rest.""" ),
+
+
+        //Base Ranger
+        FAVORED_ENEMY("Favored Enemy", """
+                Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.
+                                
+                Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.
+                                
+                You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.
+                                
+                When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.
+                                
+                You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.""" ),
+        NATURAL_EXPLORER("Natural Explorer", """
+                Also at 1st level, you are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp, or the Underdark. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you’re proficient in.
+                                
+                While traveling for an hour or more in your favored terrain, you gain the following benefits:
+                                
+                Difficult terrain doesn’t slow your group’s travel.
+                Your group can’t become lost except by magical means.
+                Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.
+                If you are traveling alone, you can move stealthily at a normal pace.
+                When you forage, you find twice as much food as you normally would.
+                While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.
+                You choose additional favored terrain types at 6th and 10th level.""" ), 
+        RANGER_FIGHTING_STYLE("Fighting Style", """
+                At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.
+                                
+                Archery. You gain a +2 bonus to attack rolls you make with ranged weapons.
+                Blind Fighting. You have blind sight with a range of 10 feet. Within that range, you can effectively see anything that isn't behind total cover, even if you're blinded or in darkness. Moreover, you can see an invisible creature within that range, unless the creature successfully hides from you.
+                Defense. While you are wearing armor, you gain a +1 bonus to AC.
+                Druidic Warrior. You learn two cantrips of your choice from the Druid spell list. They count as ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a level in this class, you can replace one of these cantrips with another cantrip from the Druid spell list.
+                Dueling. When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+                Thrown Weapon Fighting. You can draw a weapon that has the thrown property as part of the attack you make with the weapon.
+                In addition, when you hit with a ranged attack using a thrown weapon, you gain a +2 bonus to the damage roll.
+                Two-Weapon Fighting. When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.""" ),
+        PRIMEVAL_AWARENESS("Primeval Awareness", """
+                Beginning at 3rd level, you can use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn’t reveal the creatures’ location or number.""" ),
+        RANGER_EXTRA_ATTACK("Extra Attack", """
+                Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.""" ), 
+        LANDS_STRIDE("Land's Stride", """
+                Starting at 8th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard.
+                                
+                In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such as those created by the Entangle spell.""" ),
+        HIDE_IN_PLAIN_SIGHT("Hide in Plain Sight", """
+                Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage.
+                                
+                Once you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.""" ),
+        VANISH("Vanish", """
+                Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you can't be tracked by nonmagical means, unless you choose to leave a trail.""" ),
+        FERAL_SENSES("Feral Senses", """
+                At 18th level, you gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it.
+                                
+                You are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.""" ),
+        FOE_SLAYER("Foe Slayer", """
+                At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.""" ),
+        ROGUE_EXPERTISE("Expertise", """
+                At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies.
+                                
+                At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.""" ),
+        SNEAK_ATTACK("Sneak Attack", """
+                Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon.
+                                
+                You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.
+                                
+                The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.""" ),
+        THIEVES_CANT("Thieves' Cant", """
+                During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.
+                                
+                In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.""" ),
+        CUNNING_ACTIONS("Cunning Action", """
+                Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.""" ),
+        UNCANNY_DODGE("Uncanny Dodge", """
+                Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.""" ), 
+        ROGUE_EVASION("Evasion", """
+                Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an Ice Storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.""" ),
+        RELIABLE_TALENT("Reliable Talent", """
+                By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.""" ),
+        BLINDSENSE("Blindsense", """
+                Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.""" ),
+        SLIPPERY_MIND("Slippery Mind", """
+                By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.""" ),
+        ELUSIVE("Elusive", """
+                Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.""" ),
+        STROKE_OF_LUCK("Stroke of Luck", """
+                At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20.
+                                
+                Once you use this feature, you can't use it again until you finish a short or long rest.""" ),
+
+        //Base Sorcerer
+        FONT_OF_MAGIC("Font of Magic", """
+                Font of Magic
+                At 2nd level, you tap into a deep wellspring of magic within yourself. This wellspring is represented by sorcery points, which allow you to create a variety of magical effects.
+                                
+                Sorcery Points. You have 2 sorcery points, and you gain more as you reach higher levels, as shown in the Sorcery Points column of the Sorcerer table. You can never have more sorcery points than shown on the table for your level. You regain all spent sorcery points when you finish a long rest.
+                Flexible Casting. You can use your sorcery points to gain additional spell slots, or sacrifice spell slots to gain additional sorcery points. You learn other ways to use your sorcery points as you reach higher levels.
+                Creating Spell Slots. You can transform unexpended sorcery points into one spell slot as a bonus action on your turn. The Creating Spell Slots table shows the cost of creating a spell slot of a given level. You can create spell slots no higher in level than 5th. Any spell slot you create with this feature vanishes when you finish a long rest.
+                Converting a Spell Slot to Sorcery Points. As a bonus action on your turn, you can expend one spell slot and gain a number of sorcery points equal to the slot's level.
+                Creating Spell Slots
+                Spell Slot Level	Sorcery Point Cost
+                1st	2
+                2nd	3
+                3rd	5
+                4th	6
+                5th	7""" ),
+        METAMAGIC("Metamagic", """
+                At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two of the following Metamagic options of your choice. You gain another one at 10th and 17th level.
+                                
+                You can use only one Metamagic option on a spell when you cast it, unless otherwise noted.
+                                
+                Careful Spell. When you cast a spell that forces other creatures to make a saving throw, you can protect some of those creatures from the spell's full force. To do so, you spend 1 sorcery point and choose a number of those creatures up to your Charisma modifier (minimum of one creature). A chosen creature automatically succeeds on its saving throw against the spell.
+                Distant Spell. When you cast a spell that has a range of 5 feet or greater, you can spend 1 sorcery point to double the range of the spell.
+                When you cast a spell that has a range of touch, you can spend 1 sorcery point to make the range of the spell 30 feet.
+                Empowered Spell. When you roll damage for a spell, you can spend 1 sorcery point to reroll a number of the damage dice up to your Charisma modifier (minimum of one). You must use the new rolls.
+                You can use Empowered Spell even if you have already used a different Metamagic option during the casting of the spell.
+                Extended Spell. When you cast a spell that has a duration of 1 minute or longer, you can spend 1 sorcery point to double its duration, to a maximum duration of 24 hours.
+                Heightened Spell. When you cast a spell that forces a creature to make a saving throw to resist its effects, you can spend 3 sorcery points to give one target of the spell disadvantage on its first saving throw made against the spell.
+                Quickened Spell. When you cast a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.
+                Seeking Spell. If you make an attack roll for a spell and miss, you can spend 2 sorcerer points to reroll the d20, and you must use the new roll.
+                You can use Seeking Spell even if you have already used a different Metamagic option during the casting of the spell.
+                Subtle Spell. When you cast a spell, you can spend 1 sorcery point to cast it without any somatic or verbal components.
+                Transmuted Spell. When you cast a spell that deals a type of damage from the following list, you can spend 1 sorcery point to change that damage type to one of the other listed types: acid, cold, fire, lightning, poison, thunder.
+                Twinned Spell. When you cast a spell that targets only one creature and doesn't have a range of self, you can spend a number of sorcery points equal to the spell's level to target a second creature in range with the same spell (1 sorcery point if the spell is a cantrip). To be eligible, a spell must be incapable of targeting more than one creature at the spell's current level. For example, magic missile and scorching ray aren't eligible, but ray of frost and chromatic orb are.""" ),
+        SORCEROUS_RESTORATION("Sorcerous Restoration", """
+                At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.""" ),
+
+
+        //Base Warlock
+        ELDRITCH_INVOCTATIONS("Eldritch Invoctations", """
+                In your study of occult lore, you have unearthed Eldritch Invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability.
+                                
+                At 2nd level, you gain two eldritch invocations of your choice. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table. A level prerequisite refers to your level in this class.
+                                
+                Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level.""" ),
+        PACT_BOON("Pact Boon", """
+                At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.
+                                
+                Pact of the Blade
+                You can use your action to create a pact weapon in your empty hand. You can choose the form that this melee weapon takes each time you create it. You are proficient with it while you wield it. This weapon counts as magical for the purpose of overcoming resistance and immunity to nonmagical attacks and damage.
+                Your pact weapon disappears if it is more than 5 feet away from you for 1 minute or more. It also disappears if you use this feature again, if you dismiss the weapon (no action required), or if you die.
+                You can transform one magic weapon into your pact weapon by performing a special ritual while you hold the weapon. You perform the ritual over the course of 1 hour, which can be done during a short rest.
+                You can then dismiss the weapon, shunting it into an extradimensional space, and it appears whenever you create your pact weapon thereafter. You can't affect an artifact or a sentient weapon in this way. The weapon ceases being your pact weapon if you die, if you perform the 1-hour ritual on a different weapon, or if you use a 1-hour ritual to break your bond to it. The weapon appears at your feet if it is in the extradimensional space when the bond breaks.
+                Pact of the Chain
+                You learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known.
+                When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite.
+                Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to use its reaction to make one attack with its reaction.
+                Pact of the Tome
+                Your patron gives you a grimoire called a Book of Shadows. When you gain this feature, choose three cantrips from any class's spell list (the three needn't be from the same list). While the book is on your person, you can cast those cantrips at will. They don't count against your number of cantrips known. If they don't appear on the warlock spell list, they are nonetheless warlock spells for you.
+                If you lose your Book of Shadows, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous book. The book turns to ash when you die.
+                Pact of the Talisman
+                Your patron gives you an amulet, a talisman that can aid the wearer when the need is great. When the wearer fails an ability check, they can add a d4 to the roll, potentially turning the roll into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.
+                If you lose the talisman, you can perform a 1-hour ceremony to receive a replacement from your patron. This ceremony can be performed during a short or long rest, and it destroys the previous amulet. The talisman turns to ash when you die.""" ),
+        MYSTIC_ARCANUM("Mystic Arcanum", """
+                At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum.
+                                
+                You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.
+                                
+                At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.""" ),
+        ELDTRICH_MASTER("Eldtrich Master", """
+                At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.""" ), 
+        
+        
+        //Base Wizart
+        ARCANE_RECOVERY("Arcane Recovery", """
+                You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.
+                                
+                For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.""" ),
+        SPELL_MASTERY("Spell Mastery", """
+                At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+                                
+                By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.""" ),
+        SIGNATURE_SPELLS("Signature Spells", """
+                When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest.
+                                
+                If you want to cast either spell at a higher level, you must expend a spell slot as normal.""" );
 
 
 
@@ -955,7 +1132,14 @@ public class Database {
         //PHB
         playerClasses.add(new Barbarian());
         playerClasses.add(new Bard());
+        playerClasses.add(new Cleric());
+        playerClasses.add(new Druid());
         playerClasses.add(new Fighter());
+        playerClasses.add(new Monk());
+        playerClasses.add(new Paladin());
+        playerClasses.add(new Ranger());
+        playerClasses.add(new Rogue());
+
     }
 
 

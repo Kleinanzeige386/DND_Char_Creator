@@ -1,5 +1,8 @@
 public abstract class subBarbarian extends Subclass{
+
+
     public void lvlUpTo(int n){
+        identifier = "Path of ";
         switch(n){
             case 3 -> addLVL3Features();
             case 6 -> addLVL6Features();
@@ -14,6 +17,8 @@ public abstract class subBarbarian extends Subclass{
     protected abstract void addLVL6Features();
     protected abstract void addLVL10Features();
     protected abstract void addLVL14Features();
+
+
 
 }
 
