@@ -330,7 +330,7 @@ enum PDFFields{
     Religion(72),
     Stealth_(73),
 
-    //Skill Proficiencies i think
+    //Skill Proficiencies I think
     Check_Box_23(74),
     Check_Box_24(75),
     Check_Box_25(76),

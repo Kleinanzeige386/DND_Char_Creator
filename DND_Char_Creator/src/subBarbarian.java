@@ -1,8 +1,12 @@
 public abstract class subBarbarian extends Subclass{
 
 
+    public subBarbarian(String n) {
+        super(n, "Path of ");
+    }
+
     public void lvlUpTo(int n){
-        identifier = "Path of ";
+
         switch(n){
             case 3 -> addLVL3Features();
             case 6 -> addLVL6Features();
@@ -26,27 +30,27 @@ public abstract class subBarbarian extends Subclass{
 
 class Ancestral_Guardian extends subBarbarian{
     Ancestral_Guardian(){
-        name="Ancestral_Guardian";
+        super("Ancestral_Guardian");
     }
 
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.ANCESTRAL_PROTECTORS.feature);
+        owner.playerClass.addFeature(Database.Features.ANCESTRAL_PROTECTORS);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.SPIRIT_SHIELD.feature);
+        owner.playerClass.addFeature(Database.Features.SPIRIT_SHIELD);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.CONSULT_THE_SPIRITS.feature);
+        owner.playerClass.addFeature(Database.Features.CONSULT_THE_SPIRITS);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.VENGEFUL_ANCESTORS.feature);
+        owner.playerClass.addFeature(Database.Features.VENGEFUL_ANCESTORS);
     }
 }
 
@@ -55,26 +59,26 @@ class Ancestral_Guardian extends subBarbarian{
 class Battlerager extends subBarbarian{
 
     Battlerager(){
-        name = "Battlerager";
+        super("Battlerager");
     }
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.BATTLERAGER_ARMOR.feature);
+        owner.playerClass.addFeature(Database.Features.BATTLERAGER_ARMOR);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.RECKLESS_ABANDON.feature);
+        owner.playerClass.addFeature(Database.Features.RECKLESS_ABANDON);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.BATTLERAGER_CHARGE.feature);
+        owner.playerClass.addFeature(Database.Features.BATTLERAGER_CHARGE);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.SPIKED_RETRIBUTION.feature);
+        owner.playerClass.addFeature(Database.Features.SPIKED_RETRIBUTION);
     }
 }
 
@@ -83,26 +87,26 @@ class Battlerager extends subBarbarian{
 class Beast extends subBarbarian{
 
     Beast(){
-        name = "Beast";
+        super("Beast");
     }
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.FORM_OF_THE_BEAST.feature);
+        owner.playerClass.addFeature(Database.Features.FORM_OF_THE_BEAST);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.BESTIAL_SOUL.feature);
+        owner.playerClass.addFeature(Database.Features.BESTIAL_SOUL);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.INFECTIOUS_FURY.feature);
+        owner.playerClass.addFeature(Database.Features.INFECTIOUS_FURY);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.CALL_THE_HUNT.feature);
+        owner.playerClass.addFeature(Database.Features.CALL_THE_HUNT);
     }
 }
 
@@ -111,26 +115,26 @@ class Beast extends subBarbarian{
 class Berserker extends subBarbarian{
 
     Berserker(){
-        name = "Berserker";
+        super("Berserker");
     }
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.FRENZY.feature);
+        owner.playerClass.addFeature(Database.Features.FRENZY);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.MINDLESS_RAGE.feature);
+        owner.playerClass.addFeature(Database.Features.MINDLESS_RAGE);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.INTIMIDATING_PRESENCE.feature);
+        owner.playerClass.addFeature(Database.Features.INTIMIDATING_PRESENCE);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.RETALIATION.feature);
+        owner.playerClass.addFeature(Database.Features.RETALIATION);
     }
 }
 
@@ -139,26 +143,26 @@ class Berserker extends subBarbarian{
 class Storm_Herald extends subBarbarian{
 
     Storm_Herald(){
-        name = "Storm_Herald";
+        super("Storm_Herald");
     }
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.STORM_AURA.feature);
+        owner.playerClass.addFeature(Database.Features.STORM_AURA);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.STORM_SOUL.feature);
+        owner.playerClass.addFeature(Database.Features.STORM_SOUL);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.SHIELDING_STORM.feature);
+        owner.playerClass.addFeature(Database.Features.SHIELDING_STORM);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.RAGING_STORM.feature);
+        owner.playerClass.addFeature(Database.Features.RAGING_STORM);
     }
 }
 
@@ -166,28 +170,28 @@ class Storm_Herald extends subBarbarian{
 
 class Totem_Warrior extends subBarbarian{
     Totem_Warrior(){
-        name = "Totem Warrior";
+        super("Totem Warrior");
     }
 
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.SPIRIT_SEEKER.feature);
-        owner.playerClass.features.add(Database.Features.TOTEM_SPIRIT.feature);
+        owner.playerClass.addFeature(Database.Features.SPIRIT_SEEKER);
+        owner.playerClass.addFeature(Database.Features.TOTEM_SPIRIT);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.ASPECT_OF_THE_BEAST.feature);
+        owner.playerClass.addFeature(Database.Features.ASPECT_OF_THE_BEAST);
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.SPIRIT_WALKER.feature);
+        owner.playerClass.addFeature(Database.Features.SPIRIT_WALKER);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.TOTEMIC_ATTUNEMENT.feature);
+        owner.playerClass.addFeature(Database.Features.TOTEMIC_ATTUNEMENT);
     }
 }
 
@@ -196,29 +200,29 @@ class Totem_Warrior extends subBarbarian{
 class Wild_Magic extends subBarbarian{
 
     Wild_Magic(){
-        name= "Wild Magic";
+        super("Wild Magic");
     }
 
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.MAGIC_AWARENESS.feature);
-        owner.playerClass.features.add(Database.Features.WILD_SURGE.feature);
+        owner.playerClass.addFeature(Database.Features.MAGIC_AWARENESS);
+        owner.playerClass.addFeature(Database.Features.WILD_SURGE);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.BOLSTERING_MAGIC.feature);
+        owner.playerClass.addFeature(Database.Features.BOLSTERING_MAGIC);
 
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.UNSTABLE_BACKLASH.feature);
+        owner.playerClass.addFeature(Database.Features.UNSTABLE_BACKLASH);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.CONTROLLED_SURGE.feature);
+        owner.playerClass.addFeature(Database.Features.CONTROLLED_SURGE);
     }
 }
 
@@ -227,27 +231,27 @@ class Wild_Magic extends subBarbarian{
 class Zealot extends subBarbarian{
 
     Zealot(){
-        name= "Zealot";
+        super("Zealot");
     }
     @Override
     protected void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.DIVINE_FURY.feature);
-        owner.playerClass.features.add(Database.Features.WARRIOR_OF_GOD.feature);
+        owner.playerClass.addFeature(Database.Features.DIVINE_FURY);
+        owner.playerClass.addFeature(Database.Features.WARRIOR_OF_GOD);
     }
 
     @Override
     protected void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.FANATICAL_FOCUS.feature);
+        owner.playerClass.addFeature(Database.Features.FANATICAL_FOCUS);
 
     }
 
     @Override
     protected void addLVL10Features() {
-        owner.playerClass.features.add(Database.Features.ZEALOUS_PRESENCE.feature);
+        owner.playerClass.addFeature(Database.Features.ZEALOUS_PRESENCE);
     }
 
     @Override
     protected void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.RAGE_BEYOND_DEATH.feature);
+        owner.playerClass.addFeature(Database.Features.RAGE_BEYOND_DEATH);
     }
 }

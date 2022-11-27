@@ -10,8 +10,8 @@ public class Player {
     public Background background;
 
 
-    public AbilityScore[] abilities;
-    public Skill[] skills;
+    public final AbilityScore[] abilities;
+    public final Skill[] skills;
 
 
     public int AC;
@@ -26,18 +26,18 @@ public class Player {
     public int succesfullDeathSaves;
 
 
-    public int spellSaveDC;
+    public final int spellSaveDC;
     public int spellAtackModifier;
 
 
-    public ArrayList<String> toolProf;
-    public ArrayList<String> languages;
+    public final ArrayList<String> toolProf;
+    public final ArrayList<String> languages;
 
 
-    public int[] coins ; // Copper Silver Electrum Gold Platinum
-    public ArrayList<String> inventory;
+    public final int[] coins ; // Copper Silver Electrum Gold Platinum
+    public final ArrayList<String> inventory;
 
-    public ArrayList<Feature> features;
+    public final ArrayList<Feature> features;
 
 
 

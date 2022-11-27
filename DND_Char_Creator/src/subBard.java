@@ -1,11 +1,10 @@
 public abstract class subBard extends Subclass{
     subBard(String n){
-        super();
-        name= n;
+        super(n,"College of ");
+
     }
 
     public void lvlUpTo(int n) {
-        identifier = "College of ";
         switch (n) {
             case 3 -> addLVL3Features();
             case 6 -> addLVL6Features();
@@ -29,18 +28,18 @@ class Creation extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.NOTE_OF_POTENTIAL.feature);
-        owner.playerClass.features.add(Database.Features.PERFORMANCE_OF_CREATION.feature);
+        owner.playerClass.addFeature(Database.Features.NOTE_OF_POTENTIAL);
+        owner.playerClass.addFeature(Database.Features.PERFORMANCE_OF_CREATION);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.ANIMATING_PERFORMANCE.feature);
+        owner.playerClass.addFeature(Database.Features.ANIMATING_PERFORMANCE);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.CREATIVE_CRESVENDO.feature);
+        owner.playerClass.addFeature(Database.Features.CREATIVE_CRESVENDO);
     }
 }
 
@@ -54,19 +53,19 @@ class Eloquence extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.SILVER_TONGUE.feature);
-        owner.playerClass.features.add(Database.Features.UNSETTLING_WORDS.feature);
+        owner.playerClass.addFeature(Database.Features.SILVER_TONGUE);
+        owner.playerClass.addFeature(Database.Features.UNSETTLING_WORDS);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.UNFAILING_INSPIRATION.feature);
-        owner.playerClass.features.add(Database.Features.UNIVERSAL_SPEECH.feature);
+        owner.playerClass.addFeature(Database.Features.UNFAILING_INSPIRATION);
+        owner.playerClass.addFeature(Database.Features.UNIVERSAL_SPEECH);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.INFECTIOUS_INSPIRATION.feature);
+        owner.playerClass.addFeature(Database.Features.INFECTIOUS_INSPIRATION);
     }
 }
 
@@ -80,18 +79,18 @@ class Glamour extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.MANTLE_OF_INSPIRATION.feature);
-        owner.playerClass.features.add(Database.Features.ENTHRALLING_PERFORMANCE.feature);
+        owner.playerClass.addFeature(Database.Features.MANTLE_OF_INSPIRATION);
+        owner.playerClass.addFeature(Database.Features.ENTHRALLING_PERFORMANCE);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.MANTLE_OF_MAJESTY.feature);
+        owner.playerClass.addFeature(Database.Features.MANTLE_OF_MAJESTY);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.UNBREAKABLE_MAJESTY.feature);
+        owner.playerClass.addFeature(Database.Features.UNBREAKABLE_MAJESTY);
     }
 }
 
@@ -105,18 +104,18 @@ class Lore extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.LORE_BARD_BONUS_PROFICIENCIES.feature);
-        owner.playerClass.features.add(Database.Features.CUTTING_WORDS.feature);
+        owner.playerClass.addFeature(Database.Features.LORE_BARD_BONUS_PROFICIENCIES);
+        owner.playerClass.addFeature(Database.Features.CUTTING_WORDS);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.ADDITIONAL_MAGICAL_SECRETS.feature);
+        owner.playerClass.addFeature(Database.Features.ADDITIONAL_MAGICAL_SECRETS);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.PEERLESS_SKILL.feature);
+        owner.playerClass.addFeature(Database.Features.PEERLESS_SKILL);
     }
 }
 
@@ -130,19 +129,19 @@ class Spirits extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.GUIDING_WHISPERS.feature);
-        owner.playerClass.features.add(Database.Features.SPIRITUAL_FOCUS.feature);
-        owner.playerClass.features.add(Database.Features.TALES_FROM_BEYOND.feature);
+        owner.playerClass.addFeature(Database.Features.GUIDING_WHISPERS);
+        owner.playerClass.addFeature(Database.Features.SPIRITUAL_FOCUS);
+        owner.playerClass.addFeature(Database.Features.TALES_FROM_BEYOND);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.SPIRIT_SESSION.feature);
+        owner.playerClass.addFeature(Database.Features.SPIRIT_SESSION);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.MYSTICAL_CONNECTION.feature);
+        owner.playerClass.addFeature(Database.Features.MYSTICAL_CONNECTION);
     }
 }
 
@@ -156,19 +155,19 @@ class Swords extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.SWORDS_BARD_BONUS_PROFICIENCIES.feature);
-        owner.playerClass.features.add(Database.Features.SWORDS_BARD_FIGHTING_STYLE.feature);
-        owner.playerClass.features.add(Database.Features.BLADE_FLOURISH.feature);
+        owner.playerClass.addFeature(Database.Features.SWORDS_BARD_BONUS_PROFICIENCIES);
+        owner.playerClass.addFeature(Database.Features.SWORDS_BARD_FIGHTING_STYLE);
+        owner.playerClass.addFeature(Database.Features.BLADE_FLOURISH);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.BARD_EXTRA_ATTACK.feature);
+        owner.playerClass.addFeature(Database.Features.BARD_EXTRA_ATTACK);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.MASTERS_FLOURISH.feature);
+        owner.playerClass.addFeature(Database.Features.MASTERS_FLOURISH);
     }
 }
 
@@ -182,18 +181,18 @@ class Valor extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.VALOR_BARD_BONUS_PROFICIENCIES.feature);
-        owner.playerClass.features.add(Database.Features.COMBAT_INSPIRATION.feature);
+        owner.playerClass.addFeature(Database.Features.VALOR_BARD_BONUS_PROFICIENCIES);
+        owner.playerClass.addFeature(Database.Features.COMBAT_INSPIRATION);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.BARD_EXTRA_ATTACK.feature);
+        owner.playerClass.addFeature(Database.Features.BARD_EXTRA_ATTACK);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.BATTLE_MAGIC.feature);
+        owner.playerClass.addFeature(Database.Features.BATTLE_MAGIC);
     }
 }
 
@@ -207,17 +206,17 @@ class Whispers extends subBard{
 
     @Override
     void addLVL3Features() {
-        owner.playerClass.features.add(Database.Features.PSYCHIC_BLADES.feature);
-        owner.playerClass.features.add(Database.Features.WORDS_OF_TERROR.feature);
+        owner.playerClass.addFeature(Database.Features.PSYCHIC_BLADES);
+        owner.playerClass.addFeature(Database.Features.WORDS_OF_TERROR);
     }
 
     @Override
     void addLVL6Features() {
-        owner.playerClass.features.add(Database.Features.MANTLE_OF_WHISPERS.feature);
+        owner.playerClass.addFeature(Database.Features.MANTLE_OF_WHISPERS);
     }
 
     @Override
     void addLVL14Features() {
-        owner.playerClass.features.add(Database.Features.SHADOW_LORE.feature);
+        owner.playerClass.addFeature(Database.Features.SHADOW_LORE);
     }
 }

@@ -1,22 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-
 //TODO  implement Equipment choosing
 //TODO implement Feature functionalities
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
-
 public abstract class PlayerClass implements Named {
-    public Player owner;
+    public final Player owner;
     public int classLvl;
     public String name;
     public int hitDie;
-    public ArrayList<Ability> savingThrowProf;
+    public final ArrayList<Ability> savingThrowProf;
     public ArrayList<Skills> skillProf;
     public ArrayList<String> toolProf;
     public Skills[] possibleSkills;
-    public ArrayList<Subclass> possibleSubclasses;
-    public ArrayList<Feature> features;
+    public final ArrayList<Subclass> possibleSubclasses;
+    public final ArrayList<Feature> features;
     public ArrayList<String> equipment;
     public Subclass subclass;
 
@@ -103,17 +100,30 @@ public abstract class PlayerClass implements Named {
 
     public abstract void initPossibleSubclasses();
 
-    public abstract void buildClass();
+    public void buildClass(){
+        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
+    }
+
+    public void addFeature(Database.Features feat){
+        features.add(feat.feature);
+        //TODO implement Feature functionalities
+        switch(feat){
+
+            default -> {
+                break;
+            }
+        }
+    }
+
 }
 
 
 
 class Barbarian extends PlayerClass{
-    public int rages;
     public Barbarian() {
         super();
         name = "Barbarian";
-        rages=0;
+
         hitDie = 12;
         savingThrowProf.add(Ability.STRENGTH);
         savingThrowProf.add(Ability.CONSTITUTION);
@@ -126,27 +136,27 @@ class Barbarian extends PlayerClass{
 
         switch (classLvl) {
             case 1 -> {
-                features.add(Database.Features.RAGE.feature);
-                features.add(Database.Features.BARBARIAN_UNARMORED_DEFENSE.feature);
+                addFeature(Database.Features.RAGE);
+                addFeature(Database.Features.BARBARIAN_UNARMORED_DEFENSE);
             }
             case 2 ->{
-                features.add(Database.Features.RECKLESS_ATTACK.feature);
-                features.add(Database.Features.DANGER_SENSE.feature);
+                addFeature(Database.Features.RECKLESS_ATTACK);
+                addFeature(Database.Features.DANGER_SENSE);
             }
             case 3 -> chooseSubclass();
             case 4, 8, 12, 16, 19 -> abilityScoreImprovement();
             case 5 -> {
-                features.add(Database.Features.BARBARIAN_EXTRA_ATTACK.feature);
-                features.add(Database.Features.FAST_MOVEMENT.feature);
+                addFeature(Database.Features.BARBARIAN_EXTRA_ATTACK);
+                addFeature(Database.Features.FAST_MOVEMENT);
             }
             case 6, 10, 14 -> subclass.lvlUpTo(classLvl);
-            case 7 -> features.add(Database.Features.FERAL_INSTINCT.feature);
-            case 9 -> features.add(Database.Features.BRUTAL_CRITICAL.feature);
-            case 11 -> features.add(Database.Features.RELENTLESS_RAGE.feature);
+            case 7 -> addFeature(Database.Features.FERAL_INSTINCT);
+            case 9 -> addFeature(Database.Features.BRUTAL_CRITICAL);
+            case 11 -> addFeature(Database.Features.RELENTLESS_RAGE);
             case 13, 17 -> {/* Already added at lvl 9 */}
-            case 15 -> features.add(Database.Features.PERSISTENT_RAGE.feature);
-            case 18 -> features.add(Database.Features.INDOMITABLE_MIGHT.feature);
-            case 20 -> features.add(Database.Features.PRIMAL_CHAMPION.feature);
+            case 15 -> addFeature(Database.Features.PERSISTENT_RAGE);
+            case 18 -> addFeature(Database.Features.INDOMITABLE_MIGHT);
+            case 20 -> addFeature(Database.Features.PRIMAL_CHAMPION);
         }
     }
 
@@ -163,11 +173,7 @@ class Barbarian extends PlayerClass{
         possibleSubclasses.add(new Zealot());
     }
 
-    @Override
-    public void buildClass() {
 
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
 
 
 }
@@ -229,22 +235,22 @@ class Bard extends PlayerClass implements Magical{
 
 
         switch (classLvl) {
-            case 1 -> features.add(Database.Features.BARDIC_INSPIRATION.feature);
+            case 1 -> addFeature(Database.Features.BARDIC_INSPIRATION);
             case 2 ->{
-                features.add(Database.Features.JACK_OF_ALL_TRADES.feature);
-                features.add(Database.Features.SONG_OF_REST.feature);
+                addFeature(Database.Features.JACK_OF_ALL_TRADES);
+                addFeature(Database.Features.SONG_OF_REST);
             }
             case 3 ->{
                 chooseSubclass();
                 subclass.lvlUpTo(classLvl);
-                features.add(Database.Features.EXPERTISE.feature);
+                addFeature(Database.Features.EXPERTISE);
             }
             case 4,8,12,16,19 ->abilityScoreImprovement();
-            case 5 ->features.add(Database.Features.FONT_OF_INSPIRATION.feature);
-            case 6 ->{features.add(Database.Features.COUNTERCHARM.feature);subclass.lvlUpTo(classLvl);}
-            case 10 ->features.add(Database.Features.MAGICAL_SECRETS.feature);
+            case 5 ->addFeature(Database.Features.FONT_OF_INSPIRATION);
+            case 6 ->{addFeature(Database.Features.COUNTERCHARM);subclass.lvlUpTo(classLvl);}
+            case 10 ->addFeature(Database.Features.MAGICAL_SECRETS);
             case 14 -> subclass.lvlUpTo(classLvl);
-            case 20 ->features.add(Database.Features.SUPERIOR_INSPIRATION.feature);
+            case 20 ->addFeature(Database.Features.SUPERIOR_INSPIRATION);
         }
 
     }
@@ -270,6 +276,7 @@ class Bard extends PlayerClass implements Magical{
 
 
 
+@SuppressWarnings("DuplicateBranchesInSwitch")
 class Cleric extends PlayerClass implements Magical{
     public int[] spellSlots;
 
@@ -294,7 +301,7 @@ class Cleric extends PlayerClass implements Magical{
 
     @Override
     public int[] getSpellSlots() {
-        return new int[0];
+        return spellSlots;
     }
 
     @Override
@@ -329,17 +336,18 @@ class Cleric extends PlayerClass implements Magical{
 
         switch (classLvl) {
             case 1  -> chooseSubclass();
-            case 2  -> {features.add(Database.Features.CHANNEL_DIVINITY.feature);
-                        features.add(Database.Features.CHANNEL_DIVINITY_TURNUNDEAD.feature);}
+            case 2  -> {subclass.lvlUpTo(classLvl);
+                        addFeature(Database.Features.CHANNEL_DIVINITY);
+                        addFeature(Database.Features.CHANNEL_DIVINITY_TURNUNDEAD);}
             case 3  -> {}
             case 4  -> abilityScoreImprovement();
-            case 5  -> features.add(Database.Features.DESTROY_UNDEAD.feature);
+            case 5  -> addFeature(Database.Features.DESTROY_UNDEAD);
             case 6  -> subclass.lvlUpTo(classLvl);
             case 7  -> {}
             case 8  -> {abilityScoreImprovement();
                         subclass.lvlUpTo(classLvl);}
             case 9  -> {}
-            case 10 -> features.add(Database.Features.DIVINE_INTERVENTION.feature);
+            case 10 -> addFeature(Database.Features.DIVINE_INTERVENTION);
             case 11 -> {}
             case 12 -> abilityScoreImprovement();
             case 13 -> {}
@@ -358,15 +366,12 @@ class Cleric extends PlayerClass implements Magical{
         //TODO Implement Subclasses
     }
 
-    @Override
-    public void buildClass() {
 
-        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
-    }
 }
 
 
 
+@SuppressWarnings("DuplicateBranchesInSwitch")
 class Druid extends PlayerClass implements Magical{
 
     public int[] spellSlots;
@@ -425,8 +430,8 @@ class Druid extends PlayerClass implements Magical{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> features.add(Database.Features.DRUIDIC.feature);
-            case 2  -> {features.add(Database.Features.WILD_SHAPE.feature);
+            case 1  -> addFeature(Database.Features.DRUIDIC);
+            case 2  -> {addFeature(Database.Features.WILD_SHAPE);
                         chooseSubclass();}
             case 3  -> {}
             case 4  -> abilityScoreImprovement();
@@ -443,10 +448,10 @@ class Druid extends PlayerClass implements Magical{
             case 15 -> {}
             case 16 -> abilityScoreImprovement();
             case 17 -> {}
-            case 18 -> {features.add(Database.Features.DRUID_TIMELESS_BODY.feature);
-                        features.add(Database.Features.BEAST_SPELLS.feature);}
+            case 18 -> {addFeature(Database.Features.DRUID_TIMELESS_BODY);
+                        addFeature(Database.Features.BEAST_SPELLS);}
             case 19 -> abilityScoreImprovement();
-            case 20 -> features.add(Database.Features.ARCHDRUID.feature);
+            case 20 -> addFeature(Database.Features.ARCHDRUID);
         }
     }
 
@@ -455,10 +460,7 @@ class Druid extends PlayerClass implements Magical{
 //TODO Implement Subclasses
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
-    }
+
 }
 
 
@@ -484,14 +486,14 @@ class Fighter extends PlayerClass{
 
         //TODO Add Martial Versatility Option to all Ability Score Lvls
         switch (classLvl){
-            case 1  -> {features.add(Database.Features.FIGHTER_FIGHTING_STYLE.feature);  features.add(Database.Features.SECOND_WIND.feature);
+            case 1  -> {addFeature(Database.Features.FIGHTER_FIGHTING_STYLE);  addFeature(Database.Features.SECOND_WIND);
             }
-            case 2 -> features.add(Database.Features.ACTION_SURGE.feature);
+            case 2 -> addFeature(Database.Features.ACTION_SURGE);
             case 3 -> chooseSubclass();
             case 4, 19, 16, 14, 12, 8, 6 -> abilityScoreImprovement();
-            case 5 -> features.add(Database.Features.FIGHTER_EXTRA_ATTACK.feature);
+            case 5 -> addFeature(Database.Features.FIGHTER_EXTRA_ATTACK);
             case 7, 15, 10, 18 -> subclass.lvlUpTo(classLvl);
-            case 9 -> features.add(Database.Features.INDOMITABLE.feature);
+            case 9 -> addFeature(Database.Features.INDOMITABLE);
             case 11, 20, 17, 13 -> {/* Already added at lvl 5 */}
             /* Already added at lvl 9 */
             /* Already added at lvl 2 and 9 */
@@ -514,14 +516,11 @@ class Fighter extends PlayerClass{
         possibleSubclasses.add(new Samurai());
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>(Arrays.asList(chooseSkill(),chooseSkill()));
-    }
 }
 
 
 
+@SuppressWarnings("DuplicateBranchesInSwitch")
 class Monk extends PlayerClass{
 
     Monk(){
@@ -539,33 +538,33 @@ class Monk extends PlayerClass{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> {features.add(Database.Features.MONK_UNARMORED_DEFENSE.feature);
-                        features.add(Database.Features.MARTIAL_ARTS.feature);}
-            case 2  -> {features.add(Database.Features.KI.feature);
-                        features.add(Database.Features.UNARMORED_MOVEMENT.feature);}
+            case 1  -> {addFeature(Database.Features.MONK_UNARMORED_DEFENSE);
+                        addFeature(Database.Features.MARTIAL_ARTS);}
+            case 2  -> {addFeature(Database.Features.KI);
+                        addFeature(Database.Features.UNARMORED_MOVEMENT);}
             case 3  -> {chooseSubclass();
-                        features.add(Database.Features.DEFLECT_MISSILES.feature);}
+                        addFeature(Database.Features.DEFLECT_MISSILES);}
             case 4  -> {abilityScoreImprovement();
-                        features.add(Database.Features.SLOW_FALL.feature);}
-            case 5  -> {features.add(Database.Features.MONK_EXTRA_ATTACK.feature);
-                        features.add(Database.Features.STUNNING_STRIKE.feature);}
+                        addFeature(Database.Features.SLOW_FALL);}
+            case 5  -> {addFeature(Database.Features.MONK_EXTRA_ATTACK);
+                        addFeature(Database.Features.STUNNING_STRIKE);}
             case 6  -> {subclass.lvlUpTo(classLvl);
-                        features.add(Database.Features.KI_EMPOWERED_STRIKES.feature);}
-            case 7  -> {features.add(Database.Features.MONK_EVASION.feature);
-                        features.add(Database.Features.STILLNESS_OF_MIND.feature);}
+                        addFeature(Database.Features.KI_EMPOWERED_STRIKES);}
+            case 7  -> {addFeature(Database.Features.MONK_EVASION);
+                        addFeature(Database.Features.STILLNESS_OF_MIND);}
             case 8  -> abilityScoreImprovement();
             case 9  -> {}
-            case 10 -> features.add(Database.Features.PURITY_OF_BODY.feature);
+            case 10 -> addFeature(Database.Features.PURITY_OF_BODY);
             case 11 -> subclass.lvlUpTo(classLvl);
             case 12 -> abilityScoreImprovement();
-            case 13 -> features.add(Database.Features.TONGUE_OF_THE_SUN_AND_MOON.feature);
-            case 14 -> features.add(Database.Features.DIAMOND_SOUL.feature);
-            case 15 -> features.add(Database.Features.MONK_TIMELESS_BODY.feature);
+            case 13 -> addFeature(Database.Features.TONGUE_OF_THE_SUN_AND_MOON);
+            case 14 -> addFeature(Database.Features.DIAMOND_SOUL);
+            case 15 -> addFeature(Database.Features.MONK_TIMELESS_BODY);
             case 16 -> abilityScoreImprovement();
             case 17 -> subclass.lvlUpTo(classLvl);
-            case 18 -> features.add(Database.Features.EMPTY_BODY.feature);
+            case 18 -> addFeature(Database.Features.EMPTY_BODY);
             case 19 -> abilityScoreImprovement();
-            case 20 -> features.add(Database.Features.PERFECT_SELF.feature);
+            case 20 -> addFeature(Database.Features.PERFECT_SELF);
         }
     }
 
@@ -574,14 +573,11 @@ class Monk extends PlayerClass{
 
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
+
 }
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch"})
 class Paladin extends PlayerClass implements Magical{
 
     private int[] spellSlots;
@@ -640,22 +636,22 @@ class Paladin extends PlayerClass implements Magical{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> {features.add(Database.Features.DIVINE_SENSE.feature);
-                        features.add(Database.Features.LAY_ON_HANDS.feature);}
-            case 2  -> {features.add(Database.Features.PALADIN_FIGHTING_STYLE.feature);
-                        features.add(Database.Features.DIVINE_SMITE.feature);}
+            case 1  -> {addFeature(Database.Features.DIVINE_SENSE);
+                        addFeature(Database.Features.LAY_ON_HANDS);}
+            case 2  -> {addFeature(Database.Features.PALADIN_FIGHTING_STYLE);
+                        addFeature(Database.Features.DIVINE_SMITE);}
             case 3  -> {chooseSubclass();
-                        features.add(Database.Features.DIVINE_HEALTH.feature);}
+                        addFeature(Database.Features.DIVINE_HEALTH);}
             case 4  -> abilityScoreImprovement();
-            case 5  -> features.add(Database.Features.PALADIN_EXTRA_ATTACK.feature);
-            case 6  -> features.add(Database.Features.AURA_OF_PROTECTION.feature);
+            case 5  -> addFeature(Database.Features.PALADIN_EXTRA_ATTACK);
+            case 6  -> addFeature(Database.Features.AURA_OF_PROTECTION);
             case 7  -> subclass.lvlUpTo(classLvl);
             case 8  -> abilityScoreImprovement();
             case 9  -> {}
-            case 10 -> features.add(Database.Features.AURA_OF_COURAGE.feature);
-            case 11 -> features.add(Database.Features.IMPROVED_DIVINE_SMITE.feature);
+            case 10 -> addFeature(Database.Features.AURA_OF_COURAGE);
+            case 11 -> addFeature(Database.Features.IMPROVED_DIVINE_SMITE);
             case 12 -> abilityScoreImprovement();
-            case 13 -> features.add(Database.Features.CLEANSING_TOUCH.feature);
+            case 13 -> addFeature(Database.Features.CLEANSING_TOUCH);
             case 14 -> {}
             case 15 -> subclass.lvlUpTo(classLvl);
             case 16 -> abilityScoreImprovement();
@@ -671,15 +667,11 @@ class Paladin extends PlayerClass implements Magical{
 
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
 }
 
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch", "RedundantLabeledSwitchRuleCodeBlock"})
 class Ranger extends PlayerClass implements Magical{
 
     private int[] spellSlots;
@@ -739,29 +731,29 @@ class Ranger extends PlayerClass implements Magical{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> {features.add(Database.Features.FAVORED_ENEMY.feature);
-                        features.add(Database.Features.NATURAL_EXPLORER.feature);}
-            case 2  -> {features.add(Database.Features.RANGER_FIGHTING_STYLE.feature);}
-            case 3  -> {features.add(Database.Features.PRIMEVAL_AWARENESS.feature);
+            case 1  -> {addFeature(Database.Features.FAVORED_ENEMY);
+                        addFeature(Database.Features.NATURAL_EXPLORER);}
+            case 2  -> {addFeature(Database.Features.RANGER_FIGHTING_STYLE);}
+            case 3  -> {addFeature(Database.Features.PRIMEVAL_AWARENESS);
                         chooseSubclass();}
             case 4  -> {abilityScoreImprovement();}
-            case 5  -> {features.add(Database.Features.RANGER_EXTRA_ATTACK.feature);}
+            case 5  -> {addFeature(Database.Features.RANGER_EXTRA_ATTACK);}
             case 6  -> {}
             case 7  -> {subclass.lvlUpTo(classLvl);}
             case 8  -> {abilityScoreImprovement();
-                        features.add(Database.Features.LANDS_STRIDE.feature);}
+                        addFeature(Database.Features.LANDS_STRIDE);}
             case 9  -> {}
-            case 10 -> {features.add(Database.Features.HIDE_IN_PLAIN_SIGHT.feature);}
+            case 10 -> {addFeature(Database.Features.HIDE_IN_PLAIN_SIGHT);}
             case 11 -> {subclass.lvlUpTo(classLvl);}
             case 12 -> {abilityScoreImprovement();}
             case 13 -> {}
-            case 14 -> {features.add(Database.Features.VANISH.feature);}
+            case 14 -> {addFeature(Database.Features.VANISH);}
             case 15 -> {subclass.lvlUpTo(classLvl);}
             case 16 -> {abilityScoreImprovement();}
             case 17 -> {}
-            case 18 -> {features.add(Database.Features.FERAL_SENSES.feature);}
+            case 18 -> {addFeature(Database.Features.FERAL_SENSES);}
             case 19 -> {abilityScoreImprovement();}
-            case 20 -> {features.add(Database.Features.FOE_SLAYER.feature);}
+            case 20 -> {addFeature(Database.Features.FOE_SLAYER);}
         }
     }
 
@@ -777,7 +769,7 @@ class Ranger extends PlayerClass implements Magical{
 }
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch", "RedundantLabeledSwitchRuleCodeBlock"})
 class Rogue extends PlayerClass{
 
     Rogue(){
@@ -797,28 +789,28 @@ class Rogue extends PlayerClass{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> {features.add(Database.Features.ROGUE_EXPERTISE.feature);
-                        features.add(Database.Features.SNEAK_ATTACK.feature);
-                        features.add(Database.Features.THIEVES_CANT.feature);}
-            case 2  -> {features.add(Database.Features.CUNNING_ACTIONS.feature);}
+            case 1  -> {addFeature(Database.Features.ROGUE_EXPERTISE);
+                        addFeature(Database.Features.SNEAK_ATTACK);
+                        addFeature(Database.Features.THIEVES_CANT);}
+            case 2  -> {addFeature(Database.Features.CUNNING_ACTIONS);}
             case 3  -> {chooseSubclass();}
             case 4  -> {abilityScoreImprovement();}
-            case 5  -> {features.add(Database.Features.UNCANNY_DODGE.feature);}
+            case 5  -> {addFeature(Database.Features.UNCANNY_DODGE);}
             case 6  -> {}
-            case 7  -> {features.add(Database.Features.ROGUE_EVASION.feature);}
+            case 7  -> {addFeature(Database.Features.ROGUE_EVASION);}
             case 8  -> {abilityScoreImprovement();}
             case 9  -> {subclass.lvlUpTo(classLvl);}
             case 10 -> {abilityScoreImprovement();}
-            case 11 -> {features.add(Database.Features.RELIABLE_TALENT.feature);}
+            case 11 -> {addFeature(Database.Features.RELIABLE_TALENT);}
             case 12 -> {abilityScoreImprovement();}
             case 13 -> {subclass.lvlUpTo(classLvl);}
-            case 14 -> {features.add(Database.Features.BLINDSENSE.feature);}
-            case 15 -> {features.add(Database.Features.SLIPPERY_MIND.feature);}
+            case 14 -> {addFeature(Database.Features.BLINDSENSE);}
+            case 15 -> {addFeature(Database.Features.SLIPPERY_MIND);}
             case 16 -> {abilityScoreImprovement();}
             case 17 -> {subclass.lvlUpTo(classLvl);}
-            case 18 -> {features.add(Database.Features.ELUSIVE.feature);}
+            case 18 -> {addFeature(Database.Features.ELUSIVE);}
             case 19 -> {abilityScoreImprovement();}
-            case 20 -> {features.add(Database.Features.STROKE_OF_LUCK.feature);}
+            case 20 -> {addFeature(Database.Features.STROKE_OF_LUCK);}
         }
     }
 
@@ -835,7 +827,7 @@ class Rogue extends PlayerClass{
 
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch", "RedundantLabeledSwitchRuleCodeBlock"})
 class Sorcerer extends PlayerClass implements Magical{
 
     private int[] spellSlots;
@@ -895,8 +887,8 @@ class Sorcerer extends PlayerClass implements Magical{
     public void lvlUp() {
         switch (classLvl) {
             case 1  -> {chooseSubclass();}
-            case 2  -> {features.add(Database.Features.FONT_OF_MAGIC.feature);}
-            case 3  -> {features.add(Database.Features.METAMAGIC.feature);}
+            case 2  -> {addFeature(Database.Features.FONT_OF_MAGIC);}
+            case 3  -> {addFeature(Database.Features.METAMAGIC);}
             case 4  -> {abilityScoreImprovement();}
             case 5  -> {}
             case 6  -> {subclass.lvlUpTo(classLvl);}
@@ -913,7 +905,7 @@ class Sorcerer extends PlayerClass implements Magical{
             case 17 -> {}
             case 18 -> {subclass.lvlUpTo(classLvl);}
             case 19 -> {abilityScoreImprovement();}
-            case 20 -> {features.add(Database.Features.SORCEROUS_RESTORATION.feature);}
+            case 20 -> {addFeature(Database.Features.SORCEROUS_RESTORATION);}
         }
     }
 
@@ -922,15 +914,12 @@ class Sorcerer extends PlayerClass implements Magical{
 
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
+
 }
 
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch", "RedundantLabeledSwitchRuleCodeBlock"})
 class Warlock extends PlayerClass implements Magical{
 
     private int[] spellSlots;
@@ -990,8 +979,8 @@ class Warlock extends PlayerClass implements Magical{
     public void lvlUp() {
         switch (classLvl) {
             case 1  -> {chooseSubclass();}
-            case 2  -> {features.add(Database.Features.ELDRITCH_INVOCTATIONS.feature);}
-            case 3  -> {features.add(Database.Features.PACT_BOON.feature);}
+            case 2  -> {addFeature(Database.Features.ELDRITCH_INVOCTATIONS);}
+            case 3  -> {addFeature(Database.Features.PACT_BOON);}
             case 4  -> {abilityScoreImprovement();}
             case 5  -> {}
             case 6  -> {subclass.lvlUpTo(classLvl);}
@@ -999,7 +988,7 @@ class Warlock extends PlayerClass implements Magical{
             case 8  -> {abilityScoreImprovement();}
             case 9  -> {}
             case 10 -> {subclass.lvlUpTo(classLvl);}
-            case 11 -> {features.add(Database.Features.MYSTIC_ARCANUM.feature);}
+            case 11 -> {addFeature(Database.Features.MYSTIC_ARCANUM);}
             case 12 -> {abilityScoreImprovement();}
             case 13 -> {}
             case 14 -> {subclass.lvlUpTo(classLvl);}
@@ -1008,7 +997,7 @@ class Warlock extends PlayerClass implements Magical{
             case 17 -> {}
             case 18 -> {}
             case 19 -> {abilityScoreImprovement();}
-            case 20 -> {features.add(Database.Features.ELDTRICH_MASTER.feature);}
+            case 20 -> {addFeature(Database.Features.ELDTRICH_MASTER);}
         }
     }
 
@@ -1017,15 +1006,11 @@ class Warlock extends PlayerClass implements Magical{
 
     }
 
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
 }
 
 
 
-@SuppressWarnings("DuplicateBranchesInSwitch")
+@SuppressWarnings({"DuplicateBranchesInSwitch", "RedundantLabeledSwitchRuleCodeBlock"})
 class Wizard extends PlayerClass implements Magical{
 
     private int[] spellSlots;
@@ -1084,7 +1069,7 @@ class Wizard extends PlayerClass implements Magical{
     @Override
     public void lvlUp() {
         switch (classLvl) {
-            case 1  -> {features.add(Database.Features.ARCANE_RECOVERY.feature);}
+            case 1  -> {addFeature(Database.Features.ARCANE_RECOVERY);}
             case 2  -> {chooseSubclass();}
             case 3  -> {}
             case 4  -> {abilityScoreImprovement();}
@@ -1101,9 +1086,9 @@ class Wizard extends PlayerClass implements Magical{
             case 15 -> {}
             case 16 -> {abilityScoreImprovement();}
             case 17 -> {}
-            case 18 -> {features.add(Database.Features.SPELL_MASTERY.feature);}
+            case 18 -> {addFeature(Database.Features.SPELL_MASTERY);}
             case 19 -> {abilityScoreImprovement();}
-            case 20 -> {features.add(Database.Features.SIGNATURE_SPELLS.feature);}
+            case 20 -> {addFeature(Database.Features.SIGNATURE_SPELLS);}
         }
     }
 
@@ -1111,11 +1096,7 @@ class Wizard extends PlayerClass implements Magical{
     public void initPossibleSubclasses() {
 
     }
-
-    @Override
-    public void buildClass() {
-        skillProf = new ArrayList<>( Arrays.asList(chooseSkill(),chooseSkill()));
-    }
+    
 }
 
 

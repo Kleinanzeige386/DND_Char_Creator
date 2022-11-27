@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public abstract class Background implements Named{
-    public ArrayList<Skills> proficiencies;
-    public ArrayList<String> languages;
-    public ArrayList<String> items;
-    public ArrayList<Feature> features;
+    public final ArrayList<Skills> proficiencies;
+    public final ArrayList<String> languages;
+    public final ArrayList<String> items;
+    public final ArrayList<Feature> features;
     public String name;
-    public int[] coins;
+    public final int[] coins;
     public Background() {
         proficiencies = new ArrayList<>();
         languages = new ArrayList<>();

@@ -3,10 +3,12 @@ public abstract class Subclass implements Named {
     public final Player owner;
 
     public String identifier;
-    public abstract void lvlUpTo(int level); //TODO use for loop i guess? maybe
+    public abstract void lvlUpTo(int level);
 
-    public Subclass() {
+    public Subclass(String n, String i) {
         this.owner = PlayerCreator.newPlayer;
+        name= n;
+        identifier= i;
     }
 
     public String getName() {

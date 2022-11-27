@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public abstract class Race implements Named{
     public String name;
-    public ArrayList<AbilityScore> abilityScoreIncrease;
+    public final ArrayList<AbilityScore> abilityScoreIncrease;
     public int speed;
-    public ArrayList<String> languages;
-    public ArrayList<Feature> features;
-    public ArrayList<String> damageResistances;
+    public final ArrayList<String> languages;
+    public final ArrayList<Feature> features;
+    public final ArrayList<String> damageResistances;
 
 
     public Race() {
@@ -25,6 +25,17 @@ public abstract class Race implements Named{
     }
 
     public abstract void buildRace();
+
+    public void addFeature(Database.Features feat){
+        features.add(feat.feature);
+        //TODO implement Feature functionalities
+        switch(feat){
+
+            default -> {
+                break;
+            }
+        }
+    }
 }
 
 
@@ -39,15 +50,17 @@ class Elf extends Race{
         languages.add("Common");
         languages.add("Elven");
 
-        features.add(Database.Features.DARKVISION.feature);
-        features.add(Database.Features.FEY_ANCESTRY.feature);
-        features.add(Database.Features.TRANCE.feature);
+        addFeature(Database.Features.DARKVISION);
+        addFeature(Database.Features.FEY_ANCESTRY);
+        addFeature(Database.Features.TRANCE);
     }
 
     @Override
     public void buildRace() {
 
     }
+
+
 }
 
 
@@ -91,14 +104,16 @@ class Dragonborn extends Race{
         languages.add("Common");
         languages.add("Draconic");
 
-        features.add(Database.Features.DRACONIC_ANCESTRY.feature);
-        features.add(Database.Features.BREATH_WEAPON.feature);
-        features.add(Database.Features.DRAGON_BORN_RESISTANCE.feature);
+        addFeature(Database.Features.DRACONIC_ANCESTRY);
+        addFeature(Database.Features.BREATH_WEAPON);
+        addFeature(Database.Features.DRAGON_BORN_RESISTANCE);
 
 
 
 
     }
+
+
 
     @Override
     public void buildRace() {

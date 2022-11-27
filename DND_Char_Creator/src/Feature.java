@@ -1,7 +1,7 @@
 public class Feature implements Named {
 
-    public String name;
-    public String description;
+    public final String name;
+    public final String description;
 
 
     public Feature(String name, String description) {

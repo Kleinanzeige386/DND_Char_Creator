@@ -1,6 +1,6 @@
 
 public class Skill implements Named{
-    public Skills skill;
+    public final Skills skill;
     public boolean prof;
     public int value;
 

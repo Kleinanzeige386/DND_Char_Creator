@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -61,7 +60,49 @@ public class PlayerCreator {
 
     }
     private void abilityPointBuy() {
-        //TODO IMPLEMENT
+        /*
+        Points    Costs:
+        8           0
+        9           1
+        10          2
+        11          3
+        12          4
+        13          5
+        14          7
+        15          9
+         */
+
+        int input=0;
+        int pointsLeft = 27;
+        int legalIndex=0;
+        int[] costs=new int[]{0,1,2,3,4,5,7,9};
+        int[] scores= new int[]{8,9,10,11,12,13,14,15};
+
+        for (int i = 0; i < Ability.values().length;i++){
+            for (int j=0; j < costs.length;j++){
+                if(costs[j]<= pointsLeft) legalIndex =j;
+            }
+            System.out.printf("""
+                    What Score do you want to assignt to %s ?
+                    Points left: %d
+                    
+                    Score       Points needed
+                    8           0
+                    9           1
+                    10          2
+                    11          3
+                    12          4
+                    13          5
+                    14          7
+                    15          9
+                    
+                    """,Ability.values()[i],pointsLeft);
+
+            input = IOManager.getInt("",legalIndex);
+            newPlayer.abilities[i].amount += scores[input];
+            pointsLeft -= costs[input];
+
+        }
     }
     private void abilityRoll() {
         Integer[] rolledScores = new Integer[]{0,0,0,0,0,0};
