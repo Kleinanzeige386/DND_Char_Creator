@@ -25,7 +25,7 @@ public class Database {
                 In addition, when you hit with a ranged attack using a thrown weapon, you gain a +2 bonus to the damage roll.
                 Two-Weapon Fighting. When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
                 Unarmed Fighting. Your unarmed strikes can deal bludgeoning damage equal to 1d6 + your Strength modifier on a hit. If you aren't wielding any weapons or a shield when you make the attack roll, the d6 becomes a d8.
-                At the start of each of your turns, you can deal 1d4 bludgeoning damage to one creature grappled by you."""),
+                At the start of each of your turns, you can deal 1d4 bludgeoning damage to one creature grappled by you."""),//TODO
         SECOND_WIND("Second Wind", """
                 You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.
 
@@ -56,7 +56,8 @@ public class Database {
                 When you choose this archetype at 3rd level, you learn how to inspire your allies to fight on past their injuries.
 
                 When you use your Second Wind feature, you can choose up to three creatures within 60 feet of you that are allied with you. Each one regains hit points equal to your fighter level, provided that the creature can see or hear you."""),
-        ROYAL_ENVOY("Royal Envoy", """
+        //TODO
+        ROYAL_ENVOY("Royal Envoy", """ 
                 Knights of high standing are expected to conduct themselves with grace.
 
                 At 7th level, you gain proficiency in the Persuasion skill. If you are already proficient in it, you gain proficiency in one of the following skills of your choice: Animal Handling, Insight, Intimidation, or Performance.
@@ -90,6 +91,7 @@ public class Database {
                 Fighter class levels, if any"""),
         IMPROVED_COMBAT_SUPERIORITY("Improved Combat Superiority","At 10th level, your superiority dice turn into d10s. At 18th level, they turn into d12s." ),
         RELENTLESS("Relentless","Starting at 15th level, when you roll initiative and have no superiority dice remaining, you regain 1 superiority die."), 
+        //TODO
         CAVALIER_BONUS_PROFICIENCY("Bonus Proficiency","When you choose this archetype at 3rd level, you gain proficiency in one of the following skills of your choice: Animal Handling, History, Insight, Performance, or Persuasion. Alternatively, you learn one language of your choice." ),
         BORN_TO_SADLE("Born to the Saddle", """
                 Starting at 3rd level, your mastery as a rider becomes apparent. You have advantage on saving throws made to avoid falling off your mount. If you fall off your mount and descend no more than 10 feet, you can land on your feet if you’re not incapacitated.
@@ -1115,10 +1117,36 @@ public class Database {
                 Starting at 2nd level, you can use Channel Divinity to destroy another creature's life force by touch. When you hit a creature with a melee attack, you can use Channel Divinity to deal extra necrotic damage to the target. The damage equals 5 + twice your cleric level.""" ),
         INESCAPABLE_DESTRUCTION("Inescapable Destruction", """
                 Starting at 6th level, your ability to channel negative energy becomes more potent. Necrotic damage dealt by your cleric spells and Channel Divinity options ignores resistance to necrotic damage.""" ),
-        DIVINE_STRIKE("Divine Strike", """
+        DEATH_DIVINE_STRIKE("Divine Strike", """
                 At 8th level, you gain the ability to infuse your weapon strikes with necrotic energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an a 1d8 necrotic damage to the target. When you reach 14th level, the extra damage increases to 2d8.""" ),
         IMPROVED_REAPER("Improved Reaper", """
-                Starting at 17th level, when you cast a necromancy spell of 1st through 5th level that targets only one creature, the spell can instead target two creatures within range and within 5 feet of each other. If the spell consumes its material components, you must provide them for each target.""" );
+                Starting at 17th level, when you cast a necromancy spell of 1st through 5th level that targets only one creature, the spell can instead target two creatures within range and within 5 feet of each other. If the spell consumes its material components, you must provide them for each target.""" ),
+        FORGE_BONUS_PROFICIENCIES("Bonus Proficiencies", """
+                When you choose this domain at 1st level, you gain proficiency with heavy armor and smith's tools.""" ),
+        BLESSING_OF_THE_FORGE("Blessing of the Forge", """
+                At 1st level, you gain the ability to imbue magic into a weapon or armor. At the end of a long rest, you can touch one nonmagical object that is a suit of armor or a simple or martial weapon. Until the end of your next long rest or until you die, the object becomes a magic item, granting a +1 bonus to AC if it’s armor or a +1 bonus to attack and damage rolls if it’s a weapon.
+                                
+                Once you use this feature, you can’t use it again until you finish a long rest.""" ),
+        CHANNEL_DIVINITY_ARTISANS_BLESSING("Channel Divinity: Artisan's Blessing", """
+                Starting at 2nd level, you can use your Channel Divinity to create simple items.
+                                
+                You conduct an hour-long ritual that crafts a nonmagical item that must include some metal: a simple or martial weapon, a suit of armor, ten pieces of ammunition, a set of tools, or another metal object. The creation is completed at the end of the hour, coalescing in an unoccupied space of your choice on a surface within 5 feet of you.
+                                
+                The thing you create can be something that is worth no more than 100 gp. As part of this ritual, you must lay out metal, which can include coins, with a value equal to the creation. The metal irretrievably coalesces and transforms into the creation at the ritual’s end, magically forming even nonmetal parts of the creation.
+                                
+                The ritual can create a duplicate of a nonmagical item that contains metal, such as a key, if you possess the original during the ritual.""" ),
+        SOUL_OF_THE_FORGE("Soul of the Forge", """
+                Starting at 6th level, your mastery of the forge grants you special abilities:
+                                
+                You gain resistance to fire damage.
+                While wearing heavy armor, you gain a +1 bonus to AC.""" ),
+        FORGE_DIVINE_STRIKE("Divine Strike", """
+                At 8th level, you gain the ability to infuse your weapon strikes with the fiery power of the forge. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 fire damage to the target. When you reach 14th level, the extra damage increases to 2d8.""" ),
+        SAINT_OF_FORGE_AND_FIRE("Saint of Forge and Fire", """
+                At 17th level, your blessed affinity with fire and metal becomes more powerful:
+                                
+                You gain immunity to fire damage.
+                While wearing heavy armor, you have resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks.""" );
 
 
 

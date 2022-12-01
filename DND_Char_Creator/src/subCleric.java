@@ -83,7 +83,7 @@ class Death extends subCleric{
 
     @Override
     protected void addLVL8Features() {
-        owner.playerClass.addFeature(Database.Features.DIVINE_STRIKE);
+        owner.playerClass.addFeature(Database.Features.DEATH_DIVINE_STRIKE);
     }
 
     @Override
@@ -96,6 +96,35 @@ class Death extends subCleric{
 
 class Forge extends subCleric{
 
+    Forge() {
+        super("Forge");
+    }
+
+    @Override
+    protected void addLVL1Features() {
+        owner.playerClass.addFeature(Database.Features.FORGE_BONUS_PROFICIENCIES);
+        owner.playerClass.addFeature(Database.Features.BLESSING_OF_THE_FORGE);
+    }
+
+    @Override
+    protected void addLVL2Features() {
+        owner.playerClass.addFeature(Database.Features.CHANNEL_DIVINITY_ARTISANS_BLESSING);
+    }
+
+    @Override
+    protected void addLVL6Features() {
+        owner.playerClass.addFeature(Database.Features.SOUL_OF_THE_FORGE);
+    }
+
+    @Override
+    protected void addLVL8Features() {
+        owner.playerClass.addFeature(Database.Features.FORGE_DIVINE_STRIKE);
+    }
+
+    @Override
+    protected void addLVL17Features() {
+        owner.playerClass.addFeature(Database.Features.SAINT_OF_FORGE_AND_FIRE);
+    }
 }
 
 
