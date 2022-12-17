@@ -14,7 +14,8 @@ public enum Prompts {
     ASI("Which AbiltyScore do you want to improve by 1?"),
     chooseAlignment("Choose an alignment for your Character: "),
     chooseSubclass("Choose a subclass for your Character: "),
-    ChooseBackground("Choose a background for your Character: ");
+    ChooseBackground("Choose a background for your Character: "),
+    chooseStorm("Choose a Storm type: ");
 
 
 

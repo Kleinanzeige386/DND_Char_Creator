@@ -6,7 +6,7 @@ public abstract class subBarbarian extends Subclass{
     }
 
     public void lvlUpTo(int n){
-
+        subLvl = n;
         switch(n){
             case 3 -> addLVL3Features();
             case 6 -> addLVL6Features();
@@ -52,6 +52,9 @@ class Ancestral_Guardian extends subBarbarian{
     protected void addLVL14Features() {
         owner.playerClass.addFeature(Database.Features.VENGEFUL_ANCESTORS);
     }
+
+    z@Override
+    public void buildSubclass() {}
 }
 
 
@@ -80,6 +83,9 @@ class Battlerager extends subBarbarian{
     protected void addLVL14Features() {
         owner.playerClass.addFeature(Database.Features.SPIKED_RETRIBUTION);
     }
+
+    @Override
+    public void buildSubclass() {}
 }
 
 
@@ -108,6 +114,9 @@ class Beast extends subBarbarian{
     protected void addLVL14Features() {
         owner.playerClass.addFeature(Database.Features.CALL_THE_HUNT);
     }
+
+    @Override
+    public void buildSubclass() {}
 }
 
 
@@ -136,11 +145,28 @@ class Berserker extends subBarbarian{
     protected void addLVL14Features() {
         owner.playerClass.addFeature(Database.Features.RETALIATION);
     }
+
+    @Override
+    public void buildSubclass() {}
 }
 
 
 
 class Storm_Herald extends subBarbarian{
+    enum Storm implements Named{
+        DESSERT("Dessert"), SEA("Sea"),TUNDRA("Tundra");
+        String name;
+        Storm(String n) {
+            name= n;
+        }
+
+        @Override
+        public String getName() {
+            return name;
+        }
+    };
+
+    Storm stormType;
 
     Storm_Herald(){
         super("Storm_Herald");
@@ -163,6 +189,15 @@ class Storm_Herald extends subBarbarian{
     @Override
     protected void addLVL14Features() {
         owner.playerClass.addFeature(Database.Features.RAGING_STORM);
+    }
+
+    @Override
+    public void buildSubclass() {
+        chooseStorm();
+    }
+
+    private void chooseStorm() {
+        stormType = IOManager.getNamedArrayElement(Prompts.chooseStorm.text,Storm.values());
     }
 }
 
